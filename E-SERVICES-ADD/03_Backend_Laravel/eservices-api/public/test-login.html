@@ -1,0 +1,223 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Auth Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 520px;
+            margin: 40px auto;
+        }
+
+        input {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+        }
+
+        button {
+            padding: 10px 14px;
+            margin-right: 8px;
+            cursor: pointer;
+        }
+
+        .card {
+            border: 1px solid #ddd;
+            padding: 16px;
+            border-radius: 10px;
+            margin-bottom: 14px;
+        }
+
+        .hide {
+            display: none;
+        }
+
+        pre {
+            background: #f6f6f6;
+            padding: 12px;
+            border-radius: 10px;
+            overflow: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Auth Test (Sanctum Cookies)</h2>
+
+    <!-- AUTH FORM -->
+    <div id="authCard" class="card">
+        <h3>Register</h3>
+        <input id="r_name" placeholder="name" value="Mr Test">
+        <input id="r_email" placeholder="email" value="new@test.com">
+        <input id="r_password" placeholder="password" type="password" value="password">
+        <input id="r_password2" placeholder="confirm password" type="password" value="password">
+        <button onclick="doRegister()">Register</button>
+
+        <hr>
+
+        <h3>Login</h3>
+        <input id="l_email" placeholder="email" value="test@test.com">
+        <input id="l_password" placeholder="password" type="password" value="password">
+        <button onclick="doLogin()">Login</button>
+    </div>
+
+    <!-- WELCOME -->
+    <div id="welcomeCard" class="card hide">
+        <h3 id="welcomeText">Welcome</h3>
+        <p id="roleText">Role: </p>
+        <button onclick="doLogout()">Logout</button>
+        <button onclick="hit('/api/test/client')">Client-only</button>
+        <button onclick="hit('/api/test/admin')">Admin-only</button>
+
+        <pre id="roleOut"></pre>
+    </div>
+
+    <pre id="out"></pre>
+
+    <script>
+        const BASE = "http://127.0.0.1:8000";
+
+        function getCookie(name) {
+            const m = document.cookie.match(new RegExp('(^| )' + name + '=([^;]+)'));
+            return m ? m[2] : null;
+        }
+
+        async function hit(path) {
+            const res = await fetch(`${BASE}${path}`, { credentials: "include" });
+            const txt = await res.text();
+            document.getElementById("roleOut").textContent = `Test ${path}\nStatus: ${res.status}\n${txt}`;
+        }
+
+
+        async function csrf() {
+            await fetch(`${BASE}/sanctum/csrf-cookie`, {
+                method: "GET",
+                credentials: "include",
+                headers: { "Accept": "application/json" }
+            });
+        }
+
+        function showAuth() {
+            document.getElementById("authCard").classList.remove("hide");
+            document.getElementById("welcomeCard").classList.add("hide");
+        }
+
+        function showWelcome(name, rolesText) {
+            document.getElementById("welcomeText").textContent = `Welcome Mr. ${name}`;
+            document.getElementById("roleText").textContent = `Role: ${rolesText}`;
+
+            document.getElementById("authCard").classList.add("hide");
+            document.getElementById("welcomeCard").classList.remove("hide");
+        }
+
+        async function getMeAndUpdateUI() {
+            const res = await fetch(`${BASE}/api/me`, {
+                method: "GET",
+                credentials: "include",
+                headers: { "Accept": "application/json", "X-Requested-With": "XMLHttpRequest" }
+            });
+
+            if (res.status === 200) {
+                const user = await res.json();
+
+                const roles = user.roles || [];
+                const rolesText = roles.length ? roles.join(" | ") : "none";
+
+                showWelcome(user.name || "User", rolesText);
+            } else {
+                showAuth();
+            }
+            return res;
+        }
+
+        async function doLogin() {
+            const out = document.getElementById("out");
+            out.textContent = "Logging in...";
+
+            await csrf();
+
+            const xsrf = getCookie("XSRF-TOKEN");
+            const res = await fetch(`${BASE}/login`, {
+                method: "POST",
+                credentials: "include",
+                headers: {
+                    "Accept": "application/json",
+                    "Content-Type": "application/json",
+                    "X-Requested-With": "XMLHttpRequest",
+                    "X-XSRF-TOKEN": xsrf ? decodeURIComponent(xsrf) : ""
+                },
+                body: JSON.stringify({
+                    email: document.getElementById("l_email").value,
+                    password: document.getElementById("l_password").value
+                })
+            });
+
+            const txt = await res.text();
+            out.textContent = `Login Status: ${res.status}\n${txt}`;
+
+            if (res.status === 200) await getMeAndUpdateUI();
+        }
+
+        async function doRegister() {
+            const out = document.getElementById("out");
+            out.textContent = "Registering...";
+
+            await csrf();
+
+            const xsrf = getCookie("XSRF-TOKEN");
+            const res = await fetch(`${BASE}/register`, {
+                method: "POST",
+                credentials: "include",
+                headers: {
+                    "Accept": "application/json",
+                    "Content-Type": "application/json",
+                    "X-Requested-With": "XMLHttpRequest",
+                    "X-XSRF-TOKEN": xsrf ? decodeURIComponent(xsrf) : ""
+                },
+                body: JSON.stringify({
+                    name: document.getElementById("r_name").value,
+                    email: document.getElementById("r_email").value,
+                    password: document.getElementById("r_password").value,
+                    password_confirmation: document.getElementById("r_password2").value
+                })
+            });
+
+            const txt = await res.text();
+            out.textContent = `Register Status: ${res.status}\n${txt}`;
+
+            if (res.status === 200) await getMeAndUpdateUI();
+            // إذا جا 422 → راه validation (email موجود/confirm ما مطابقش)
+        }
+
+        async function doLogout() {
+            const out = document.getElementById("out");
+            out.textContent = "Logging out...";
+
+            await csrf();
+
+            const xsrf = getCookie("XSRF-TOKEN");
+            const res = await fetch(`${BASE}/logout`, {
+                method: "POST",
+                credentials: "include",
+                headers: {
+                    "Accept": "application/json",
+                    "X-Requested-With": "XMLHttpRequest",
+                    "X-XSRF-TOKEN": xsrf ? decodeURIComponent(xsrf) : ""
+                }
+            });
+
+            const txt = await res.text();
+            out.textContent = `Logout Status: ${res.status}\n${txt}`;
+
+            await getMeAndUpdateUI();
+        }
+
+        // on load: إذا راه داير login من قبل، يبان welcome
+        getMeAndUpdateUI();
+    </script>
+</body>
+
+</html>

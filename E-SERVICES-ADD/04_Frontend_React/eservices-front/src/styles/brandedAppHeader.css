@@ -1,0 +1,305 @@
+/**
+ * En-tête principal alignée sur la charte du logo #ADD
+ * (violet / magenta → bleu / cyan).
+ */
+
+.admin-header.app-branded-header,
+.client-header.app-branded-header,
+.employee-header.app-branded-header {
+    position: relative;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+    align-items: center;
+    gap: 0.75rem 1rem;
+    padding: 1rem 1.5rem;
+    min-height: 76px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+    box-shadow:
+        0 1px 0 rgba(255, 255, 255, 0.08) inset,
+        0 8px 32px rgba(91, 33, 182, 0.22);
+    background: var(
+        --app-branded-header-gradient,
+        linear-gradient(128deg, #5b21b6 0%, #7c3aed 18%, #6366f1 42%, #2563eb 68%, #0891b2 88%, #22d3ee 100%)
+    );
+    overflow: hidden;
+    animation: appBrandedHeaderIn 0.55s cubic-bezier(0.22, 1, 0.36, 1) backwards;
+}
+
+@keyframes appBrandedHeaderIn {
+    from {
+        opacity: 0;
+        transform: translateY(-8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.admin-header.app-branded-header::before,
+.client-header.app-branded-header::before,
+.employee-header.app-branded-header::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(ellipse 90% 140% at 0% -20%, rgba(255, 255, 255, 0.14) 0%, transparent 55%),
+        radial-gradient(ellipse 70% 120% at 100% 110%, rgba(34, 211, 238, 0.25) 0%, transparent 50%),
+        radial-gradient(ellipse 50% 80% at 40% 100%, rgba(236, 72, 153, 0.12) 0%, transparent 45%);
+    pointer-events: none;
+}
+
+.app-branded-header__left,
+.app-branded-header__right,
+.app-branded-header__center {
+    position: relative;
+    z-index: 1;
+    min-width: 0;
+}
+
+.app-branded-header__left {
+    justify-self: start;
+    text-align: left;
+}
+
+.app-branded-header__center {
+    justify-self: center;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+}
+
+/* Texte #ADD au centre — pas d’image */
+.app-branded-header__brand {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 0.06em;
+    font-family:
+        system-ui,
+        -apple-system,
+        "Segoe UI",
+        Roboto,
+        "Helvetica Neue",
+        sans-serif;
+    font-size: clamp(1.4rem, 3.2vw, 1.95rem);
+    line-height: 1;
+    user-select: none;
+}
+
+/* # : dégradé type logo (cyan en haut → violet / magenta en bas) */
+.app-branded-header__hash {
+    display: inline-block;
+    font-weight: 850;
+    font-size: 1.08em;
+    line-height: 1;
+    background: linear-gradient(
+        180deg,
+        #a5f3fc 0%,
+        #22d3ee 18%,
+        #38bdf8 38%,
+        #a78bfa 62%,
+        #e879f9 82%,
+        #c026d3 100%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.2));
+}
+
+/* ADD : blanc fin, comme sur la bannière logo */
+.app-branded-header__add {
+    color: #ffffff;
+    font-weight: 200;
+    letter-spacing: 0.18em;
+    text-shadow:
+        0 0 20px rgba(255, 255, 255, 0.35),
+        0 1px 3px rgba(0, 0, 0, 0.25);
+}
+
+.app-branded-header__right {
+    justify-self: end;
+    text-align: right;
+}
+
+.app-branded-header__title {
+    margin: 0;
+    font-size: 1.25rem;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    color: #ffffff;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.18);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 100%;
+}
+
+.app-branded-header__welcome {
+    display: inline-flex;
+    align-items: center;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.95);
+    padding: 0.45rem 1rem;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.14);
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.12);
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* Mobile ≤767px : menu | #ADD centré écran | notifs ; desktop ≥768 inchangé */
+@media (max-width: 767px) {
+    .admin-header.app-branded-header,
+    .client-header.app-branded-header,
+    .employee-header.app-branded-header {
+        animation: none;
+        padding: 0.7rem 0.85rem;
+        grid-template-columns: auto 1fr auto;
+        grid-template-rows: auto;
+        align-items: center;
+        justify-items: stretch;
+        gap: 0.45rem 0.5rem;
+        min-height: unset;
+        text-align: initial;
+        border-radius: 0 !important;
+        border: 1px solid rgba(255, 255, 255, 0.22) !important;
+    }
+
+    .app-branded-header__left {
+        justify-self: start;
+        text-align: left;
+        grid-column: 1;
+        grid-row: 1;
+        position: relative;
+        z-index: 2;
+    }
+
+    .app-branded-header__right {
+        justify-self: end;
+        text-align: right;
+        grid-column: 3;
+        grid-row: 1;
+        position: relative;
+        z-index: 2;
+    }
+
+    .app-branded-header__center {
+        grid-column: 1 / -1;
+        grid-row: 1;
+        justify-self: center;
+        align-self: center;
+        width: max-content;
+        max-width: min(100%, calc(100vw - 6.5rem));
+        pointer-events: none;
+        z-index: 1;
+    }
+
+    .app-branded-header__center .app-branded-header__brand {
+        pointer-events: auto;
+    }
+
+    .app-branded-header__title {
+        font-size: 1.05rem;
+        white-space: normal;
+        line-height: 1.25;
+    }
+
+    .app-branded-header__brand {
+        font-size: clamp(1.2rem, 5.5vw, 1.6rem);
+    }
+
+    .app-branded-header__welcome {
+        display: none !important;
+    }
+
+    .app-branded-header .app-branded-header__right-inner {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-end;
+        gap: 0;
+    }
+}
+
+.app-mobile-nav-trigger {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    padding: 0;
+    margin: 0;
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    border-radius: 0.65rem;
+    background: rgba(255, 255, 255, 0.12);
+    color: #ffffff;
+    cursor: pointer;
+    flex-shrink: 0;
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.15s ease;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.app-mobile-nav-trigger:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.5);
+}
+
+.app-mobile-nav-trigger:active {
+    transform: scale(0.96);
+}
+
+.app-mobile-nav-backdrop {
+    position: fixed;
+    inset: 0;
+    z-index: 205;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background: rgba(15, 23, 42, 0.48);
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.app-mobile-page-title {
+    flex-shrink: 0;
+    padding: 0.65rem 1rem 0.75rem;
+    background: rgba(241, 245, 249, 0.98);
+    border-bottom: 1px solid rgba(148, 163, 184, 0.35);
+}
+
+.app-mobile-page-title .app-branded-header__title {
+    margin: 0;
+    color: #0f172a;
+    text-shadow: none;
+}
+
+/* Même largeur que le bouton menu : #ADD reste centré quand la droite n’a pas d’icône */
+.app-mobile-header-spacer {
+    display: inline-block;
+    width: 2.5rem;
+    height: 2.5rem;
+    flex-shrink: 0;
+    pointer-events: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .admin-header.app-branded-header,
+    .client-header.app-branded-header,
+    .employee-header.app-branded-header {
+        animation: none;
+    }
+}

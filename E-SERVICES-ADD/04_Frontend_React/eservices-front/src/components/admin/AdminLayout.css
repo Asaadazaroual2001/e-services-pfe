@@ -1,0 +1,661 @@
+/* AdminLayout — sidebar alignée sur le dégradé de l’en-tête #ADD (coin haut-gauche cohérent) */
+:root {
+    --admin-sidebar-w: 280px;
+    --admin-sidebar-w-collapsed: 76px;
+    /* Accents alignés #ADD (ADD = slate, touches indigo / violet) */
+    --admin-accent: var(--sidebar-accent, #6366f1);
+    --admin-accent-dark: var(--sidebar-accent-dark, #4f46e5);
+    --admin-accent-soft: var(--sidebar-accent-soft, rgba(99, 102, 241, 0.14));
+    --admin-accent-glow: var(--sidebar-accent-glow, rgba(99, 102, 241, 0.28));
+    --admin-sidebar-border-light: rgba(255, 255, 255, 0.14);
+    --admin-sidebar-nav-text: rgba(255, 255, 255, 0.86);
+    --admin-sidebar-nav-muted: rgba(255, 255, 255, 0.62);
+    --admin-sidebar-glass: rgba(255, 255, 255, 0.1);
+    --admin-sidebar-glass-hover: rgba(255, 255, 255, 0.16);
+    --admin-ease-out: var(--sidebar-reload-ease, cubic-bezier(0.22, 1, 0.36, 1));
+    --admin-ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+    /* Même bandeau haut que l’en-tête principal (ligne blanche alignée) */
+    --admin-chrome-header-pad-y: 1.25rem;
+    --admin-chrome-bar-height: 4.75rem;
+}
+
+.admin-layout {
+    display: flex;
+    height: 100vh;
+    min-height: 0;
+    background: #f1f5f9;
+    /* Identique à .app-branded-header (brandedAppHeader.css) — menu + bandeau = un seul dégradé */
+    --admin-shared-chrome-gradient: linear-gradient(
+        128deg,
+        #5b21b6 0%,
+        #7c3aed 18%,
+        #6366f1 42%,
+        #2563eb 68%,
+        #0891b2 88%,
+        #22d3ee 100%
+    );
+}
+
+/* ========== SIDEBAR (pleine hauteur : logo → menu du haut → bas → pied fixé en bas) ========== */
+.admin-sidebar {
+    width: var(--admin-sidebar-w);
+    flex-shrink: 0;
+    height: 100vh;
+    min-height: 100vh;
+    max-height: 100vh;
+    align-self: stretch;
+    background-color: #5b21b6;
+    background-image: var(--admin-shared-chrome-gradient);
+    background-attachment: fixed;
+    background-size: 100vw 100vh;
+    background-position: left top;
+    background-repeat: no-repeat;
+    /* Pas de trait contrasté : la couleur du menu rejoint l’en-tête */
+    border-right: none;
+    /* Ombre vers le bas seulement : évite une bande claire / « ligne » sur le bord droit face au header */
+    box-shadow:
+        0 8px 28px rgba(91, 33, 182, 0.22),
+        inset 0 1px 0 rgba(255, 255, 255, 0.08);
+    transition:
+        width 0.28s var(--admin-ease-out),
+        box-shadow 0.28s ease;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    z-index: 20;
+    overflow: hidden;
+}
+
+/* Reflets identiques à l’en-tête + fond fixe → pas de rupture à la jonction */
+.admin-sidebar::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    background:
+        radial-gradient(ellipse 90% 140% at 0% -20%, rgba(255, 255, 255, 0.14) 0%, transparent 55%),
+        radial-gradient(ellipse 70% 120% at 100% 110%, rgba(34, 211, 238, 0.25) 0%, transparent 50%),
+        radial-gradient(ellipse 50% 80% at 40% 100%, rgba(236, 72, 153, 0.12) 0%, transparent 45%);
+    background-attachment: fixed, fixed, fixed;
+    background-size: 100vw 100vh, 100vw 100vh, 100vw 100vh;
+    background-position:
+        left top,
+        left top,
+        left top;
+}
+
+.admin-sidebar.collapsed {
+    width: var(--admin-sidebar-w-collapsed);
+}
+
+.admin-sidebar.collapsed .logo-text-wrap {
+    display: none;
+}
+
+.admin-sidebar.collapsed .logout-label {
+    display: none;
+}
+
+/* En-tête — collé en haut */
+.sidebar-header {
+    position: relative;
+    z-index: 1;
+    flex-shrink: 0;
+    padding: var(--admin-chrome-header-pad-y) 1rem var(--admin-chrome-header-pad-y) 1.25rem;
+    border-bottom: 1px solid var(--admin-sidebar-border-light);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: var(--admin-chrome-bar-height);
+    min-height: 0;
+    max-height: var(--admin-chrome-bar-height);
+    gap: 0.5rem;
+    background: transparent;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 0.875rem;
+    min-width: 0;
+    flex: 1;
+    text-align: left;
+    overflow: hidden;
+}
+
+.logo-text-wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 0.125rem;
+    min-width: 0;
+}
+
+.logo-text {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #ffffff;
+    letter-spacing: -0.02em;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-shadow: 0 1px 2px rgba(15, 23, 42, 0.2);
+}
+
+.logo-sub {
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--admin-sidebar-nav-muted);
+}
+
+.collapse-btn {
+    flex-shrink: 0;
+    background: var(--admin-sidebar-glass);
+    border: 1px solid var(--admin-sidebar-border-light);
+    color: rgba(255, 255, 255, 0.92);
+    cursor: pointer;
+    padding: 0;
+    border-radius: 10px;
+    width: 2.375rem;
+    height: 2.375rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition:
+        color 0.2s ease,
+        background 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.25s var(--admin-ease-spring);
+}
+
+.collapse-btn:hover {
+    background: var(--admin-sidebar-glass-hover);
+    color: #ffffff;
+    border-color: rgba(255, 255, 255, 0.35);
+}
+
+.collapse-btn:active {
+    transform: scale(0.94);
+}
+
+.collapse-btn-icon {
+    display: flex;
+    transition: transform 0.35s var(--admin-ease-out);
+}
+
+.admin-sidebar.collapsed .collapse-btn-icon {
+    transform: rotate(0deg);
+}
+
+/* ========== NAVIGATION (liste du haut vers le bas, scroll si besoin) ========== */
+.sidebar-nav {
+    flex: 1 1 auto;
+    min-height: 0;
+    position: relative;
+    z-index: 1;
+    padding: 0.75rem 0.65rem 1rem;
+    overflow-y: auto;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+    scrollbar-color: rgba(255, 255, 255, 0.35) transparent;
+    scrollbar-width: thin;
+}
+
+.sidebar-nav::-webkit-scrollbar {
+    width: 6px;
+}
+
+.sidebar-nav::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.25);
+    border-radius: 999px;
+}
+
+.sidebar-nav::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.4);
+}
+
+.sidebar-nav-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: stretch;
+    justify-content: flex-start;
+    gap: 0.35rem;
+    width: 100%;
+}
+
+.sidebar-nav-item {
+    width: 100%;
+    max-width: 100%;
+}
+
+.nav-item {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 0.875rem;
+    width: 100%;
+    padding: 0.8rem 1rem;
+    background: transparent;
+    border: none;
+    color: var(--admin-sidebar-nav-text);
+    text-align: left;
+    cursor: pointer;
+    border-radius: 12px;
+    font-size: 0.92rem;
+    font-family: inherit;
+    transition:
+        color 0.25s ease,
+        background 0.25s ease,
+        transform 0.2s var(--admin-ease-out),
+        box-shadow 0.25s ease;
+    overflow: hidden;
+}
+
+.admin-sidebar.collapsed .nav-item {
+    justify-content: center;
+    padding: 0.8rem 0.5rem;
+}
+
+.nav-item-glow {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 0% 50%, rgba(255, 255, 255, 0.2), transparent 68%);
+    opacity: 0;
+    transition: opacity 0.35s ease;
+    pointer-events: none;
+}
+
+.nav-item:hover .nav-item-glow {
+    opacity: 1;
+}
+
+.nav-item:hover {
+    color: #ffffff;
+    background: var(--admin-sidebar-glass-hover);
+    transform: translateY(-1px);
+}
+
+.admin-sidebar.collapsed .nav-item:hover {
+    transform: none;
+}
+
+.nav-item:active {
+    transform: scale(0.98);
+}
+
+.admin-sidebar.collapsed .nav-item:active {
+    transform: scale(0.96);
+}
+
+.nav-item.active {
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.18);
+    box-shadow:
+        inset 0 0 0 1px rgba(255, 255, 255, 0.35),
+        0 4px 20px rgba(15, 23, 42, 0.12);
+}
+
+.nav-item.active .nav-item-glow {
+    opacity: 1;
+}
+
+.nav-active-indicator {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 3px;
+    height: 60%;
+    max-height: 1.75rem;
+    background: linear-gradient(180deg, #22d3ee 0%, #6366f1 45%, #7c3aed 100%);
+    border-radius: 0 4px 4px 0;
+    box-shadow: 0 0 12px rgba(99, 102, 241, 0.45);
+    animation: adminIndicatorIn 0.35s var(--admin-ease-out) backwards;
+}
+
+.nav-icon-svg {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    color: currentColor;
+    opacity: 0.92;
+    transition: transform 0.25s var(--admin-ease-spring), opacity 0.2s ease;
+}
+
+.nav-item:hover .nav-icon-svg,
+.nav-item.active .nav-icon-svg {
+    opacity: 1;
+}
+
+.nav-item.active .nav-icon-svg {
+    transform: scale(1.05);
+    color: #e0e7ff;
+}
+
+.nav-label {
+    font-weight: 550;
+    letter-spacing: -0.01em;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.admin-sidebar.collapsed .nav-label {
+    display: none;
+}
+
+/* Logo #ADD : « ADD » lisible sur le dégradé violet (sidebar était fond clair dans HeaderBrandMark.css) */
+.admin-sidebar .sidebar-brand-mark__add {
+    color: rgba(255, 255, 255, 0.94);
+    text-shadow: 0 1px 2px rgba(15, 23, 42, 0.2);
+}
+
+.admin-sidebar .sidebar-brand-mark__hash {
+    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.22));
+}
+
+/* ========== PIED — toujours en bas de la colonne ========== */
+.sidebar-footer {
+    position: relative;
+    z-index: 1;
+    flex-shrink: 0;
+    margin-top: auto;
+    padding: 1rem 0.85rem 1.15rem;
+    border-top: 1px solid var(--admin-sidebar-border-light);
+    background: rgba(15, 23, 42, 0.18);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 0.85rem;
+    padding: 0.65rem 0.75rem;
+    background: var(--admin-sidebar-glass);
+    border-radius: 12px;
+    border: 1px solid var(--admin-sidebar-border-light);
+    transition: background 0.25s ease, border-color 0.25s ease;
+}
+
+.user-info:hover {
+    background: var(--admin-sidebar-glass-hover);
+    border-color: rgba(255, 255, 255, 0.28);
+}
+
+.admin-sidebar.collapsed .user-info {
+    justify-content: center;
+    padding: 0.5rem;
+}
+
+.admin-sidebar.collapsed .user-details {
+    display: none;
+}
+
+.user-avatar {
+    width: 2.5rem;
+    height: 2.5rem;
+    background: linear-gradient(145deg, var(--admin-accent) 0%, var(--admin-accent-dark) 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    font-weight: 700;
+    color: #fff;
+    flex-shrink: 0;
+    box-shadow: 0 2px 8px var(--admin-accent-glow);
+}
+
+.user-name {
+    font-weight: 600;
+    color: #ffffff;
+    font-size: 0.8125rem;
+    margin-bottom: 0.125rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.user-role {
+    font-size: 0.6875rem;
+    color: var(--admin-sidebar-nav-muted);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.logout-btn {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.7rem 1rem;
+    background: var(--admin-sidebar-glass);
+    border: 1px solid var(--admin-sidebar-border-light);
+    color: rgba(255, 255, 255, 0.9);
+    cursor: pointer;
+    border-radius: 12px;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    font-family: inherit;
+    transition:
+        color 0.2s ease,
+        background 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.2s var(--admin-ease-out),
+        box-shadow 0.2s ease;
+}
+
+.logout-btn:hover {
+    background: rgba(254, 226, 226, 0.95);
+    color: #b91c1c;
+    border-color: rgba(252, 165, 165, 0.9);
+    box-shadow: 0 4px 14px rgba(239, 68, 68, 0.15);
+}
+
+.logout-btn:active {
+    transform: scale(0.98);
+}
+
+.logout-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* ========== MAIN ========== */
+.admin-main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    min-height: 0;
+}
+
+/* Zone scroll : contenu seulement (en-tête au-dessus, fixe dans la colonne principale) */
+.admin-main-scroll {
+    flex: 1;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+/* En-tête : styles visuels dans src/styles/brandedAppHeader.css (.app-branded-header) */
+
+/* Même dégradé que le menu + reflets alignés (fond fixe sur la fenêtre) */
+.admin-layout .admin-header.app-branded-header {
+    background-color: #5b21b6;
+    background-image: var(--admin-shared-chrome-gradient);
+    background-attachment: fixed;
+    background-size: 100vw 100vh;
+    background-position: left top;
+    background-repeat: no-repeat;
+}
+
+.admin-layout .admin-header.app-branded-header::before {
+    background-attachment: fixed, fixed, fixed;
+    background-size: 100vw 100vh, 100vw 100vh, 100vw 100vh;
+    background-position:
+        left top,
+        left top,
+        left top;
+}
+
+.admin-content {
+    flex: 1;
+    padding: 2rem;
+    background: transparent;
+    min-height: min-content;
+}
+
+.admin-content > * {
+    animation: sidebarNavReloadIn var(--sidebar-reload-duration, 0.48s) var(--admin-ease-out) backwards;
+    animation-delay: 0.08s;
+}
+
+/* ========== KEYFRAMES ========== */
+@keyframes adminIndicatorIn {
+    from {
+        opacity: 0;
+        transform: translateY(-50%) scaleY(0.3);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(-50%) scaleY(1);
+    }
+}
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 1024px) {
+    .admin-sidebar:not(.collapsed) {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100vh;
+        min-height: 100vh;
+        max-height: 100vh;
+        box-shadow: 0 10px 36px rgba(91, 33, 182, 0.32);
+    }
+}
+
+@media (max-width: 768px) {
+    .admin-content {
+        padding: 1rem;
+    }
+}
+
+@media (max-width: 767px) {
+    .admin-layout .admin-sidebar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100vh;
+        min-height: 100vh;
+        max-height: 100vh;
+        z-index: 210;
+        transform: translateX(-100%);
+        transition: transform 0.32s var(--admin-ease-out);
+        width: min(286px, 88vw) !important;
+        box-shadow:
+            0 0 0 1px rgba(255, 255, 255, 0.1),
+            12px 0 48px rgba(15, 23, 42, 0.38);
+    }
+
+    .admin-layout.app-layout--mobile-nav-open .admin-sidebar {
+        transform: translateX(0);
+    }
+
+    .admin-sidebar .collapse-btn {
+        display: none;
+    }
+
+    .admin-sidebar.collapsed {
+        width: min(286px, 88vw) !important;
+    }
+
+    .admin-sidebar.collapsed .nav-label {
+        display: inline;
+    }
+
+    .admin-sidebar.collapsed .logo-text-wrap {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .admin-sidebar.collapsed .logout-label {
+        display: inline;
+    }
+
+    .admin-sidebar.collapsed .user-details {
+        display: block;
+    }
+
+    .admin-sidebar.collapsed .nav-item {
+        justify-content: flex-start;
+        padding: 0.8rem 1rem;
+    }
+
+    .admin-sidebar.collapsed .user-info {
+        justify-content: flex-start;
+        padding: 0.65rem 0.75rem;
+    }
+
+    .admin-main {
+        width: 100%;
+        min-width: 0;
+    }
+
+    .admin-content {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        align-items: stretch;
+    }
+
+    .admin-content > * {
+        max-width: 100%;
+        min-width: 0;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .admin-sidebar,
+    .collapse-btn,
+    .collapse-btn-icon,
+    .nav-item,
+    .nav-icon-svg,
+    .sidebar-nav-item,
+    .admin-content > *,
+    .admin-main-scroll,
+    .admin-header {
+        animation: none !important;
+        transition-duration: 0.01ms !important;
+    }
+
+    .sidebar-nav-item {
+        animation-delay: 0ms !important;
+    }
+
+    .nav-item:hover {
+        transform: none;
+    }
+}

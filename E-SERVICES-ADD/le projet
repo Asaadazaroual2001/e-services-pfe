@@ -1,0 +1,310 @@
+أكيد ✅ بما أنك فـ **Plateforme E-SERVICES-ADD** والـ diagram ديالك واضح (Service / Request / Dynamic Fields / Docs / History / Roles…)، نقدر نعطيك **شنو خاص يكون فـ المنصة كاملة** + **Backlog ديال backend باش تكملوه** على نفس الtables اللي عندك.
+
+---
+
+## 1) شنو هي Platform E-Services (شنو كتدير فعلياً)
+
+منصة كتخلي “المواطن/الموظف” يدير **طلبات رقمية** حسب “Service”، والـ ADD/الإدارة كتقوم بـ:
+
+* استقبال الطلب
+* مراجعة الملف
+* طلب معلومات ناقصة
+* الموافقة/الرفض
+* إغلاق الطلب
+* تتبع كامل (audit trail) + إشعارات
+
+---
+
+## 2) Modules اللي خاصين يكونو فالمنصة (Features كاملة)
+
+### A) Catalogue ديال Services
+
+* لائحة الخدمات (Service)
+* تفعيل/تعطيل خدمة (`is_active`)
+* تفاصيل الخدمة: description + شروط/وثائق مطلوبة
+* **Dynamic Form** لكل Service عبر `ServiceField`
+
+  * TEXT / NUMBER / DATE / SELECT / TEXTAREA / FILE
+  * required / optional
+  * options_json ديال SELECT
+  * order باش الفورم يبان مرتب
+
+✅ هادشي كامل عندك فـ (Service + ServiceField + FieldType).
+
+---
+
+### B) Gestion des demandes (Requests)
+
+المستخدم كينشئ “Request” على خدمة:
+
+* Draft (يقدر يكملها من بعد)
+* Submit (كيولي submitted_at معمّر + status SUBMITTED)
+* **Reference** (نـ générer رقم طلب واضح: مثال `ADD-2026-000123`)
+
+الـ workflow ديال status (بحال diagram):
+DRAFT → SUBMITTED → IN_REVIEW → (NEEDS_INFO ↔ IN_REVIEW) → APPROVED/REJECTED → CLOSED
+
+✅ هادشي عندك فـ RequestStatus + Request.
+
+---
+
+### C) Values ديال الفورم (RequestFieldValue)
+
+منين الطلب يتدار:
+
+* لكل ServiceField كيتسجل value فـ `RequestFieldValue`
+
+  * `value_text` لـ text/number/date
+  * `value_json` لـ select (ولا multi-select)
+  * وملفات كتدوز فـ RequestDocument (أحسن من تخزينهم هنا)
+
+---
+
+### D) Upload & Documents (RequestDocument)
+
+* upload file(s) للطلب
+* حفظ: path, original_name, mime, size, uploaded_at
+* صلاحيات: user يشوف غير ديالو / agent يشوف حسب assigned
+
+---
+
+### E) Comments & Chat (RequestComment)
+
+* user يقدر يضيف comment
+* agent يرد
+* هادشي كيساعد بزاف فـ “NEEDS_INFO”
+
+---
+
+### F) History / Audit Trail (RequestHistory)
+
+كل action خاصها تتحفظ:
+
+* actor_id
+* action: CREATED, SUBMITTED, ASSIGNED, STATUS_CHANGED, COMMENTED, DOC_UPLOADED…
+* from_status / to_status
+* comment optional
+* created_at
+
+🎯 هادي أهم نقطة فـ stage حيث كتبيّن المنصة “traceable”.
+
+---
+
+### G) Assignment & Backoffice (Agent)
+
+* assign request ل agent (`assigned_to`)
+* queue ديال requests:
+
+  * New (SUBMITTED)
+  * In review
+  * Needs info
+  * Approved/Rejected/Closed
+* Filters: status / service / date / keyword / assigned_to
+
+---
+
+### H) Notifications (NotificationLog)
+
+منين كيتبدل status ولا agent يطلب info:
+
+* Email / SMS / In-app
+* NotificationLog كيسجل: channel, subject, payload_json, sent_at, status
+
+حتى إلا ما غاديش تبعث SMS دابا، log وحدو كافي باش تبان feature جاهزة.
+
+---
+
+### I) Users / Roles / Permissions
+
+عندك Role + Permission + pivot tables:
+
+* users:
+
+  * citizen (user)
+  * agent
+  * admin
+* Permissions:
+
+  * manage_services
+  * view_all_requests
+  * assign_requests
+  * change_status
+  * manage_roles
+  * etc.
+
+وتخدم بـ Policies/Middleware.
+
+---
+
+## 3) Backlog عملي: شنو نديرو دابا فالـ Backend (بالترتيب)
+
+### STEP 1 — Database + Migrations (أساس)
+
+1. migrations ديال:
+
+* roles, permissions, user_roles, role_permissions
+* services, service_fields
+* requests
+* request_field_values
+* request_documents
+* request_comments
+* request_histories
+* notification_logs
+
+2. Seeders:
+
+* roles (admin/agent/user)
+* permissions + ربطهم
+* admin user
+
+---
+
+### STEP 2 — Auth + Roles
+
+* register/login/logout/me ✅ عندك
+* زيد:
+
+  * `GET /api/me` يرجع role + permissions
+  * middleware: `role:admin` / `permission:manage_services`
+
+---
+
+### STEP 3 — Services CRUD + Dynamic Fields
+
+Endpoints مقترحة:
+
+* `GET /api/services` (public: غير active)
+* `GET /api/services/{id}` + fields
+* `POST /api/admin/services` (admin)
+* `POST /api/admin/services/{id}/fields`
+* `PUT /api/admin/service-fields/{id}`
+* `DELETE /api/admin/service-fields/{id}`
+
+---
+
+### STEP 4 — Requests CRUD + Workflow
+
+* `POST /api/requests` (create draft)
+* `PUT /api/requests/{id}` (update draft values)
+* `POST /api/requests/{id}/submit`
+* `GET /api/requests` (ديال user)
+* `GET /api/admin/requests` (agent/admin with filters)
+* `POST /api/admin/requests/{id}/assign` (agent/admin)
+* `POST /api/admin/requests/{id}/status` (change status)
+* `GET /api/requests/{id}` + values + docs + comments + history
+
+**مهم:** كل submit/status change/assign ⇒ يدير insert فـ RequestHistory + NotificationLog.
+
+---
+
+### STEP 5 — Upload Documents
+
+* `POST /api/requests/{id}/documents`
+* `GET /api/requests/{id}/documents/{docId}/download`
+* validations: size/mime
+
+---
+
+### STEP 6 — Comments
+
+* `POST /api/requests/{id}/comments`
+* `GET /api/requests/{id}/comments`
+
+---
+
+### STEP 7 — Dashboard
+
+* `GET /api/admin/dashboard`
+
+  * counts by status
+  * counts by service
+  * latest requests
+
+---
+
+## 4) باش نكملو دابا معاك بلا ضياع
+
+أنا غادي نبدأ معاك مباشرة من **STEP 1**:
+
+✅ أعطيني غير هاد المعلومة الصغيرة:
+
+* واش بغيتي **roles/permissions** تخدم بـ:
+
+  1. جداول pivot (بحال diagram) ✅
+     ولا
+  2. بسيطة: role_id فـ users فقط؟
+
+إذا قلتي “pivot” (الأحسن)، نعطيك **ملفات migrations جاهزة** + seeders + middleware + policies، ومن بعد ندوزو للـ Services CRUD.
+
+
+1) Concept ديال Roles عندك
+
+client (المواطن/صاحب الطلب)
+
+employee (موظف) ولكن فـ الواقع غادي يكون Roles مفصلين:
+
+director
+
+responsable
+
+agent
+
+reception
+
+admin (إلا بغيتي سوبر أدمن)
+
+
+users
+Email	Password	Role
+client@test.com
+	password	client
+reception@test.com
+	password	reception
+agent@test.com
+	password	agent
+responsable@test.com
+	password	responsable
+director@test.com
+	password	director
+admin@test.com
+	password	admin
+
+
+
+  👤 Client
+
+S’inscrire (يسجل)✅
+
+Se connecter (يدخل)✅
+
+Créer une demande (يدير طلب خدمة)
+
+Joindre documents (يرفع الوثائق)
+
+Suivre demande (يتبع الحالة)
+
+👤 Agent / Back-office
+
+Consulter demandes (يشوف الطلبات)
+
+Traiter demande (يعالج الطلب)
+
+Ajouter commentaire (يزيد تعليق / يطلب معلومات)
+
+👤 Responsable
+
+Valider demande (يوافق)
+
+Rejeter demande (يرفض)
+
+👤 Admin
+
+Gérer utilisateurs (CRUD users + roles) ✅
+
+Gérer services (CRUD services) ✅
+
+Gérer demandes (CRUD demandes) ✅
+
+Configurer workflow (مسار الحالات/الانتقالات)
+
+Consulter dashboard (إحصائيات)

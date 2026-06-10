@@ -1,0 +1,185 @@
+/* Compléments inscription — même carte claire que LoginPage (.login-page) */
+
+.register-input-wrap--email-trail input {
+    padding-right: 2.75rem;
+}
+
+.register-email-trail {
+    position: absolute;
+    right: 0.65rem;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+    pointer-events: none;
+    z-index: 2;
+}
+
+.register-email-trail svg {
+    width: 1.15rem;
+    height: 1.15rem;
+    display: block;
+}
+
+.register-email-trail--ok {
+    color: #16a34a;
+}
+
+.register-email-trail--bad {
+    color: #dc2626;
+}
+
+.register-checking-spinner {
+    width: 1rem;
+    height: 1rem;
+    border: 2px solid var(--login-slate-400);
+    border-top-color: var(--login-accent);
+    border-radius: 50%;
+    animation: loginSpin 0.75s linear infinite;
+}
+
+.register-field-hint {
+    display: block;
+    margin-top: 0.35rem;
+    font-size: 0.8125rem;
+    font-weight: 600;
+}
+
+.register-field-hint--success {
+    color: #15803d;
+}
+
+.register-input-wrap--dual-trail input {
+    padding-right: 4.75rem;
+}
+
+.register-input-trails {
+    position: absolute;
+    right: 0.4rem;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+    gap: 0.1rem;
+    z-index: 2;
+}
+
+.register-password-toggle--inline {
+    position: relative;
+    right: auto;
+    top: auto;
+    transform: none;
+}
+
+.register-match {
+    display: flex;
+    align-items: center;
+    padding: 0.25rem;
+}
+
+.register-match svg {
+    width: 1.05rem;
+    height: 1.05rem;
+    display: block;
+}
+
+.register-match--ok {
+    color: #16a34a;
+}
+
+.register-match--bad {
+    color: #dc2626;
+}
+
+.register-password-strength {
+    margin-top: 0.45rem;
+}
+
+.register-strength-bar {
+    height: 4px;
+    background: rgba(148, 163, 184, 0.35);
+    border-radius: 2px;
+    overflow: hidden;
+    margin-bottom: 0.35rem;
+}
+
+.register-strength-fill {
+    height: 100%;
+    border-radius: 2px;
+    transition:
+        width 0.25s ease,
+        background-color 0.25s ease;
+}
+
+.register-strength-text {
+    font-size: 0.8125rem;
+    color: var(--login-slate-600);
+    font-weight: 600;
+    line-height: 1.35;
+}
+
+.register-strength-tips {
+    font-weight: 500;
+    color: var(--login-slate-600);
+}
+
+.register-password-tips {
+    margin-top: 0.5rem;
+    padding: 0.85rem 1rem;
+    background: rgba(248, 250, 252, 0.95);
+    border: 1px solid rgba(99, 102, 241, 0.14);
+    border-radius: 0.65rem;
+}
+
+.register-tips-header {
+    display: flex;
+    align-items: center;
+    gap: 0.45rem;
+    font-size: 0.8125rem;
+    font-weight: 700;
+    color: var(--login-slate-900);
+    margin-bottom: 0.6rem;
+}
+
+.register-tips-header svg {
+    width: 1rem;
+    height: 1rem;
+    color: var(--login-accent-dark);
+    flex-shrink: 0;
+}
+
+.register-tips-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+}
+
+.register-tips-list li {
+    font-size: 0.78rem;
+    color: var(--login-slate-600);
+    padding-left: 1.15rem;
+    position: relative;
+    line-height: 1.35;
+}
+
+.register-tips-list li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.35rem;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #cbd5e1;
+}
+
+.register-tips-list__done {
+    color: #15803d;
+}
+
+.register-tips-list__done::before {
+    background: #22c55e;
+}

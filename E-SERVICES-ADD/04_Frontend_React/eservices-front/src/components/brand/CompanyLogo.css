@@ -1,0 +1,45 @@
+.company-logo {
+    display: block;
+    user-select: none;
+    -webkit-user-drag: none;
+}
+
+/* Taille « pastille » si besoin (ex. avatar de marque) */
+.company-logo--mark {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    padding: 2px;
+    box-sizing: border-box;
+}
+
+/* Pages auth : bannière #ADD (paysage) */
+.company-logo--auth {
+    width: auto;
+    max-width: min(260px, 78vw);
+    max-height: min(72px, 16vh);
+    height: auto;
+    margin: 0 auto;
+    object-fit: contain;
+}
+
+/* En-tête pleine largeur (dashboard…) */
+.company-logo--header {
+    width: auto;
+    max-width: 200px;
+    max-height: 48px;
+    height: auto;
+    object-fit: contain;
+    flex-shrink: 0;
+}
+
+/* Bandeau formulaire public */
+.company-logo--inline {
+    width: auto;
+    max-width: 240px;
+    max-height: 52px;
+    height: auto;
+    object-fit: contain;
+    flex-shrink: 0;
+}
+

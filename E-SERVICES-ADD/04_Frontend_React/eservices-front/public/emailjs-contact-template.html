@@ -1,0 +1,56 @@
+<!--
+  MODÈLE EMAILJS — Formulaire « Nous contacter » (/contact)
+  =========================================================
+  Dashboard EmailJS → Templates → Create new template
+  Variables envoyées par le front (src/services/emailJs.js / ContactPage.jsx) :
+    {{user_name}}, {{user_email}}, {{message}}
+
+  Dans le template EmailJS :
+    • To email   → votre boîte support (valeur FIXE ou variable si vous ajoutez admin_email au code)
+    • Reply To   → {{user_email}}  (recommandé pour répondre au visiteur)
+    • Subject    → ex. [Contact E-Services] {{user_name}}
+-->
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact — E-Services</title>
+</head>
+<body style="margin:0;padding:0;background-color:#f1f5f9;font-family:Segoe UI,Roboto,Helvetica,Arial,sans-serif;">
+  <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="background-color:#f1f5f9;padding:24px 12px;">
+    <tr>
+      <td align="center">
+        <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="max-width:520px;background:#ffffff;border-radius:12px;overflow:hidden;box-shadow:0 4px 24px rgba(15,23,42,0.08);">
+          <tr>
+            <td style="background:linear-gradient(135deg,#4f46e5 0%,#7c3aed 100%);padding:18px 22px;">
+              <p style="margin:0;font-size:18px;font-weight:700;color:#ffffff;">Nouveau message — Contact</p>
+              <p style="margin:6px 0 0;font-size:13px;color:rgba(255,255,255,0.9);">ADD-Services / E-Services</p>
+            </td>
+          </tr>
+          <tr>
+            <td style="padding:22px;">
+              <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="font-size:15px;color:#334155;">
+                <tr>
+                  <td style="padding:8px 0;color:#64748b;width:120px;">Nom</td>
+                  <td style="padding:8px 0;font-weight:600;color:#0f172a;">{{user_name}}</td>
+                </tr>
+                <tr>
+                  <td style="padding:8px 0;color:#64748b;vertical-align:top;">E-mail</td>
+                  <td style="padding:8px 0;">
+                    <a href="mailto:{{user_email}}" style="color:#4f46e5;text-decoration:none;">{{user_email}}</a>
+                  </td>
+                </tr>
+              </table>
+              <p style="margin:20px 0 8px;font-size:13px;font-weight:600;color:#64748b;text-transform:uppercase;letter-spacing:0.04em;">Message</p>
+              <div style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:14px 16px;font-size:15px;line-height:1.6;color:#0f172a;">
+                <pre style="margin:0;font-family:inherit;white-space:pre-wrap;word-break:break-word;">{{message}}</pre>
+              </div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>

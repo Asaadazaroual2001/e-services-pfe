@@ -1,0 +1,185 @@
+.app-branded-header__right-inner {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.65rem;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    max-width: 100%;
+}
+
+.staff-header-notif {
+    position: relative;
+    flex-shrink: 0;
+}
+
+.staff-header-notif__toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    padding: 0;
+    border: 1px solid rgba(255, 255, 255, 0.28);
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.14);
+    color: #ffffff;
+    cursor: pointer;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.12);
+    transition:
+        background 0.15s ease,
+        border-color 0.15s ease,
+        transform 0.12s ease;
+}
+
+.staff-header-notif__toggle:hover {
+    background: rgba(255, 255, 255, 0.22);
+    border-color: rgba(255, 255, 255, 0.38);
+}
+
+.staff-header-notif__toggle:focus-visible {
+    outline: 2px solid rgba(255, 255, 255, 0.85);
+    outline-offset: 2px;
+}
+
+.staff-header-notif__toggle[aria-expanded="true"] {
+    background: rgba(255, 255, 255, 0.24);
+}
+
+/*
+ * Pastille rendue en portail (fixed) : le chiffre est *en dehors* du cercle de la cloche,
+ * sans être coupé par overflow / clip-path du header.
+ */
+.staff-header-notif__badge {
+    box-sizing: border-box;
+    min-width: 1.375rem;
+    height: 1.375rem;
+    padding: 0 5px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.625rem;
+    font-weight: 800;
+    line-height: 1;
+    letter-spacing: -0.02em;
+    color: #ffffff;
+    background: #dc2626;
+    border-radius: 999px;
+    border: 2px solid #ffffff;
+    box-shadow:
+        0 2px 8px rgba(0, 0, 0, 0.4),
+        0 0 0 1px rgba(0, 0, 0, 0.12);
+    pointer-events: none;
+}
+
+.staff-header-notif__badge--portal {
+    z-index: 10002;
+}
+
+/* Un seul chiffre : disque rond */
+.staff-header-notif__badge--single {
+    width: 1.375rem;
+    min-width: 1.375rem;
+    padding: 0;
+}
+
+.staff-header-notif__panel {
+    width: min(92vw, 340px);
+    max-height: min(70vh, 380px);
+    display: flex;
+    flex-direction: column;
+    background: #ffffff;
+    color: #0f172a;
+    border-radius: 12px;
+    border: 1px solid #e2e8f0;
+    box-shadow:
+        0 12px 40px rgba(15, 23, 42, 0.18),
+        0 4px 12px rgba(15, 23, 42, 0.08);
+    z-index: 10000;
+    overflow: hidden;
+}
+
+.staff-header-notif__panel--portal {
+    margin: 0;
+}
+
+.staff-header-notif__panel-header {
+    padding: 12px 14px;
+    font-size: 0.8125rem;
+    font-weight: 700;
+    border-bottom: 1px solid #e2e8f0;
+    background: #f8fafc;
+    color: #0f172a;
+}
+
+.staff-header-notif__list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    overflow-y: auto;
+    flex: 1;
+}
+
+.staff-header-notif__item {
+    margin: 0;
+    border-bottom: 1px solid #f1f5f9;
+}
+
+.staff-header-notif__item:last-child {
+    border-bottom: none;
+}
+
+.staff-header-notif__link {
+    display: block;
+    padding: 10px 14px;
+    text-decoration: none;
+    color: inherit;
+    transition: background 0.12s ease;
+}
+
+.staff-header-notif__link:hover {
+    background: #f1f5f9;
+}
+
+.staff-header-notif__ref {
+    font-size: 0.8125rem;
+    font-weight: 700;
+    color: #2563eb;
+}
+
+.staff-header-notif__meta {
+    margin-top: 4px;
+    font-size: 0.75rem;
+    color: #64748b;
+    line-height: 1.35;
+}
+
+.staff-header-notif__footer {
+    padding: 10px 14px;
+    border-top: 1px solid #e2e8f0;
+    background: #fafafa;
+}
+
+.staff-header-notif__footer a {
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: #4f46e5;
+    text-decoration: none;
+}
+
+.staff-header-notif__footer a:hover {
+    text-decoration: underline;
+}
+
+.staff-header-notif__empty,
+.staff-header-notif__err {
+    padding: 16px 14px;
+    font-size: 0.8125rem;
+    color: #64748b;
+    text-align: center;
+}
+
+.staff-header-notif__err {
+    color: #b91c1c;
+}

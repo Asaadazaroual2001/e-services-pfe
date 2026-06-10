@@ -1,0 +1,53 @@
+/* ========== Sidebar (fond clair) — même # dégradé que l’en-tête ========== */
+
+.sidebar-brand-mark {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 0.06em;
+    flex-shrink: 0;
+    min-width: 0;
+    font-family:
+        system-ui,
+        -apple-system,
+        "Segoe UI",
+        Roboto,
+        "Helvetica Neue",
+        sans-serif;
+    font-size: 1.2rem;
+    line-height: 1;
+    user-select: none;
+}
+
+.sidebar-brand-mark__hash {
+    display: inline-block;
+    font-weight: 850;
+    font-size: 1.08em;
+    line-height: 1;
+    background: linear-gradient(
+        180deg,
+        #a5f3fc 0%,
+        #22d3ee 18%,
+        #38bdf8 38%,
+        #a78bfa 62%,
+        #e879f9 82%,
+        #c026d3 100%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 1px 1px rgba(15, 23, 42, 0.08));
+}
+
+.sidebar-brand-mark__add {
+    color: #0f172a;
+    font-weight: 200;
+    letter-spacing: 0.16em;
+}
+
+/* Menu replié : retirer #ADD + éviter une zone logo vide */
+.admin-sidebar.collapsed .sidebar-header .logo,
+.client-sidebar.collapsed .sidebar-header .logo,
+.employee-sidebar.collapsed .sidebar-header .logo {
+    display: none;
+}
