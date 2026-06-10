@@ -1,0 +1,108 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentStyleType="text/css" height="643px" preserveAspectRatio="none" style="width:928px;height:643px;background:#FFFFFF;" version="1.1" viewBox="0 0 928 643" width="928px" zoomAndPan="magnify"><defs/><g><rect fill="none" height="26.2969" id="_title" rx="4" ry="4" style="stroke:none;stroke-width:1.0;" width="232" x="341" y="5"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="222" x="346" y="22.9951">DCU - Responsable système</text><!--MD5=[18fd512145f79b26563a3d0fdf1666bf]
+cluster Plateforme E-Services--><g id="cluster_Plateforme E-Services"><rect fill="none" height="593" rx="4" ry="4" style="stroke:#181818;stroke-width:1.0;" width="557" x="207" y="44.2969"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="174" x="398.5" y="59.292">Plateforme E-Services</text></g><g id="elem_UC_AG_CREATE"><ellipse cx="311.4333" cy="96.2835" fill="#F1F1F1" rx="70.4333" ry="16.4867" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="94" x="261.4333" y="100.0311">Créer agence</text></g><g id="elem_UC_AG_READ"><ellipse cx="311.2932" cy="167.2555" fill="#F1F1F1" rx="85.2932" ry="19.4586" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="131" x="245.7932" y="170.1022">Consulter agences</text></g><g id="elem_UC_AG_UPDATE"><ellipse cx="311.5612" cy="239.5091" fill="#F1F1F1" rx="76.5612" ry="17.7122" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="110" x="253.5612" y="243.2567">Modifier agence</text></g><g id="elem_UC_AG_DELETE"><ellipse cx="311.5656" cy="311.41" fill="#F1F1F1" rx="83.5656" ry="19.1131" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="127" x="247.6623" y="314.3943">Supprimer agence</text></g><g id="elem_UC_EMP_CREATE"><ellipse cx="311.5678" cy="382.3104" fill="#F1F1F1" rx="73.0678" ry="17.0136" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="101" x="258.0678" y="386.058">Créer employé</text></g><g id="elem_UC_EMP_READ"><ellipse cx="311.3518" cy="454.3672" fill="#F1F1F1" rx="88.3518" ry="20.0704" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="138" x="242.3518" y="457.2139">Consulter employés</text></g><g id="elem_UC_EMP_UPDATE"><ellipse cx="311.3735" cy="528.0716" fill="#F1F1F1" rx="79.3735" ry="18.2747" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="117" x="250.9676" y="531.5217">Modifier employé</text></g><g id="elem_UC_EMP_DELETE"><ellipse cx="311.5998" cy="601.5168" fill="#F1F1F1" rx="86.5998" ry="19.72" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="134" x="244.5998" y="604.3635">Supprimer employé</text></g><g id="elem_UC_MAIL"><ellipse cx="635.3717" cy="382.1712" fill="#F1F1F1" rx="112.3717" ry="24.8743" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="191" x="539.8717" y="385.0179">Envoyer e-mail automatique</text></g><!--MD5=[37a95177d590259793c9c7352be837cc]
+entity RSY--><g id="elem_RSY"><ellipse cx="83" cy="325.7969" fill="#F1F1F1" rx="8" ry="8" style="stroke:#181818;stroke-width:0.5;"/><path d="M83,333.7969 L83,360.7969 M70,341.7969 L96,341.7969 M83,360.7969 L70,375.7969 M83,360.7969 L96,375.7969 " fill="none" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="154" x="6" y="390.292">Responsable système</text></g><!--MD5=[fa92c0c292cdeae80e2f3763d35ba241]
+entity SYS--><g id="elem_SYS"><ellipse cx="866" cy="352.7969" fill="#F1F1F1" rx="8" ry="8" style="stroke:#181818;stroke-width:0.5;"/><path d="M866,360.7969 L866,387.7969 M853,368.7969 L879,368.7969 M866,387.7969 L853,402.7969 M866,387.7969 L879,402.7969 " fill="none" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="110" x="811" y="417.292">Système (Email)</text></g><!--MD5=[661cfee9146f02b2a31d188a4a158b9a]
+link RSY to UC_AG_CREATE--><g id="link_RSY_UC_AG_CREATE"><path d="M93.45,317.2069 C107.83,267.1269 139.97,179.7269 199,130.2969 C212.43,119.0469 229.52,111.5269 246.27,106.4869 " fill="none" id="RSY-to-UC_AG_CREATE" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="251.45,104.9969,241.6974,103.6233,246.6424,106.3705,243.8952,111.3155,251.45,104.9969" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[9789022e1178f14492a97db14e190f5d]
+link RSY to UC_AG_READ--><g id="link_RSY_UC_AG_READ"><path d="M104.17,317.1969 C124.04,283.0769 157.44,233.9769 199,204.2969 C212.31,194.7869 228.23,187.6069 243.81,182.2269 " fill="none" id="RSY-to-UC_AG_READ" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="248.63,180.6169,238.8252,179.686,243.8895,182.2066,241.3688,187.2708,248.63,180.6169" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[d794388b8bea77b1b5993ee085cb61e5]
+link RSY to UC_AG_UPDATE--><g id="link_RSY_UC_AG_UPDATE"><path d="M131.16,317.0969 C151.19,302.2169 175.35,285.9769 199,274.2969 C216.04,265.8769 235.54,258.9269 253.42,253.5069 " fill="none" id="RSY-to-UC_AG_UPDATE" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="258.42,252.0169,248.6519,250.7583,253.6289,253.4471,250.9402,258.4241,258.42,252.0169" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[3c7f52892c337da03fee2754979338d3]
+link RSY to UC_AG_DELETE--><g id="link_RSY_UC_AG_DELETE"><path d="M160.05,340.5269 C186.68,335.3469 216.39,329.5769 242.33,324.5369 " fill="none" id="RSY-to-UC_AG_DELETE" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="247.47,323.5369,237.8775,321.3043,242.5596,324.479,239.3849,329.161,247.47,323.5369" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[fb464060414161b47f0690aa853349c6]
+link RSY to UC_EMP_CREATE--><g id="link_RSY_UC_EMP_CREATE"><path d="M160.05,364.3669 C186.2,367.4769 215.32,370.9469 240.92,374.0069 " fill="none" id="RSY-to-UC_EMP_CREATE" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="245.99,374.6069,237.5341,369.5573,241.026,374.0078,236.5756,377.4997,245.99,374.6069" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[ac3206d79f4490204ccbcd19b328a38f]
+link RSY to UC_EMP_READ--><g id="link_RSY_UC_EMP_READ"><path d="M151.53,393.4069 C166.91,401.4469 183.34,409.5269 199,416.2969 C216.24,423.7569 235.47,430.7469 253.03,436.6569 " fill="none" id="RSY-to-UC_EMP_READ" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="257.94,438.2969,250.6548,431.6693,253.1937,436.7243,248.1387,439.2633,257.94,438.2969" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[05ee61e2f1a04bb48f19c532f82c94bf]
+link RSY to UC_EMP_UPDATE--><g id="link_RSY_UC_EMP_UPDATE"><path d="M107.68,393.4969 C128.36,423.9269 160.96,465.5769 199,491.2969 C213.62,501.1869 231.1,508.6169 247.83,514.1269 " fill="none" id="RSY-to-UC_EMP_UPDATE" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="253,515.7669,245.6551,509.2054,248.2397,514.2373,243.2078,516.8219,253,515.7669" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[a91aa77215819edb07f6ab958548a02a]
+link RSY to UC_EMP_DELETE--><g id="link_RSY_UC_EMP_DELETE"><path d="M95.33,393.3169 C111.16,440.0469 144.25,518.7269 199,564.2969 C210.97,574.2569 225.72,581.5769 240.53,586.9269 " fill="none" id="RSY-to-UC_EMP_DELETE" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="245.55,588.6669,238.3612,581.9347,240.8269,587.0259,235.7357,589.4916,245.55,588.6669" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[64347014fca008b1d831ba6ef370f76d]
+link UC_EMP_CREATE to UC_MAIL--><g id="link_UC_EMP_CREATE_UC_MAIL"><path d="M384.76,382.2969 C423.95,382.2969 473.34,382.2969 517.84,382.2969 " fill="none" id="UC_EMP_CREATE-to-UC_MAIL" style="stroke:#181818;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#181818" points="522.96,382.2969,513.96,378.2969,517.96,382.2969,513.96,386.2969,522.96,382.2969" style="stroke:#181818;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="61" x="431" y="378.3638">«include»</text></g><!--MD5=[2fc220fc548c7e0ad70a31dc6a871b3c]
+link UC_MAIL to SYS--><g id="link_UC_MAIL_SYS"><path d="M748.07,382.2969 C767.89,382.2969 787.81,382.2969 805.45,382.2969 " fill="none" id="UC_MAIL-to-SYS" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="810.85,382.2969,801.85,378.2969,805.85,382.2969,801.85,386.2969,810.85,382.2969" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[60871273781b95469e7c4f472c20093a]
+@startuml
+title DCU - Responsable système
+
+left to right direction
+skinparam shadowing false
+skinparam roundcorner 8
+
+actor "Responsable système" as RSY
+actor "Système (Email)" as SYS
+
+rectangle "Plateforme E-Services" {
+
+  ' - - - Agences - - -
+  usecase "Créer agence" as UC_AG_CREATE
+  usecase "Consulter agences" as UC_AG_READ
+  usecase "Modifier agence" as UC_AG_UPDATE
+  usecase "Supprimer agence" as UC_AG_DELETE
+
+  ' - - - Employees - - -
+  usecase "Créer employé" as UC_EMP_CREATE
+  usecase "Consulter employés" as UC_EMP_READ
+  usecase "Modifier employé" as UC_EMP_UPDATE
+  usecase "Supprimer employé" as UC_EMP_DELETE
+
+  ' - - - Email - - -
+  usecase "Envoyer e-mail automatique" as UC_MAIL
+}
+
+' Relations Responsable système
+RSY - -> UC_AG_CREATE
+RSY - -> UC_AG_READ
+RSY - -> UC_AG_UPDATE
+RSY - -> UC_AG_DELETE
+
+RSY - -> UC_EMP_CREATE
+RSY - -> UC_EMP_READ
+RSY - -> UC_EMP_UPDATE
+RSY - -> UC_EMP_DELETE
+
+' Email lié (مثلا création employé)
+UC_EMP_CREATE ..> UC_MAIL : <<include>>
+
+' External system
+UC_MAIL - -> SYS
+@enduml
+
+@startuml
+title DCU - Responsable système
+
+left to right direction
+skinparam shadowing false
+skinparam roundcorner 8
+
+actor "Responsable système" as RSY
+actor "Système (Email)" as SYS
+
+rectangle "Plateforme E-Services" {
+
+  usecase "Créer agence" as UC_AG_CREATE
+  usecase "Consulter agences" as UC_AG_READ
+  usecase "Modifier agence" as UC_AG_UPDATE
+  usecase "Supprimer agence" as UC_AG_DELETE
+
+  usecase "Créer employé" as UC_EMP_CREATE
+  usecase "Consulter employés" as UC_EMP_READ
+  usecase "Modifier employé" as UC_EMP_UPDATE
+  usecase "Supprimer employé" as UC_EMP_DELETE
+
+  usecase "Envoyer e-mail automatique" as UC_MAIL
+}
+
+RSY - -> UC_AG_CREATE
+RSY - -> UC_AG_READ
+RSY - -> UC_AG_UPDATE
+RSY - -> UC_AG_DELETE
+
+RSY - -> UC_EMP_CREATE
+RSY - -> UC_EMP_READ
+RSY - -> UC_EMP_UPDATE
+RSY - -> UC_EMP_DELETE
+
+UC_EMP_CREATE ..> UC_MAIL : <<include>>
+
+UC_MAIL - -> SYS
+@enduml
+
+PlantUML version 1.2022.7(Mon Aug 22 17:01:30 UTC 2022)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Default Encoding: UTF-8
+Language: en
+Country: null
+--></g></svg>

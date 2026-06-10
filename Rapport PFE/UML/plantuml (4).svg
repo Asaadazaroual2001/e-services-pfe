@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentStyleType="text/css" height="234.52px" preserveAspectRatio="none" style="width:936px;height:234px;background:#FFFFFF;" version="1.1" viewBox="0 0 936 234" width="936.44px" zoomAndPan="magnify"><defs/><g><rect fill="none" height="21.5634" id="_title" rx="3.28" ry="3.28" style="stroke:none;stroke-width:0.82;" width="339.48" x="292.74" y="4.1"/><text fill="#000000" font-family="sans-serif" font-size="11.48" font-weight="bold" lengthAdjust="spacing" textLength="331.28" x="296.84" y="18.856">Diagramme de composants - Plateforme E-Services</text><!--MD5=[18fd512145f79b26563a3d0fdf1666bf]
+cluster Plateforme E-Services--><g id="cluster_Plateforme E-Services"><rect fill="none" height="134.48" rx="3.28" ry="3.28" style="stroke:#181818;stroke-width:0.82;" width="705.61" x="225.91" y="95.7734"/><text fill="#000000" font-family="sans-serif" font-size="8.2" font-weight="bold" lengthAdjust="spacing" textLength="101.68" x="527.875" y="105.0249">Plateforme E-Services</text></g><!--MD5=[7bbb50bb6a1a4a16f3de7991aea95734]
+entity RP--><g id="elem_RP"><rect fill="#F1F1F1" height="45.0359" rx="3.28" ry="3.28" style="stroke:#181818;stroke-width:0.41;" width="72.98" x="239.03" y="120.7834"/><text fill="#000000" font-family="sans-serif" font-size="8.2" lengthAdjust="spacing" textLength="56.58" x="247.23" y="136.5949">reverse-proxy</text><text fill="#000000" font-family="sans-serif" font-size="8.2" lengthAdjust="spacing" textLength="32.8" x="247.23" y="146.1402">«Nginx»</text><text fill="#000000" font-family="sans-serif" font-size="8.2" lengthAdjust="spacing" textLength="42.64" x="247.23" y="155.6855">(optionnel)</text></g><!--MD5=[91973c96897d1b47acf069d2375b565a]
+entity FE--><g id="elem_FE"><rect fill="#F1F1F1" height="35.4906" rx="3.28" ry="3.28" style="stroke:#181818;stroke-width:0.41;" width="68.06" x="586.3" y="120.7834"/><text fill="#000000" font-family="sans-serif" font-size="8.2" lengthAdjust="spacing" textLength="51.66" x="594.5" y="136.5949">frontend-spa</text><text fill="#000000" font-family="sans-serif" font-size="8.2" lengthAdjust="spacing" textLength="32.8" x="594.5" y="146.1402">«React»</text></g><!--MD5=[77b0ea1454fe7a7546e2e8ed5acd0c75]
+entity BE--><g id="elem_BE"><rect fill="#F1F1F1" height="35.4906" rx="3.28" ry="3.28" style="stroke:#181818;stroke-width:0.41;" width="72.98" x="583.84" y="174.0834"/><text fill="#000000" font-family="sans-serif" font-size="8.2" lengthAdjust="spacing" textLength="47.56" x="592.04" y="189.8949">backend-api</text><text fill="#000000" font-family="sans-serif" font-size="8.2" lengthAdjust="spacing" textLength="56.58" x="592.04" y="199.4402">«Spring Boot»</text></g><!--MD5=[f6b3c4ec609d704a8f29c3992fcc8101]
+entity PG--><g id="elem_PG"><path d="M835.58,182.6934 C835.58,174.4934 875.35,174.4934 875.35,174.4934 C875.35,174.4934 915.12,174.4934 915.12,182.6934 L915.12,209.1641 C915.12,217.3641 875.35,217.3641 875.35,217.3641 C875.35,217.3641 835.58,217.3641 835.58,209.1641 L835.58,182.6934 " fill="#F1F1F1" style="stroke:#181818;stroke-width:0.41;"/><path d="M835.58,182.6934 C835.58,190.8934 875.35,190.8934 875.35,190.8934 C875.35,190.8934 915.12,190.8934 915.12,182.6934 " fill="none" style="stroke:#181818;stroke-width:0.41;"/><text fill="#000000" font-family="sans-serif" font-size="8.2" lengthAdjust="spacing" textLength="63.14" x="843.78" y="201.7849">base-postgresql</text><text fill="#000000" font-family="sans-serif" font-size="8.2" lengthAdjust="spacing" textLength="58.22" x="843.78" y="211.3302">«PostgreSQL»</text></g><!--MD5=[347edd1aec85f4afbcafa8953e40a06b]
+entity VOL--><g id="elem_VOL"><rect fill="#F1F1F1" height="35.4906" rx="3.28" ry="3.28" style="stroke:#181818;stroke-width:0.41;" width="86.1" x="832.3" y="120.7834"/><text fill="#000000" font-family="sans-serif" font-size="8.2" lengthAdjust="spacing" textLength="66.42" x="840.5" y="136.5949">stockage-fichiers</text><text fill="#000000" font-family="sans-serif" font-size="8.2" lengthAdjust="spacing" textLength="69.7" x="840.5" y="146.1402">«volume Docker»</text></g><!--MD5=[3fcceccb8f5cae11017abed2c43d4ff7]
+entity Nav--><g id="elem_Nav"><ellipse cx="27.06" cy="120.7834" fill="#F1F1F1" rx="6.56" ry="6.56" style="stroke:#181818;stroke-width:0.41;"/><path d="M27.06,127.3434 L27.06,149.4834 M16.4,133.9034 L37.72,133.9034 M27.06,149.4834 L16.4,161.7834 M27.06,149.4834 L37.72,161.7834 " fill="none" style="stroke:#181818;stroke-width:0.41;"/><text fill="#000000" font-family="sans-serif" font-size="8.2" lengthAdjust="spacing" textLength="44.28" x="4.92" y="170.6249">Navigateur</text></g><g id="elem_GMN14"><path d="M519.88,38.7834 L519.88,78.6047 A3.28,3.28 0 0 0 523.16,81.8847 L717.5,81.8847 A3.28,3.28 0 0 0 720.78,78.6047 L720.78,43.7034 L712.58,35.5034 L523.16,35.5034 A3.28,3.28 0 0 0 519.88,38.7834 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.41;"/><path d="M712.58,35.5034 L712.58,42.0634 A1.64,1.64 0 0 0 714.22,43.7034 L720.78,43.7034 L712.58,35.5034 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.82;"/><text fill="#000000" font-family="sans-serif" font-size="8.2" lengthAdjust="spacing" textLength="183.68" x="524.8" y="47.2149">Auth par cookies : session serveur, Set-Cookie</text><text fill="#000000" font-family="sans-serif" font-size="8.2" lengthAdjust="spacing" textLength="151.7" x="524.8" y="56.7602">SESSION HttpOnly Secure SameSite.</text><text fill="#000000" font-family="sans-serif" font-size="8.2" lengthAdjust="spacing" textLength="147.6" x="524.8" y="66.3055">Front : fetch avec credentials include.</text><text fill="#000000" font-family="sans-serif" font-size="8.2" lengthAdjust="spacing" textLength="135.3" x="524.8" y="75.8508">Pas de Bearer JWT sur ce schema.</text></g><g id="elem_GMN17"><path d="M169.74,67.8934 L169.74,79.0788 A3.28,3.28 0 0 0 173.02,82.3588 L272.24,82.3588 L275.52,120.7342 L278.8,82.3588 L378.02,82.3588 A3.28,3.28 0 0 0 381.3,79.0788 L381.3,72.8134 L373.1,64.6134 L173.02,64.6134 A3.28,3.28 0 0 0 169.74,67.8934 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.41;"/><path d="M373.1,64.6134 L373.1,71.1734 A1.64,1.64 0 0 0 374.74,72.8134 L381.3,72.8134 L373.1,64.6134 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.41;"/><text fill="#000000" font-family="sans-serif" font-size="8.2" lengthAdjust="spacing" textLength="194.34" x="174.66" y="76.3249">Reverse-proxy : TLS et routage vers SPA et API.</text></g><!--MD5=[aa90ce1e664d4f9b098f6623e0c4848d]
+link Nav to RP--><g id="link_Nav_RP"><path d="M49.3558,143.3334 C90.651,143.3334 181.7202,143.3334 234.5774,143.3334 " fill="none" id="Nav-to-RP" style="stroke:#181818;stroke-width:0.82;"/><polygon fill="#181818" points="238.9398,143.3334,231.5598,140.0534,234.8398,143.3334,231.5598,146.6134,238.9398,143.3334" style="stroke:#181818;stroke-width:0.82;"/><text fill="#000000" font-family="sans-serif" font-size="8.2" lengthAdjust="spacing" textLength="94.3" x="62.32" y="141.1049">HTTPS (cookies Secure)</text></g><!--MD5=[08cc9269e7e1ce4a153e47be015b57bc]
+link RP to FE--><g id="link_RP_FE"><path d="M312.092,142.8168 C377.3558,141.882 515.1814,139.9058 581.831,138.9546 " fill="none" id="RP-to-FE" style="stroke:#181818;stroke-width:0.82;"/><polygon fill="#181818" points="586.1196,138.889,578.6935,135.7148,582.02,138.9476,578.7872,142.2741,586.1196,138.889" style="stroke:#181818;stroke-width:0.82;"/><text fill="#000000" font-family="sans-serif" font-size="8.2" lengthAdjust="spacing" textLength="63.96" x="418.61" y="138.6449">assets statiques</text></g><!--MD5=[9ab7bf97c9fcd54120567a1e211645a3]
+link RP to BE--><g id="link_RP_BE"><path d="M312.092,148.3764 C376.6014,157.4702 511.9998,176.5598 579.494,186.0718 " fill="none" id="RP-to-BE" style="stroke:#181818;stroke-width:0.82;"/><polygon fill="#181818" points="583.84,186.6868,576.9928,182.4044,579.7805,186.1119,576.073,188.8996,583.84,186.6868" style="stroke:#181818;stroke-width:0.82;"/><text fill="#000000" font-family="sans-serif" font-size="8.2" lengthAdjust="spacing" textLength="112.34" x="394.42" y="158.3249">HTTPS /api/ (Cookie session)</text></g><!--MD5=[3035f9556238a6c763cdbba20f6d226b]
+link BE to PG--><g id="link_BE_PG"><path d="M656.9184,192.2956 C702.6662,193.0336 781.8536,194.3128 831.0372,195.1082 " fill="none" id="BE-to-PG" style="stroke:#181818;stroke-width:0.82;"/><polygon fill="#181818" points="835.4078,195.182,828.0754,191.797,831.3082,195.1235,827.9817,198.3563,835.4078,195.182" style="stroke:#181818;stroke-width:0.82;"/><text fill="#000000" font-family="sans-serif" font-size="8.2" lengthAdjust="spacing" textLength="85.28" x="733.9" y="191.9449">JDBC SQL + sessions</text></g><!--MD5=[09d908bdbf60877e9b41f2fac4c7c3cb]
+link BE to VOL--><g id="link_BE_VOL"><path d="M656.9184,184.1858 C701.7642,174.7558 778.7376,158.5608 828.0934,148.1796 " fill="none" id="BE-to-VOL" style="stroke:#181818;stroke-width:0.82;"/><polygon fill="#181818" points="832.1852,147.3186,824.2878,145.6294,828.1731,148.1633,825.6392,152.0486,832.1852,147.3186" style="stroke:#181818;stroke-width:0.82;"/><text fill="#000000" font-family="sans-serif" font-size="8.2" lengthAdjust="spacing" textLength="82.82" x="735.13" y="148.4849">fichiers pieces jointes</text></g><!--MD5=[d551a6cbaaf15d1924dd52df711822ee]
+link BE to GMN14--><g id="link_BE_GMN14"><path d="M583.8154,195.879 C544.0864,198.134 482.0616,194.5014 450.59,155.6334 C422.4148,120.8326 468.425,96.1998 519.6012,80.4968 " fill="none" id="BE-GMN14" style="stroke:#181818;stroke-width:0.82;stroke-dasharray:7.0,7.0;"/></g><!--MD5=[595569a1fd1c29484e7f061476d96b77]
+@startuml
+title Diagramme de composants - Plateforme E-Services
+
+left to right direction
+
+skinparam defaultFontSize 10
+skinparam shadowing false
+skinparam roundcorner 8
+skinparam nodesep 22
+skinparam ranksep 30
+skinparam componentStyle rectangle
+
+scale 0.82
+
+actor "Navigateur" as Nav
+
+rectangle "Plateforme E-Services" {
+  component "reverse-proxy\n<<Nginx>>\n(optionnel)" as RP
+  component "frontend-spa\n<<React>>" as FE
+  component "backend-api\n<<Spring Boot>>" as BE
+  database "base-postgresql\n<<PostgreSQL>>" as PG
+  component "stockage-fichiers\n<<volume Docker>>" as VOL
+}
+
+Nav - -> RP : HTTPS (cookies Secure)
+RP - -> FE : assets statiques
+RP - -> BE : HTTPS /api/ (Cookie session)
+
+BE - -> PG : JDBC SQL + sessions
+BE - -> VOL : fichiers pieces jointes
+
+note bottom of BE
+  Auth par cookies : session serveur, Set-Cookie
+  SESSION HttpOnly Secure SameSite.
+  Front : fetch avec credentials include.
+  Pas de Bearer JWT sur ce schema.
+end note
+
+note bottom of RP
+  Reverse-proxy : TLS et routage vers SPA et API.
+end note
+@enduml
+
+PlantUML version 1.2022.7(Mon Aug 22 17:01:30 UTC 2022)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Default Encoding: UTF-8
+Language: en
+Country: null
+--></g></svg>

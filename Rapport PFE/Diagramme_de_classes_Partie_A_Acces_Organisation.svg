@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentStyleType="text/css" height="453px" preserveAspectRatio="none" style="width:471px;height:453px;background:#FFFFFF;" version="1.1" viewBox="0 0 471 453" width="471px" zoomAndPan="magnify"><defs/><g><rect fill="none" height="26.2969" id="_title" style="stroke:none;stroke-width:1.0;" width="453" x="5" y="5"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="443" x="10" y="22.9951">Diagramme de classes - Partie A (Accès &amp; Organisation)</text><!--MD5=[3fd616f346a44cd59a91eb10b19e157c]
+class User--><g id="elem_User"><rect codeLine="5" fill="#F1F1F1" height="121.4844" id="User" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="147" x="156" y="44.2969"/><ellipse cx="209.25" cy="60.2969" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M212.2188,65.9375 Q211.6406,66.2344 211,66.375 Q210.3594,66.5313 209.6563,66.5313 Q207.1563,66.5313 205.8281,64.8906 Q204.5156,63.2344 204.5156,60.1094 Q204.5156,56.9844 205.8281,55.3281 Q207.1563,53.6719 209.6563,53.6719 Q210.3594,53.6719 211,53.8281 Q211.6563,53.9844 212.2188,54.2813 L212.2188,57 Q211.5938,56.4219 211,56.1563 Q210.4063,55.875 209.7813,55.875 Q208.4375,55.875 207.75,56.9531 Q207.0625,58.0156 207.0625,60.1094 Q207.0625,62.2031 207.75,63.2813 Q208.4375,64.3438 209.7813,64.3438 Q210.4063,64.3438 211,64.0781 Q211.5938,63.7969 212.2188,63.2188 L212.2188,65.9375 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="32" x="229.75" y="65.1436">User</text><line style="stroke:#181818;stroke-width:0.5;" x1="157" x2="302" y1="76.2969" y2="76.2969"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="71" x="162" y="93.292">+id: bigint</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="99" x="162" y="109.5889">+name: string</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="96" x="162" y="125.8857">+email: string</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="127" x="162" y="142.1826">+password: string</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="135" x="162" y="158.4795">+agency_id: bigint?</text></g><!--MD5=[a3638c1e5b65d287ecad7f06f5c0f212]
+class Role--><g id="elem_Role"><rect codeLine="13" fill="#F1F1F1" height="72.5938" id="Role" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="111" x="92" y="233.2969"/><ellipse cx="128.6" cy="249.2969" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M131.5688,254.9375 Q130.9906,255.2344 130.35,255.375 Q129.7094,255.5313 129.0063,255.5313 Q126.5063,255.5313 125.1781,253.8906 Q123.8656,252.2344 123.8656,249.1094 Q123.8656,245.9844 125.1781,244.3281 Q126.5063,242.6719 129.0063,242.6719 Q129.7094,242.6719 130.35,242.8281 Q131.0063,242.9844 131.5688,243.2813 L131.5688,246 Q130.9438,245.4219 130.35,245.1563 Q129.7563,244.875 129.1313,244.875 Q127.7875,244.875 127.1,245.9531 Q126.4125,247.0156 126.4125,249.1094 Q126.4125,251.2031 127.1,252.2813 Q127.7875,253.3438 129.1313,253.3438 Q129.7563,253.3438 130.35,253.0781 Q130.9438,252.7969 131.5688,252.2188 L131.5688,254.9375 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="31" x="147.4" y="254.1436">Role</text><line style="stroke:#181818;stroke-width:0.5;" x1="93" x2="202" y1="265.2969" y2="265.2969"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="71" x="98" y="282.292">+id: bigint</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="99" x="98" y="298.5889">+name: string</text></g><!--MD5=[03da7ad6344b0b2c818a169ad3cc63fd]
+class Permission--><g id="elem_Permission"><rect codeLine="18" fill="#F1F1F1" height="72.5938" id="Permission" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="111" x="92" y="374.2969"/><ellipse cx="108.35" cy="390.2969" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M111.3188,395.9375 Q110.7406,396.2344 110.1,396.375 Q109.4594,396.5313 108.7563,396.5313 Q106.2563,396.5313 104.9281,394.8906 Q103.6156,393.2344 103.6156,390.1094 Q103.6156,386.9844 104.9281,385.3281 Q106.2563,383.6719 108.7563,383.6719 Q109.4594,383.6719 110.1,383.8281 Q110.7563,383.9844 111.3188,384.2813 L111.3188,387 Q110.6938,386.4219 110.1,386.1563 Q109.5063,385.875 108.8813,385.875 Q107.5375,385.875 106.85,386.9531 Q106.1625,388.0156 106.1625,390.1094 Q106.1625,392.2031 106.85,393.2813 Q107.5375,394.3438 108.8813,394.3438 Q109.5063,394.3438 110.1,394.0781 Q110.6938,393.7969 111.3188,393.2188 L111.3188,395.9375 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="76" x="122.65" y="395.1436">Permission</text><line style="stroke:#181818;stroke-width:0.5;" x1="93" x2="202" y1="406.2969" y2="406.2969"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="71" x="98" y="423.292">+id: bigint</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="99" x="98" y="439.5889">+name: string</text></g><!--MD5=[d2543b6030cba58518e60e2e2f7be175]
+class Agency--><g id="elem_Agency"><rect codeLine="23" fill="#F1F1F1" height="88.8906" id="Agency" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="147" x="238" y="225.2969"/><ellipse cx="281.8" cy="241.2969" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M284.7688,246.9375 Q284.1906,247.2344 283.55,247.375 Q282.9094,247.5313 282.2063,247.5313 Q279.7063,247.5313 278.3781,245.8906 Q277.0656,244.2344 277.0656,241.1094 Q277.0656,237.9844 278.3781,236.3281 Q279.7063,234.6719 282.2063,234.6719 Q282.9094,234.6719 283.55,234.8281 Q284.2063,234.9844 284.7688,235.2813 L284.7688,238 Q284.1438,237.4219 283.55,237.1563 Q282.9563,236.875 282.3313,236.875 Q280.9875,236.875 280.3,237.9531 Q279.6125,239.0156 279.6125,241.1094 Q279.6125,243.2031 280.3,244.2813 Q280.9875,245.3438 282.3313,245.3438 Q282.9563,245.3438 283.55,245.0781 Q284.1438,244.7969 284.7688,244.2188 L284.7688,246.9375 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="51" x="302.2" y="246.1436">Agency</text><line style="stroke:#181818;stroke-width:0.5;" x1="239" x2="384" y1="257.2969" y2="257.2969"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="71" x="244" y="274.292">+id: bigint</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="99" x="244" y="290.5889">+name: string</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="135" x="244" y="306.8857">+is_active: boolean</text></g><!--MD5=[7c0d43220991bac04c54f5912ae2e5bb]
+link User to Agency--><g id="link_User_Agency"><path codeLine="29" d="M259.57,165.5669 C268.63,183.5869 278.47,203.1369 287.12,220.3269 " fill="none" id="User-to-Agency" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="289.52,225.1169,289.0351,215.28,287.2668,220.6533,281.8935,218.885,289.52,225.1169" style="stroke:#181818;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="23" x="238.8332" y="185.9328">0..*</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="8" x="277.5418" y="214.2122">1</text></g><!--MD5=[70c37dc9bfbc8656942103c36f1181e4]
+link User to Role--><g id="link_User_Role"><path codeLine="30" d="M199.43,165.5669 C188,188.2769 175.36,213.4269 165.4,233.2069 " fill="none" id="User-Role" style="stroke:#181818;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="7" x="188.3387" y="185.9328">*</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="7" x="161.055" y="222.1944">*</text></g><!--MD5=[1be95c84710ac8c74ee34eae5b43f28e]
+link Role to Permission--><g id="link_Role_Permission"><path codeLine="31" d="M147.5,306.5969 C147.5,327.3469 147.5,353.3869 147.5,374.1269 " fill="none" id="Role-Permission" style="stroke:#181818;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="7" x="139.9203" y="326.0456">*</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="7" x="139.8547" y="363.0996">*</text></g><!--MD5=[3f46d8127575f11d295e1ee38652ff71]
+@startuml
+title Diagramme de classes - Partie A (Accès & Organisation)
+skinparam classAttributeIconSize 0
+hide methods
+
+class User {
+  +id: bigint
+  +name: string
+  +email: string
+  +password: string
+  +agency_id: bigint?
+}
+
+class Role {
+  +id: bigint
+  +name: string
+}
+
+class Permission {
+  +id: bigint
+  +name: string
+}
+
+class Agency {
+  +id: bigint
+  +name: string
+  +is_active: boolean
+}
+
+User "0..*" - -> "1" Agency
+User "*" - - "*" Role
+Role "*" - - "*" Permission
+@enduml
+
+PlantUML version 1.2022.7(Mon Aug 22 17:01:30 UTC 2022)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Default Encoding: UTF-8
+Language: en
+Country: null
+--></g></svg>

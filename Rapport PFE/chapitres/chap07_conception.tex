@@ -1,0 +1,415 @@
+\chapter{Conception}
+\label{chap:conception}
+
+\section{Introduction}
+
+La conception regroupe les choix de modélisation objet, l'architecture technique, et la modélisation des données. Conformément aux contraintes du mémoire, les diagrammes UML ne sont pas fournis sous forme graphique : ils sont expliqués textuellement, en précisant les classes clés, leurs attributs principaux, leurs associations, et les interactions représentatives entre objets lors des scénarios nominaux \cite{booch2005,bass2021}.
+
+\section{Cadre théorique de modélisation}
+
+La modélisation oriente la discussion vers des artefacts compréhensibles par les parties prenantes et traçables vers l'implémentation \cite{booch2005}. Les patrons de conception utiles (DTO, Repository, Service) structurent la complexité et réduisent le couplage accidentel \cite{gamma1994,fowler2002}. La conception logicielle doit également anticiper les qualités d'exploitabilité et de sécurité, souvent traitées transversalement \cite{iso25010,owasp2021}.
+
+\newpage
+\section{Diagrammes de cas d'utilisation}
+
+\subsection{Diagramme de cas d'utilisation}
+
+Le diagramme de cas d'utilisation constitue une vue fonctionnelle du système, centrée sur les interactions entre les acteurs externes et les services applicatifs. Dans une démarche d'ingénierie logicielle, il permet de formaliser le périmètre fonctionnel, de clarifier les attentes métier et de traduire les besoins exprimés en scénarios opérationnels exploitables par les équipes de conception et de développement. Cette représentation UML facilite également la traçabilité entre les exigences, les composants applicatifs et les tests de validation.
+
+Dans le cadre de ce projet, le diagramme global a été volontairement décomposé en six diagrammes distincts. Ce choix méthodologique répond à un objectif de lisibilité et de précision : un schéma unique aurait conduit à une densité graphique trop élevée, rendant l'interprétation difficile et augmentant le risque d'ambiguïté. La modularisation par acteur améliore la compréhension de chaque rôle, met en évidence les responsabilités fonctionnelles et permet de présenter plus clairement les relations d'association, d'inclusion (\emph{include}) et d'extension (\emph{extend}) entre cas d'utilisation.
+
+\newpage
+\subsubsection{Diagramme de cas d'utilisation Administrateur}
+
+\begin{figure}[H]
+  \centering
+  \includesvg[width=0.9\textwidth,inkscapelatex=false]{Administrateur}
+  \caption{Diagramme de cas d'utilisation Administrateur}
+  \label{fig:dcu_administrateur}
+\end{figure}
+
+L'acteur \textbf{Administrateur} représente le profil de pilotage global de la plateforme. Il intervient sur les fonctions transversales de configuration et de gouvernance, notamment la gestion des agences, la gestion des comptes utilisateurs, l'affectation des rôles et l'administration du catalogue de services. Son interaction avec le système est continue et structurante, car elle conditionne la disponibilité des fonctionnalités pour les autres profils.
+
+Les cas d'utilisation associés incluent, selon les scénarios, la création et la mise à jour des agences, l'activation ou la désactivation des services, la consultation de tableaux de bord, ainsi que le traitement de dossiers sensibles. Les relations \emph{include} apparaissent lorsqu'une action implique systématiquement une étape commune, par exemple la vérification d'autorisation ou le déclenchement de notifications. Les relations \emph{extend} interviennent dans les situations conditionnelles, telles que des traitements complémentaires en cas d'anomalie ou de rejet. En situation réelle, ces interactions se traduisent par des opérations d'administration exécutées via le back-office, avec contrôle strict des droits et traçabilité des actions.
+
+\subsubsection{Diagramme de cas d'utilisation Agent d'agence}
+
+\begin{figure}[H]
+  \centering
+  \includesvg[width=0.9\textwidth,inkscapelatex=false]{Agent_d_agence}
+  \caption{Diagramme de cas d'utilisation Agent d'agence}
+  \label{fig:dcu_agent_agence}
+\end{figure}
+
+L'\textbf{Agent d'agence} est l'acteur opérationnel chargé du traitement quotidien des demandes soumises par les clients. Son rôle est centré sur l'exécution des tâches métier : consultation des dossiers, vérification des informations transmises, mise à jour des statuts et communication avec les parties prenantes lorsque des compléments sont requis.
+
+Les cas d'utilisation principaux concernent l'ouverture d'un dossier, l'analyse des pièces justificatives, la proposition de décision et la remontée d'information au responsable. Les associations relient directement l'agent aux fonctionnalités de suivi et de traitement. Les liens \emph{include} reflètent les étapes systématiques, comme l'enregistrement de l'historique après chaque action. Les liens \emph{extend} couvrent les cas où un traitement supplémentaire est déclenché, par exemple une demande d'informations complémentaires adressée au client. Dans l'application, cela correspond à un flux de travail encadré par des transitions d'état et des règles de gestion explicites.
+
+\newpage
+\subsubsection{Diagramme de cas d'utilisation Client}
+
+\begin{figure}[H]
+  \centering
+  \includesvg[width=1\textwidth,inkscapelatex=false]{client}
+  \caption{Diagramme de cas d'utilisation Client}
+  \label{fig:dcu_client}
+\end{figure}
+
+Le \textbf{Client} est l'acteur principal du service. Il interagit avec le portail pour consulter les services et soumettre une demande. Les cas d'utilisation incluent l'authentification et la création de demande. Les relations traduisent les dépendances obligatoires, notamment les contrôles de validité des données. Ce diagramme représente le cycle de vie d'une demande côté usager.
+
+\newpage
+\subsubsection{Diagramme de cas d'utilisation Responsable d'agence}
+
+\begin{figure}[H]
+  \centering
+  \includesvg[width=1\textwidth,inkscapelatex=false]{Responsable_d_agence}
+  \caption{Diagramme de cas d'utilisation Responsable d'agence}
+  \label{fig:dcu_responsable_agence}
+\end{figure}
+
+Le \textbf{Responsable d'agence} assume une fonction de supervision et de validation. Il intervient en aval du travail de l'agent pour arbitrer les dossiers, contrôler la conformité des décisions et garantir l'application homogène des règles métier à l'échelle de son agence.
+
+Ses cas d'utilisation portent sur la consultation consolidée des demandes, l'affectation ou réaffectation des dossiers, la validation finale, ainsi que le suivi de performance opérationnelle. Les associations relient cet acteur aux fonctions de pilotage et de contrôle qualité. Les liens \emph{include} matérialisent les traitements systématiques de traçabilité et de notification lors des validations. Les liens \emph{extend} représentent les branches conditionnelles, telles que le retour du dossier vers l'agent pour correction. Dans la réalité applicative, ce rôle correspond à un niveau de décision intermédiaire entre l'exécution opérationnelle et la gouvernance globale.
+
+\newpage
+\subsubsection{Diagramme de cas d'utilisation Responsable système}
+
+\begin{figure}[H]
+  \centering
+  \includesvg[width=0.95\textwidth,inkscapelatex=false]{Responsable_système}
+  \caption{Diagramme de cas d'utilisation Responsable système}
+  \label{fig:dcu_responsable_systeme}
+\end{figure}
+
+Le \textbf{Responsable système} est l'acteur technique chargé de la stabilité, de la sécurité et de la disponibilité de la plateforme. Son périmètre couvre la configuration des paramètres techniques, la supervision des services applicatifs et la gestion des incidents susceptibles d'affecter la continuité de service.
+
+Les cas d'utilisation associés concernent la surveillance du fonctionnement, la maintenance corrective, la gestion des configurations critiques et l'audit des événements techniques. Les relations \emph{include} apparaissent pour les contrôles obligatoires, tels que la journalisation des actions et la vérification d'intégrité. Les relations \emph{extend} décrivent les actions déclenchées uniquement en cas d'alerte ou de dégradation. Dans l'application, ce rôle se matérialise par des opérations d'administration technique visant à maintenir un environnement fiable pour l'ensemble des acteurs métier.
+
+\newpage
+\subsubsection{Diagramme de cas d'utilisation Système d'e-mails}
+
+\begin{figure}[H]
+  \centering
+  \includesvg[width=0.9\textwidth,inkscapelatex=false]{Système_emails}
+  \caption{Diagramme de cas d'utilisation Système d'e-mails}
+  \label{fig:dcu_systeme_emails}
+\end{figure}
+
+Le \textbf{Système d'e-mails} est un acteur externe non humain qui intervient comme service de notification. Il reçoit des événements émis par l'application et assure la diffusion des messages vers les destinataires concernés (client, agent, responsable), selon les règles de déclenchement définies par le processus métier.
+
+Les cas d'utilisation concernés incluent la génération du contenu de notification, l'envoi de messages transactionnels et le suivi de l'état d'expédition. Les associations relient ce système aux cas de soumission, de validation, de rejet et de demande de complément. Les relations \emph{include} traduisent les notifications obligatoires liées à certains changements d'état. Les relations \emph{extend} couvrent des notifications additionnelles, activées selon des contextes particuliers (rappels, relances, exceptions). En conditions réelles, cette intégration garantit la réactivité du traitement et améliore la transparence du service vis-à-vis des usagers.
+
+\newpage
+\section{Diagrammes de classes}
+
+\subsection{Diagramme de classes (vue domaine)}
+
+Le diagramme de classes constitue une représentation statique de la structure interne du système. Il décrit les entités métiers, leurs attributs essentiels, leurs opérations majeures et les relations qui les unissent (associations, agrégations, compositions et dépendances). Dans une démarche d'ingénierie logicielle, cette vue est déterminante pour assurer la cohérence entre le modèle conceptuel, l'implémentation applicative et le schéma relationnel de la base de données.
+
+Afin d'améliorer la lisibilité et de faciliter l'analyse, la vue globale du domaine a été décomposée en trois sous-diagrammes complémentaires (A, B et C), puis consolidée par un diagramme de synthèse. Cette approche modulaire permet de détailler chaque sous-ensemble fonctionnel sans surcharge visuelle, tout en conservant une vision d'ensemble des dépendances entre modules.
+
+\newpage
+\subsubsection{Diagramme de classes A : Accès et organisation}
+
+\begin{figure}[H]
+  \centering
+  \includesvg[width=0.9\textwidth,inkscapelatex=false]{Diagramme_de_classes_Partie_A_Acces_Organisation}
+  \caption{Diagramme de classes A -- Accès et organisation}
+  \label{fig:dclass_a}
+\end{figure}
+
+Ce diagramme regroupe les classes liées à la gestion des identités et de la structure organisationnelle, notamment \texttt{User}, \texttt{Role}, \texttt{Permission} et \texttt{Agency}. L'objectif principal est de modéliser les mécanismes d'authentification, d'autorisation et de rattachement des utilisateurs aux agences. Les associations explicitées dans cette vue traduisent les règles d'habilitation et la gouvernance des comptes au sein de la plateforme.
+
+Sur le plan fonctionnel, cette partie du modèle garantit que chaque action métier est exécutée dans un cadre de sécurité maîtrisé. En situation réelle, elle se matérialise par la gestion des profils, l'attribution des rôles et le contrôle des droits d'accès sur les fonctionnalités sensibles de l'application.
+
+\newpage
+\subsubsection{Diagramme de classes B : Catalogue des services}
+
+\begin{figure}[H]
+  \centering
+  \includesvg[width=0.8\textwidth,inkscapelatex=false]{Diagramme_de_classes_-_Partie_B_Catalogue_services}
+  \caption{Diagramme de classes B -- Catalogue des services}
+  \label{fig:dclass_b}
+\end{figure}
+
+Le diagramme B se concentre sur la structuration de l'offre de services, à travers les classes \texttt{Service} et \texttt{ServiceField}, en lien avec l'entité \texttt{Agency}. Il formalise les paramètres de publication, les délais de dépôt et la définition des champs dynamiques nécessaires à la collecte des informations métier.
+
+Cette modélisation joue un rôle central dans la flexibilité de la plateforme, car elle permet d'adapter chaque service à des exigences spécifiques sans modifier l'architecture globale. Dans l'application, ce sous-ensemble correspond aux fonctionnalités d'administration du catalogue et à la configuration des formulaires utilisés lors de la soumission des demandes.
+
+\newpage
+\subsubsection{Diagramme de classes C : Demandes et suivi}
+
+\begin{figure}[H]
+  \centering
+  \includesvg[width=1\textwidth,inkscapelatex=false]{Diagramme_de_classes_Partie_C_Demandes_Suivi}
+  \caption{Diagramme de classes C -- Demandes et suivi}
+  \label{fig:dclass_c}
+\end{figure}
+
+Le diagramme C couvre le cycle de vie complet des dossiers à travers les classes \texttt{Request}, \texttt{RequestFieldValue}, \texttt{RequestDocument}, \texttt{RequestHistory} et \texttt{RequestComment}. Les relations représentées traduisent la logique de persistance des informations saisies, la gestion des pièces jointes et la traçabilité des changements d'état.
+
+Fonctionnellement, cette vue modélise le coeur opérationnel du système, depuis la création d'une demande jusqu'à sa clôture. En exploitation réelle, elle garantit la continuité de traitement, l'auditabilité des décisions et la conservation d'un historique exploitable pour le contrôle interne et l'amélioration continue des processus.
+
+\newpage
+\subsubsection{Diagramme de synthèse : Relations entre A, B et C}
+
+\begin{figure}[H]
+  \centering
+  \includesvg[width=1\textwidth,inkscapelatex=false]{Vue_de_synthese_Relations_entre_les_diagrammes_A_B_C}
+  \caption{Diagramme de synthèse des relations entre les vues A, B et C}
+  \label{fig:dclass_synthese}
+\end{figure}
+
+Le diagramme de synthèse établit les dépendances transversales entre les trois sous-ensembles du modèle de classes. Il met en évidence la manière dont le module d'accès et d'organisation (A) encadre les acteurs, comment le catalogue des services (B) structure l'offre métier, et comment le module de demandes (C) orchestre l'exécution opérationnelle.
+
+Cette vue consolidée est essentielle pour vérifier la cohérence architecturale du domaine. Elle fournit une lecture intégrée du système, utile à la fois pour l'implémentation, la validation fonctionnelle et l'évolution future de la plateforme dans un cadre maîtrisé.
+
+\newpage
+\section{Diagrammes de séquences}
+
+\subsection{Diagramme de séquences}
+
+Le diagramme de séquences décrit la dimension dynamique du système en représentant l'enchaînement temporel des messages échangés entre les acteurs et les composants logiciels. Il complète les diagrammes de cas d'utilisation et de classes en montrant comment les opérations métier sont réellement orchestrées au moment de l'exécution. Cette vue permet d'identifier les responsabilités effectives des services applicatifs, les points de contrôle et les dépendances techniques critiques.
+
+Dans le cadre de ce projet, les scénarios de séquences ont été décomposés en sept diagrammes ciblés afin de préserver la lisibilité et de faciliter l'analyse de chaque flux fonctionnel. Cette approche met en évidence, pour chaque parcours, les interactions entre l'interface cliente, l'API Laravel, les services métier et les mécanismes transversaux tels que l'authentification, les notifications et la journalisation.
+
+\newpage
+\subsubsection{Diagramme de séquences DSv01 : CSRF Sanctum et connexion par cookie de session}
+
+\begin{figure}[H]
+  \centering
+  \includesvg[width=0.95\textwidth,inkscapelatex=false]{DSv01_CSRFSanctum+connexion_session_cookie}
+  \caption{DSv01 -- CSRF Sanctum et connexion par cookie de session}
+  \label{fig:dseq_dsv01}
+\end{figure}
+
+Ce scénario décrit le processus d'initialisation d'une session authentifiée dans une architecture SPA sécurisée par Sanctum. Le client récupère d'abord le cookie CSRF, soumet ensuite les identifiants d'authentification, puis reçoit un cookie de session utilisable pour les appels protégés. Les échanges mettent en évidence la logique de protection contre les requêtes intersites et la validation des informations de connexion.
+
+D'un point de vue applicatif, cette séquence constitue le prérequis d'accès aux opérations sensibles, notamment la consultation de données personnelles et les actions de traitement. Elle garantit que toute interaction métier ultérieure est réalisée dans un contexte de sécurité conforme aux exigences du système.
+
+\newpage
+\subsubsection{Diagramme de séquences DSv02 : Inscription client et connexion automatique}
+
+\begin{figure}[H]
+  \centering
+  \includesvg[width=0.95\textwidth,inkscapelatex=false]{DSv02_Inscription_client+connexion_automatique}
+  \caption{DSv02 -- Inscription client et connexion automatique}
+  \label{fig:dseq_dsv02}
+\end{figure}
+
+Ce diagramme illustre le parcours de création de compte client, depuis la saisie des informations d'identité jusqu'à l'activation de la session utilisateur. La séquence met en évidence les étapes de validation des données, de persistance du compte, puis d'authentification implicite à l'issue de l'inscription. Les messages échangés confirment la continuité entre création de profil et accès immédiat au portail.
+
+Sur le plan fonctionnel, ce flux améliore l'expérience utilisateur en réduisant la friction au premier accès, tout en conservant les contrôles de conformité requis par la logique métier. En exploitation réelle, il permet au client nouvellement inscrit d'initier directement sa première demande.
+
+\newpage
+\subsubsection{Diagramme de séquences DSv03 : Mot de passe oublié et réinitialisation}
+
+\begin{figure}[H]
+  \centering
+  \includesvg[width=0.95\textwidth,inkscapelatex=false]{DSv03_Mot_de_passe_oublie_code+reset}
+  \caption{DSv03 -- Mot de passe oublié et réinitialisation}
+  \label{fig:dseq_dsv03}
+\end{figure}
+
+Cette séquence formalise le mécanisme de récupération d'accès en cas d'oubli du mot de passe. Le système vérifie l'existence du compte, génère un code ou un jeton de réinitialisation, transmet l'information au canal de notification puis valide la demande de changement de mot de passe. Les interactions représentées soulignent les contrôles de sécurité appliqués à chaque étape.
+
+
+\newpage
+\subsubsection{Diagramme de séquences DSv04 : Soumission d'une demande par le client}
+
+\begin{figure}[H]
+  \centering
+  \includesvg[width=0.95\textwidth,inkscapelatex=false]{DSv04_Client_soumettre_une_demande}
+  \caption{DSv04 -- Soumission d'une demande par le client}
+  \label{fig:dseq_dsv04}
+\end{figure}
+
+Le diagramme DSv04 présente le scénario central de dépôt d'une demande de service. Le client renseigne les champs dynamiques, joint les documents requis et soumet le dossier ; l'API exécute ensuite les validations métier, persiste les données et positionne l'état initial du traitement. Les messages montrent également les points de contrôle sur la complétude et la cohérence des informations transmises.
+
+Dans l'application, ce flux matérialise la transition entre une intention utilisateur et un dossier exploitable par les équipes internes. Il constitue la base opérationnelle du système, puisque les processus de revue, d'affectation et de décision en dépendent directement.
+
+\newpage
+\subsubsection{Diagramme de séquences DSv05 : Demande publiée sans compte}
+
+\begin{figure}[H]
+  \centering
+  \includesvg[width=0.61\textwidth,inkscapelatex=false]{DSv05_Demande_publique_sans_compte}
+  \caption{DSv05 -- Demande publique sans compte}
+  \label{fig:dseq_dsv05}
+\end{figure}
+
+Ce scénario décrit le traitement d'une demande soumise via un formulaire public, sans authentification préalable. La séquence met en évidence les contrôles spécifiques liés à ce mode d'accès, notamment la validation renforcée des informations d'identification, la vérification des pièces jointes et la création d'une trace exploitable pour le suivi.
+
+Ce flux répond à un besoin d'accessibilité du service en permettant une première interaction à des usagers non encore inscrits. En contexte réel, il facilite la prise de contact initiale tout en maintenant un niveau de contrôle suffisant pour éviter les soumissions incohérentes ou malveillantes.
+
+\newpage
+\subsubsection{Diagramme de séquences DSv06 : Consultation, affectation et décision (Admin/Agent)}
+
+\begin{figure}[H]
+  \centering
+  \includesvg[width=0.7\textwidth,inkscapelatex=false]{DSv06_Admin_agent_consultation_assignation_decision}
+  \caption{DSv06 -- Consultation, affectation et décision par l'administration}
+  \label{fig:dseq_dsv06}
+\end{figure}
+
+Le diagramme DSv06 explicite le traitement interne d'un dossier par les profils administratifs et opérationnels. 
+Il couvre la consultation des demandes, l'affectation à un agent compétent, l'évaluation du contenu puis la prise de décision (validation, rejet ou demande de complément). 
+Les échanges représentés montrent le rôle des règles de transition d'état et de la journalisation. 
+Sur le plan fonctionnel, cette séquence traduit la gouvernance du cycle de traitement au sein de l'organisme.
+
+
+\newpage
+\subsubsection{Diagramme de séquences DSv07 : Envoi d'un e-mail au client}
+
+\begin{figure}[H]
+  \centering
+  \includesvg[width=0.95\textwidth,inkscapelatex=false]{DSv07_system_envoyer_un_e-mail_au_client}
+  \caption{DSv07 -- Envoi d'un e-mail au client}
+  \label{fig:dseq_dsv07}
+\end{figure}
+
+Ce scénario présente l'enchaînement des interactions conduisant à l'envoi d'une notification e-mail au client après un événement métier significatif. Le service de notification reçoit le contexte de l'action, génère le contenu du message, appelle le canal de messagerie et enregistre le résultat de l'opération. La séquence met en évidence la séparation entre logique métier et mécanisme de communication.
+
+En exploitation, ce flux améliore la transparence du service en informant l'usager des changements d'état de son dossier. Il contribue également à la qualité de service en réduisant les délais d'information et en renforçant la réactivité globale de la plateforme.
+
+\newpage
+\section{Diagrammes de composants}
+
+\subsection{Diagramme de composants}
+
+Le diagramme de composants décrit l'organisation physique et logique des modules logiciels du système ainsi que leurs interfaces d'interaction. Il complète les vues fonctionnelles et structurelles en précisant comment les briques applicatives sont assemblées, quels protocoles les relient et quelles dépendances existent vis-à-vis de services externes. Cette représentation UML est particulièrement utile pour aligner l'architecture implémentée avec les contraintes d'exploitabilité, de sécurité et d'intégration.
+
+Pour la plateforme E-Services, la décomposition met en avant une architecture client-serveur classique : une application monopage côté navigateur, un point d'entrée de type reverse proxy, une API métier et des composants de persistance. Les flux HTTPS, les échanges JSON ou \texttt{FormData}, ainsi que l'authentification stateful Sanctum avec protection CSRF, sont explicités comme connecteurs entre composants.
+
+\newpage
+\subsubsection{Diagramme de composants de la plateforme E-Services}
+
+\begin{figure}[H]
+  \centering
+  \includesvg[width=0.65\textwidth,inkscapelatex=false]{Diagramme_de_composants}
+  \caption{Diagramme de composants de la plateforme E-Services}
+  \label{fig:dcomp_plateforme}
+\end{figure}
+
+Le composant \textbf{API Laravel} est structuré en couches : exposition des routes web et API, garde-fous d'authentification Sanctum stateful et contrôle d'accès par rôles, contrôleurs HTTP segmentés par profils (administration, client, personnel, accès public), puis services applicatifs pour la logique métier et les notifications. Les connecteurs vers le \textbf{SGBD} (PostgreSQL, MySQL ou SQLite selon l'environnement) passent par Eloquent et PDO ; le \textbf{stockage fichier} sur disque (\texttt{storage/app}) supporte les pièces jointes. Enfin, le backend s'interface avec une \textbf{messagerie SMTP} externe via les classes \texttt{Mailable} de Laravel, paramétrée par variables d'environnement.
+
+En situation réelle, cette architecture permet de séparer clairement la présentation, l'API et la persistance, tout en documentant les dépendances transversales (sécurité, fichiers, courriel). Elle sert de référence pour le déploiement, la supervision et l'évolution contrôlée des composants.
+
+\vspace{0.5cm}
+
+\newpage
+\section{Diagrammes de déploiement}
+
+\subsection{Diagramme de déploiement}
+
+Le diagramme de déploiement modélise l'allocation des artefacts logiciels sur les nœuds d'exécution et les canaux de communication entre eux. Il répond à la question \emph{où} et \emph{comment} les composants sont installés, exécutés et reliés dans un environnement donné (développement, conteneurisation Docker ou production cloud ou sur site). Cette vue est indispensable pour valider la continuité de service, la persistance des données et la sécurité des accès réseau.
+
+La présente modélisation couvre à la fois un déploiement conteneurisé sur machine hôte ou machine virtuelle et les variantes de développement local, afin de rendre explicites les écarts de configuration sans perdre la cohérence conceptuelle du système.
+
+\newpage
+\subsubsection{Diagramme de déploiement de la plateforme E-Services}
+
+\begin{figure}[H]
+  \centering
+  \includesvg[width=0.95\textwidth,inkscapelatex=false]{Diagramme_de_deploiement}
+  \caption{Diagramme de déploiement de la plateforme E-Services}
+  \label{fig:ddepl_plateforme}
+\end{figure}
+
+Le nœud \textbf{machine hôte ou VM} héberge des \textbf{conteneurs Docker} interconnectés par un réseau interne de type bridge. Le conteneur \texttt{e-services-web} regroupe le build React servi par Nginx, expose les ports HTTP/HTTPS et relaie les requêtes \texttt{/api} vers le conteneur \texttt{e-services-api} (Laravel avec PHP-FPM ou équivalent). Ce dernier accède au \textbf{SGBD PostgreSQL} (conteneur ou service managé) via SQL et PDO, et envoie les courriels transactionnels vers une \textbf{messagerie SMTP} externe en TLS.
+
+Deux volumes persistants sont associés à l'hôte : l'un pour les données PostgreSQL, l'autre pour le répertoire de fichiers applicatifs (\texttt{storage/app}, pièces jointes), montés dans les conteneurs afin d'assurer la survie des données hors cycle de vie des processus. Le navigateur établit une session sécurisée en HTTPS (cookies SameSite) vers la couche web et peut également contacter \textbf{EmailJS} en HTTPS pour des scénarios côté client. Les notes du diagramme rappellent que la production privilégie typiquement trois services conteneurisés (web, API, base) avec secrets injectés par \texttt{.env} ou mécanismes Docker, tandis que le développement peut s'appuyer sur Vite, \texttt{php artisan serve} et une base locale, avec stockage sur disque du poste de travail.
+
+Cette représentation facilite la discussion avec les équipes d'infrastructure sur les ports exposés, les sauvegardes des volumes et la séparation des responsabilités entre le reverse proxy, l'API et la base de données.
+
+\vspace{0.5cm}
+
+\newpage
+\section{Architecture technique}
+
+\subsection{Vue en couches}
+
+La couche \textbf{présentation} correspond au frontend React, responsable de l'ergonomie, de la validation légère, et de l'appel des API via Axios (intercepteurs d'erreurs). La couche \textbf{API} correspond aux contrôleurs Laravel, aux Form Requests et aux réponses JSON. La couche \textbf{métier} regroupe les services applicatifs, les modèles Eloquent et les événements nécessaires. La couche \textbf{persistence} correspond aux migrations, aux accès SQL via Eloquent et au stockage fichier géré par le framework.
+
+\subsection{Patterns appliqués}
+
+On retrouve le pattern \textbf{Active Record} via Eloquent, des classes \textbf{Service} applicatives pour isoler la logique de notification, et des \textbf{Policies} Laravel lorsque nécessaire pour centraliser l'autorisation sur les modèles. Le graphe de transitions est codifié dans le modèle \texttt{Request} (\texttt{STATUS\_TRANSITIONS}).
+
+\subsection{Sécurité architecturale}
+
+Laravel applique le middleware \texttt{auth:sanctum}, la vérification CSRF pour les routes stateful, et le middleware personnalisé de rôles/permissions sur les routes sensibles. Les mots de passe sont hachés via \texttt{bcrypt}. Les secrets (\texttt{APP\_KEY}, paramètres mail, clés EmailJS) sont injectés par variables d'environnement.
+
+\section{Base de données}
+
+\subsection{Principes de modélisation}
+
+Le modèle relationnel privilégie la normalisation pour les entités structurantes (utilisateurs, agences, services, champs, demandes, valeurs). Les clés primaires numériques auto-incrémentées simplifient les relations Laravel ; les dates sont stockées en UTC côté base.
+
+\newpage
+
+\renewcommand{\arraystretch}{1.3}
+
+\subsection{Dictionnaire de données (extrait)}
+
+\small
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{4.8cm}
+                  >{\raggedright\arraybackslash}p{7.0cm}@{}}
+
+
+\caption{Dictionnaire de données (extrait).} \label{tab:dictionnaire} \\
+
+\toprule
+\textbf{Champ} & \textbf{Description / contraintes} \\
+\midrule
+\endfirsthead
+
+\multicolumn{2}{c}{\tablename\ \thetable{} -- suite} \\
+\toprule
+\textbf{Champ} & \textbf{Description / contraintes} \\
+\midrule
+\endhead
+
+\midrule
+\multicolumn{2}{r}{\textit{Suite page suivante\ldots}} \\
+\endfoot
+
+\bottomrule
+\endlastfoot
+
+\texttt{users.email} & VARCHAR --- Unique, validé à l'inscription et lors des mises à jour. \\
+
+\texttt{roles / role\_user} & BIGINT --- Table des rôles avec table pivot utilisateur-rôle (plusieurs rôles possibles). \\
+
+\texttt{requests.reference} & VARCHAR --- Référence lisible \texttt{ADD-AAAA-NNNNNN}, unique. \\
+
+{\scriptsize\texttt{requests.current\_status}} & ENUM --- Valeurs possibles : \texttt{DRAFT}, \texttt{SUBMITTED}, \texttt{IN\_REVIEW}, \texttt{NEEDS\_INFO}, \texttt{APPROVED}, \texttt{REJECTED}, \texttt{CLOSED}. \\
+
+\texttt{services.published\_at} & TIMESTAMP --- Date à partir de laquelle le service devient visible côté portail. \\
+
+\texttt{services.request\allowbreak\_deadline\allowbreak\_at} & TIMESTAMP --- Date limite de dépôt des nouvelles demandes. \\
+
+\texttt{service\_fields.type} & VARCHAR --- Types dynamiques (texte, nombre, e-mail, fichier, etc.). \\
+
+\texttt{request\_documents.path} & VARCHAR --- Chemin de stockage contrôlé par l'API. \\
+
+\end{longtable}
+
+\subsection{Schéma relationnel narratif}
+
+La table \texttt{agencies} est référencée par \texttt{users.agency\_id} et \texttt{services.agency\_id}. La table \texttt{services} agrège les \texttt{service\_fields}. Chaque \texttt{requests} référence un service et un client (\texttt{user\_id}), avec option d'affectation (\texttt{assigned\_to}). Les tables \texttt{request\_field\_values}, \texttt{request\_documents}, \texttt{request\_histories} et \texttt{request\_comments} référencent la demande parente avec politiques de suppression cohérentes avec Laravel (\texttt{onDelete cascade} sur les migrations critiques).
+
+\subsection{Index et performances}
+
+Des index BTREE sont recommandés sur les colonnes de filtrage fréquent. Pour des recherches textuelles avancées, une extension future pourrait introduire \texttt{tsvector}, hors périmètre MVP.
+
+\section{Gestion des fichiers}
+
+Les fichiers sont stockés hors base, sur système de fichiers contrôlé par conteneur via volume. La base conserve métadonnées et chemin relatif. Un service de nettoyage peut supprimer les fichiers orphelins lors du passage en erreur ; cette tâche est documentée comme amélioration \cite{kleppmann2017,dockerdoc}.
+
+\section{Qualité de la conception et revue}
+
+La qualité de la conception se juge par cohérence interne, respect des invariants, et capacité à supporter des tests de non-régression \cite{ieee1012,sommerville2016}. Les revues informelles au sein de \#ADD ont permis d'identifier tôt certaines ambiguïtés sur les transitions d'état et sur la séparation des responsabilités entre contrôleur et service \cite{pressman2014}.
+
+\section{Conclusion du chapitre}
+
+La conception a présenté les vues UML sous forme descriptive, une architecture en couches alignée sur Laravel/React, et un modèle de données relationnel argumenté \cite{date2003,booch2005}. Le chapitre suivant détaille l'implémentation réelle et illustre le code par des extraits représentatifs \cite{laraveldoc,reactdoc,postgresdoc}.

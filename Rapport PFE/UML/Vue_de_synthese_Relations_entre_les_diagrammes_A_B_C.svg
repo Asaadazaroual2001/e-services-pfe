@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentStyleType="text/css" height="314px" preserveAspectRatio="none" style="width:1201px;height:314px;background:#FFFFFF;" version="1.1" viewBox="0 0 1201 314" width="1201px" zoomAndPan="magnify"><defs/><g><rect fill="none" height="26.2969" id="_title" style="stroke:none;stroke-width:1.0;" width="482" x="352.5" y="5"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="472" x="357.5" y="22.9951">Vue de synthèse - Relations entre les diagrammes A, B et C</text><!--MD5=[770389ab9df153645bc6ef28055eb2b5]
+entity A--><g id="elem_A"><rect fill="#EAF3FF" height="68.8906" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="244" x="7" y="162.2969"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="142" x="58" y="185.292">Diagramme Plan A</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="149" x="54.5" y="201.5889">Accès &amp; Organisation</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="224" x="17" y="217.8857">(User, Role, Permission, Agency)</text></g><!--MD5=[b2d39259b6aeabc16b394deeb0238426]
+entity B--><g id="elem_B"><rect fill="#EEFBEA" height="68.8906" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="181" x="430" y="44.2969"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="141" x="450" y="67.292">Diagramme Plan B</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="161" x="440" y="83.5889">Catalogue des services</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="150" x="445.5" y="99.8857">(Service, ServiceField)</text></g><!--MD5=[16fab723be418f7eaf2ea4bd895a8e51]
+entity C--><g id="elem_C"><rect fill="#FFF4E8" height="68.8906" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="365" x="830" y="162.2969"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="142" x="941.5" y="185.292">Diagramme Plan C</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="127" x="949" y="201.5889">Demandes &amp; Suivi</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="345" x="840" y="217.8857">(Request, Documents, Historique, Commentaires)</text></g><g id="elem_GMN107"><path d="M38.5,266.7969 L38.5,307.0625 A0,0 0 0 0 38.5,307.0625 L219.5,307.0625 A0,0 0 0 0 219.5,307.0625 L219.5,276.7969 L209.5,266.7969 L133,266.7969 L129,231.5069 L125,266.7969 L38.5,266.7969 A0,0 0 0 0 38.5,266.7969 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><path d="M209.5,266.7969 L209.5,276.7969 L219.5,276.7969 L209.5,266.7969 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="144" x="52.5" y="283.8638">Gère les acteurs, rôles</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="160" x="44.5" y="298.9966">et rattachement agence.</text></g><g id="elem_GMN110"><path d="M422,148.7969 L422,189.0625 A0,0 0 0 0 422,189.0625 L619,189.0625 A0,0 0 0 0 619,189.0625 L619,158.7969 L609,148.7969 L524.5,148.7969 L520.5,113.5069 L516.5,148.7969 L422,148.7969 A0,0 0 0 0 422,148.7969 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><path d="M609,148.7969 L609,158.7969 L619,158.7969 L609,148.7969 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="149" x="441.5" y="165.8638">Définit l'offre de service</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="176" x="428" y="180.9966">et les champs dynamiques.</text></g><g id="elem_GMN113"><path d="M924,266.7969 L924,307.0625 A0,0 0 0 0 924,307.0625 L1101,307.0625 A0,0 0 0 0 1101,307.0625 L1101,276.7969 L1091,266.7969 L1016.5,266.7969 L1012.5,231.5069 L1008.5,266.7969 L924,266.7969 A0,0 0 0 0 924,266.7969 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><path d="M1091,266.7969 L1091,276.7969 L1101,276.7969 L1091,266.7969 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="144" x="936" y="283.8638">Exécute le cycle de vie</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="156" x="930" y="298.9966">complet de la demande.</text></g><!--MD5=[5e2eec62a50b26b6b0db6c12e4ee289c]
+link A to B--><g id="link_A_B"><path d="M243.97,162.2669 C301.5,144.8369 370.47,123.9469 425.01,107.4269 " fill="none" id="A-to-B" style="stroke:#4A4A4A;stroke-width:1.3;"/><polygon fill="#4A4A4A" points="429.91,105.9369,420.1385,104.7051,425.1228,107.3802,422.4477,112.3645,429.91,105.9369" style="stroke:#4A4A4A;stroke-width:1.3;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="109" x="282" y="101.8638">Agency structure</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="74" x="299.5" y="116.9966">les services</text></g><!--MD5=[e1650921a81fac0037ec207a42ac4e7e]
+link A to C--><g id="link_A_C"><path d="M251.05,218.1669 C303.43,226.3769 365.55,234.7569 422,238.7969 C556.75,248.4369 708.83,237.0469 824.77,223.7169 " fill="none" id="A-to-C" style="stroke:#4A4A4A;stroke-width:1.3;"/><polygon fill="#4A4A4A" points="829.92,223.1169,820.5221,220.1708,824.9527,223.6878,821.4356,228.1184,829.92,223.1169" style="stroke:#4A4A4A;stroke-width:1.3;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="117" x="462" y="219.8638">User initie/assigne</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="87" x="477" y="234.9966">et commente</text></g><!--MD5=[cd25d8247324207f828a4db9f58ed69d]
+link B to C--><g id="link_B_C"><path d="M611.09,100.3669 C681.49,117.3269 781.05,141.2969 863.28,161.1069 " fill="none" id="B-to-C" style="stroke:#4A4A4A;stroke-width:1.3;"/><polygon fill="#4A4A4A" points="868.17,162.2769,860.3587,156.2783,863.3094,161.1046,858.483,164.0553,868.17,162.2769" style="stroke:#4A4A4A;stroke-width:1.3;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="117" x="666" y="91.8638">Service + champs</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="149" x="650" y="106.9966">alimentent la demande</text></g><!--MD5=[db0c22f783c24f38931aea7be08395c9]
+@startuml
+title Vue de synthèse - Relations entre les diagrammes A, B et C
+left to right direction
+skinparam shadowing false
+skinparam packageStyle rectangle
+skinparam defaultTextAlignment center
+skinparam ArrowColor #4A4A4A
+skinparam ArrowThickness 1.3
+skinparam package {
+  BackgroundColor #F8F9FA
+  BorderColor #7A7A7A
+  FontStyle bold
+}
+
+rectangle "<b>Diagramme Plan A</b>\nAccès & Organisation\n(User, Role, Permission, Agency)" as A #EAF3FF
+rectangle "<b>Diagramme Plan B</b>\nCatalogue des services\n(Service, ServiceField)" as B #EEFBEA
+rectangle "<b>Diagramme Plan C</b>\nDemandes & Suivi\n(Request, Documents, Historique, Commentaires)" as C #FFF4E8
+
+A - -> B : Agency structure\nles services
+A - -> C : User initie/assigne\net commente
+B - -> C : Service + champs\nalimentent la demande
+
+note bottom of A
+Gère les acteurs, rôles
+et rattachement agence.
+end note
+
+note bottom of B
+Définit l'offre de service
+et les champs dynamiques.
+end note
+
+note bottom of C
+Exécute le cycle de vie
+complet de la demande.
+end note
+@enduml
+
+PlantUML version 1.2022.7(Mon Aug 22 17:01:30 UTC 2022)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Default Encoding: UTF-8
+Language: en
+Country: null
+--></g></svg>

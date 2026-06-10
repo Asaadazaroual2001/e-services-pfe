@@ -1,0 +1,84 @@
+\chapter{Déploiement}
+\label{chap:deploiement}
+
+\section{Introduction}
+
+Ce chapitre décrit la stratégie de déploiement retenue pour démontrer la solution de bout en bout, en cohérence avec les pratiques d'industrialisation légère observées en agence \cite{dockerdoc,twelvefactor}. L'accent est mis sur la reproductibilité, la configuration externalisée, et la séparation des environnements \cite{bass2021,sommerville2016}.
+
+\section{Objectifs opérationnels}
+
+Le déploiement vise la reproductibilité : un nouvel intervenant doit pouvoir reconstruire l'environnement à partir du dépôt, des scripts, et d'un fichier d'exemple de variables \cite{twelvefactor}. L'objectif n'est pas une haute disponibilité industrielle complète, mais une chaîne claire : build, exécution conteneurisée, configuration externalisée, persistance des données, et procédures de mise à jour \cite{dockerdoc}.
+
+\section{Environnements}
+
+\subsection{Développement}
+
+En développement, le backend peut s'exécuter localement avec une base Docker ou locale. Le frontend utilise un serveur de développement avec proxy vers l'API pour éviter les problèmes CORS.
+
+\subsection{Recette / démonstration}
+
+L'environnement de démonstration repose sur Docker Compose avec volumes nommés pour PostgreSQL et pour le stockage des pièces jointes. Les secrets sont injectés via variables d'environnement et ne sont pas commités.
+
+\section{Build et artefacts}
+
+Le backend Laravel est déployé via \texttt{composer install --optimize-autoloader --no-dev} puis \texttt{php artisan config:cache} sur l'environnement cible. Le frontend React est compilé par \texttt{npm run build} (Vite) et les fichiers statiques sont servis par Nginx ou directement par le CDN interne de l'hébergeur. Les tags d'image recommandent l'immuabilité : \texttt{e-services-api:2026-04-19} plutôt que \texttt{latest} pour les démonstrations sérieuses.
+
+\section{Configuration et secrets}
+
+Les paramètres sensibles incluent \texttt{APP\_KEY}, les identifiants PostgreSQL (\texttt{DB\_*}), les pilotes mail (\texttt{MAIL\_*}), les clés EmailJS lorsque ce connecteur est activé, et l'URL du frontend (\texttt{FRONTEND\_URL}) utilisée par Laravel pour les redirections web. La configuration non sensible (tailles max fichiers, URLs de services) réside dans \texttt{.env} et les fichiers \texttt{config/*.php}, conformément aux pratiques Twelve-Factor \cite{laraveldoc,twelvefactor}.
+
+\begin{lstlisting}[caption={Exemple de paramètres externalisables (fichier \texttt{.env}, illustration).}, label={lst:env-example}]
+APP_KEY=base64:...
+DB_CONNECTION=pgsql
+DB_HOST=127.0.0.1
+DB_DATABASE=eservices
+MAIL_MAILER=log
+FRONTEND_URL=http://localhost:5174
+SANCTUM_STATEFUL_DOMAINS=localhost:5174
+SESSION_DOMAIN=localhost
+\end{lstlisting}
+
+\section{Réseau et exposition}
+
+Le reverse proxy termine TLS lorsque des certificats sont disponibles. En local, on peut accepter HTTP strictement sur boucle locale. La surface d'exposition doit être minimale : seuls les ports nécessaires sont publiés.
+
+\section{Sauvegarde et restauration}
+
+La sauvegarde MVP recommande un dump SQL planifié et une copie du volume fichiers. La restauration doit être testée au moins une fois pour valider la procédure.
+
+\section{Supervision minimale}
+
+La supervision inclut la santé du conteneur API (endpoint \texttt{/actuator/health} si activé avec prudence), les logs agrégés, et l'espace disque du volume pièces jointes.
+
+\section{Mise à jour et migrations}
+
+Les mises à jour appliquent d'abord \texttt{php artisan migrate --force} sur l'instance cible, puis basculent le trafic vers la nouvelle version \cite{kleppmann2017,postgresdoc}. Pour un MVP mono-instance, la bascule est simplifiée mais la séquence reste documentée pour anticiper une montée en charge future \cite{newman2021}.
+
+\section{CI/CD et automatisation (perspective industrielle)}
+
+Même si le MVP ne met pas en œuvre une chaîne CI/CD complète, le dépôt est structuré pour accueillir build, tests et publication d'images \cite{sommerville2016}. Cette perspective est alignée avec les recommandations de séparation des configurations et d'automatisation des déploiements \cite{twelvefactor,dockerdoc}.
+
+\section{Sécurité opérationnelle}
+
+La sécurité opérationnelle inclut la gestion des secrets, la limitation des ports exposés, et la journalisation des déploiements \cite{owasp2021}. Les certificats TLS doivent être renouvelés selon une procédure documentée lorsque l'environnement est exposé sur Internet \cite{rfc7231}.
+
+\begin{table}[htbp]
+  \centering
+  \caption{Check-list de déploiement (extraits).}
+  \label{tab:checklist}
+  \begin{tabular}{cp{12cm}}
+    \toprule
+    \textbf{OK} & \textbf{Contrôle} \\
+    \midrule
+    $\square$ & Variables d'environnement présentes et cohérentes. \\
+    $\square$ & Migrations appliquées sans erreur. \\
+    $\square$ & Volume fichiers accessible en écriture par l'API. \\
+    $\square$ & HTTPS configuré ou périmètre réseau restreint. \\
+    $\square$ & Sauvegarde DB testée récemment. \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\section{Conclusion du chapitre}
+
+Le déploiement conteneurisé avec configuration externalisée offre une voie pragmatique pour démontrer le système de bout en bout tout en préparant une industrialisation future (CI/CD complet, secrets manager, observabilité avancée) \cite{bass2021,dockerdoc}. Le chapitre suivant synthétise les apports et propose des perspectives \cite{kleppmann2017,newman2021}.

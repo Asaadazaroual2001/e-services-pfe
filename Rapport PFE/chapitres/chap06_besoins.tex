@@ -1,0 +1,111 @@
+\chapter{Analyse des besoins}
+\label{chap:besoins}
+
+\section{Introduction méthodologique}
+
+L'analyse des besoins traduit le cahier des charges en exigences détaillées, traçables et testables \cite{sommerville2016,ieee1012}. Elle distingue explicitement besoins fonctionnels et besoins non fonctionnels, relie chaque besoin à des acteurs, des préconditions, des scénarios nominaux et des scénarios d'exception \cite{pressman2014}. Cette discipline réduit les écarts entre attentes et réalisation et fournit une grille de lecture pour la validation \cite{iso25010}.
+
+\section{Acteurs, périmètre fonctionnel et invariants}
+
+\subsection{Acteurs principaux}
+
+Les acteurs principaux sont le \textbf{client} (portail usager ou invité sur formulaire public), l'\textbf{agent} et le \textbf{responsable d'agence} (instruction et paramétrage partiel des services), l'\textbf{administrateur} (référentiels globaux, agences, comptes), ainsi que les profils \textbf{directeur} / \textbf{réception} (portail employé) \cite{booch2005}. Les autorisations sont disjointes et appliquées par middlewares Laravel \cite{owasp2021}.
+
+\subsection{Invariants transverses}
+
+Des invariants transverses guident la modélisation : toute action sensible doit être journalisée ; toute transition d'état doit être historisée ; toute donnée exposée hors API doit être justifiée \cite{kleppmann2017,iso25010}.
+
+\newpage
+\section{Besoins fonctionnels détaillés}
+
+\subsection{Authentification et gestion de session applicative}
+
+Le besoin \textbf{BF-AUTH-01} exige l'enregistrement avec identifiant unique (email), CIN et mot de passe conforme à une politique minimale \cite{owasp2021}. Le besoin \textbf{BF-AUTH-02} exige l'authentification via \textbf{Laravel Sanctum} (cookie de session + jeton CSRF synchronisé) \cite{sanctumdoc}. Le besoin \textbf{BF-AUTH-03} exige une déconnexion invalidant la session côté serveur. Le besoin \textbf{BF-AUTH-04} impose le refus des accès non autorisés avec codes HTTP cohérents \cite{rfc7231}.
+
+\subsection{Gestion des services et du catalogue}
+
+Le besoin \textbf{BF-SRV-01} impose la consultation du catalogue public et du portail client pour les services ouverts. Le besoin \textbf{BF-SRV-02} impose des métadonnées riches (nom, description, critères, documents requis, durée estimée) et un rattachement à une \textbf{agence}. Le besoin \textbf{BF-SRV-03} impose la définition d'un \textbf{formulaire dynamique} (types de champs, ordre, obligation, prévisualisation). Le besoin \textbf{BF-SRV-04} impose des dates optionnelles de \textbf{publication} et de \textbf{clôture des dépôts}. Le besoin \textbf{BF-SRV-05} impose l'activation/désactivation et la cohérence : service fermé interdit les nouvelles demandes \cite{sommerville2016}.
+
+\subsection{Cycle de vie d'une demande}
+
+Le besoin \textbf{BF-DEM-01} impose la création d'un brouillon lié à un service ouvert (compte client ou parcours public avec jeton). Le besoin \textbf{BF-DEM-02} impose le téléversement contrôlé. Le besoin \textbf{BF-DEM-03} impose la soumission définitive et le verrouillage structurel des éléments critiques. Le besoin \textbf{BF-DEM-04} impose l'historique horodaté et les actions agent (prise en charge, demande d'informations, approbation/rejet). Le besoin \textbf{BF-DEM-05} impose des transitions conformes au graphe implémenté (\texttt{Request::STATUS\_TRANSITIONS}) \cite{date2003}.
+
+\subsection{Agences, employés et annuaire}
+
+Le besoin \textbf{BF-ORG-01} impose la gestion CRUD des agences pour l'administrateur. Le besoin \textbf{BF-ORG-02} impose la gestion des comptes employés (rôles, rattachement d'agence). Le besoin \textbf{BF-ORG-03} impose un annuaire consolidant clients inscrits et contacts issus des demandes publiques.
+
+\subsection{Notifications et courriels}
+
+Le besoin \textbf{BF-NOT-01} impose l'envoi d'e-mails lors des changements d'état ou de la publication de services (templates Laravel + connecteur EmailJS selon configuration). Le besoin \textbf{BF-NOT-02} impose le préremplissage des destinataires à partir du profil ou des champs de formulaire de type e-mail \cite{pressman2014}.
+
+\section{Règles métier représentatives}
+
+Les règles métier complètent les besoins par des invariants :
+
+\begin{itemize}[leftmargin=*]
+  \item \textbf{RM-01} : une demande soumise possède au moins une transition enregistrée.
+  \item \textbf{RM-02} : un commentaire interne n'est visible qu'aux rôles \texttt{agent}, \texttt{responsable}, \texttt{director} et \texttt{admin} (middlewares d'API).
+  \item \textbf{RM-03} : la taille cumulée des pièces jointes respecte un plafond configurable.
+  \item \textbf{RM-04} : les identifiants publics privilégient des références non énumérables simples \cite{owasp2021}.
+\end{itemize}
+
+\section{Besoins non fonctionnels détaillés}
+
+\subsection{Performance et scalabilité}
+
+\textbf{BNF-PERF-01} : pagination bornée ; \textbf{BNF-PERF-02} : indexation des filtres fréquents \cite{postgresdoc,kleppmann2017}.
+
+\subsection{Sécurité}
+
+\textbf{BNF-SEC-01} : hachage robuste ; \textbf{BNF-SEC-02} : RBAC côté serveur ; \textbf{BNF-SEC-03} : en-têtes de sécurité lorsque TLS terminé ; \textbf{BNF-SEC-04} : validation MIME côté serveur \cite{owasp2021,laraveldoc}.
+
+\subsection{Fiabilité et maintenabilité}
+
+\textbf{BNF-FIA-01} : transactions sur opérations multi-tables critiques ; \textbf{BNF-MAIN-01} : conventions et migrations versionnées \cite{sommerville2016,kleppmann2017}.
+
+\newpage
+\section{Cas d'utilisation (description textuelle)}
+
+\subsection{CU-01 : Créer et soumettre une demande}
+
+\textbf{Acteur :} usager authentifié. \textbf{Préconditions :} service actif, quotas respectés. \textbf{Nominal :} création brouillon, pièces, soumission, historique, notifications. \textbf{Exceptions :} fichier trop volumineux, service désactivé, jeton expiré \cite{booch2005}.
+
+\subsection{CU-02 : Instruire un dossier}
+
+\textbf{Acteur :} agent. \textbf{Préconditions :} permissions. \textbf{Nominal :} consultation, commentaire, transition autorisée. \textbf{Exceptions :} transition interdite \cite{ieee1012}.
+
+\section{Exigences de données et cardinalités}
+
+Les entités \texttt{Utilisateur}, \texttt{Service}, \texttt{Demande}, \texttt{PieceJointe}, \texttt{HistoriqueEtat}, \texttt{Notification}, \texttt{Commentaire} structurent le modèle. Les cardinalités typiques sont : un usager possède plusieurs demandes ; une demande référence un service ; une demande agrège pièces et historiques \cite{date2003}.
+
+\section{Matrice de traçabilité (extrait)}
+
+\begin{table}[htbp]
+  \centering
+  \renewcommand{\arraystretch}{1.4}
+  \setlength{\tabcolsep}{10pt}
+  \caption{Traçabilité besoins $\rightarrow$ conception $\rightarrow$ tests.}
+  \label{tab:trace}
+  \begin{tabular}{|p{2.6cm}|p{5.4cm}|p{5.4cm}|}
+    \hline
+    \textbf{Besoin} & \textbf{Conception} & \textbf{Tests} \\
+    \hline
+    BF-AUTH-01 & DTO + contraintes DB & Tests API register \\
+    \hline
+    BF-DEM-03 & Service transactionnel & Tests transitions \\
+    \hline
+    BNF-SEC-02 & Middleware Laravel rôles/permissions & Tests rôles \\
+    \hline
+  \end{tabular}
+\end{table}
+
+\paragraph{Commentaire.}
+Le tableau~\ref{tab:trace} illustre la \emph{chaîne de traçabilité} recherchée entre les identifiants de besoins (fonctionnels ou non fonctionnels), les artefacts de conception qui les matérialisent, et les activités de test permettant de prouver leur satisfaction \cite{ieee1012,sommerville2016}. Les exemples retenus couvrent trois dimensions complémentaires : validation des données et persistance (authentification), cohérence transactionnelle et règles métier (demande), et contrôle d'accès (sécurité). Cette matrice peut être enrichie dans un outil de gestion de besoins ou dans le dépôt (tableau complémentaire, tickets) sans changer la logique exposée ici ; elle prépare directement le lecteur au chapitre de conception puis au chapitre de tests et validation.
+
+\section{Priorisation et critères de complétude}
+
+La priorisation suit l'utilité métier : authentification et dossiers avant enrichissements UX. Un besoin est considéré complet lorsqu'il possède critères d'acceptation et cas de test associés \cite{ieee1012,sommerville2016}.
+
+\section{Conclusion du chapitre et transition}
+
+L'analyse des besoins formalise exigences fonctionnelles et non fonctionnelles, règles métier, cas d'utilisation, et traçabilité vers tests \cite{pressman2014}. Le chapitre suivant présente la conception (UML textuel, architecture, données) \cite{booch2005,bass2021}.

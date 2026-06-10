@@ -1,0 +1,62 @@
+@startuml
+title Diagramme de sequences - Authentification cookies E-Services
+
+skinparam defaultFontSize 11
+skinparam shadowing false
+skinparam roundcorner 8
+skinparam sequenceMessageAlign center
+
+actor "Usager" as U
+participant "ClientReact" as CR
+participant "AuthController" as AC
+participant "AuthService" as AS
+database "BaseDeDonnees" as DB
+
+U -> CR : Saisir email et mot de passe
+activate CR
+
+CR -> AC : POST /api/auth/login JSON email password\nfetch credentials include
+activate AC
+
+AC -> AS : authentifier
+activate AS
+
+AS -> DB : SELECT utilisateur hash mot de passe
+activate DB
+DB --> AS
+deactivate DB
+
+alt Identifiants invalides
+  AS --> AC : echec
+  AC --> CR : 401 sans Set-Cookie session
+  deactivate AS
+  deactivate AC
+  CR --> U : Erreur
+  deactivate CR
+else Identifiants valides
+  AS -> DB : INSERT session expiration user
+  activate DB
+  DB --> AS
+  deactivate DB
+
+  AS --> AC : userId et roles
+  deactivate AS
+
+  AC --> CR : 200 Set-Cookie SESSION HttpOnly Secure SameSite Lax
+  deactivate AC
+
+  CR --> U : Connecte
+  deactivate CR
+end
+
+== Requetes suivantes ==
+
+U -> CR : Action protegee
+activate CR
+CR -> AC : GET ou POST /api/ avec Cookie SESSION
+note right of CR
+  Utiliser credentials include sur fetch.
+end note
+deactivate CR
+
+@enduml

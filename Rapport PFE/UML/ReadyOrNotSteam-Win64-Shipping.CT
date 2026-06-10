@@ -1,0 +1,670 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="45">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>1337208720</ID>
+      <Description>"==== Character ===="</Description>
+      <Color>FFFF00</Color>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>1337208759</ID>
+          <Description>"Infinite Health"</Description>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
+
+aobscanmodule(playerHealth,$process,4C 8B 08 4C 8D 85 F8 00 00 00)
+alloc(newmem,$1000,playerHealth)
+label(code return)
+//Send@Sintrix|FearlessRevolution
+newmem:
+push r11
+mov r11,[rax+2D8] //Pawn
+test r11,r11
+je @f
+mov r11,[r11+908] //CharacterHealth
+mov [r11+F4],1 //Unlimited
+mov [r11+D8],(float)99999 //Current/Resource
+mov [r11+DC],(float)99999 //Max/MaxResource
+mov [r11+178],(float)-1
+mov [r11+1AC],(float)-1
+mov [r11+1E0],(float)-1
+mov [r11+214],(float)-1
+mov [r11+248],(float)-1
+mov [r11+168],(float)99999 //RigtLegCurrent
+mov [r11+16C],(float)99999 //RightLegMax
+mov [r11+170],(float)99999 //RightLegMaxLimit
+mov [r11+19C],(float)99999 //LeftLegCurrent
+mov [r11+1A0],(float)99999 //LeftLegMax
+mov [r11+1A4],(float)99999 //LeftLegMaxLimit
+mov [r11+1D0],(float)99999 //RightArmCurrent
+mov [r11+1D4],(float)99999 //RightArmMax
+mov [r11+1D8],(float)99999 //RightArmMaxLimit
+mov [r11+204],(float)99999 //LeftArmCurrent
+mov [r11+208],(float)99999 //LeftArmMax
+mov [r11+20C],(float)99999 //LeftArmMaxLimit
+mov [r11+238],(float)99999 //HeadCurrent
+mov [r11+23C],(float)99999 //HeadMax
+mov [r11+240],(float)99999 //HeadMaxLimit
+mov [r11+258],(float)99999 //OriginalHeadMax
+mov [r11+224],(float)99999 //OriginalLeftArmMax
+mov [r11+1F0],(float)99999 //OriignalRightArmMax
+mov [r11+1BC],(float)99999 //OriginalLeftLegMax
+mov [r11+188],(float)99999 //OriginalRightLegMax
+mov [r11+159],0 //EnableIncapacitation
+//Send@Sintrix|FearlessRevolution
+@@:
+pop r11
+
+code:
+  mov r9,[rax]
+  lea r8,[rbp+000000F8]
+  jmp return
+//Send@Sintrix|FearlessRevolution
+playerHealth:
+  jmp newmem
+  nop 5
+return:
+registersymbol(playerHealth)
+//Send@Sintrix|FearlessRevolution
+[DISABLE]
+
+playerHealth:
+  db 4C 8B 08 4C 8D 85 F8 00 00 00
+//Send@Sintrix|FearlessRevolution
+unregistersymbol(*)
+dealloc(*)
+
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>1337208767</ID>
+          <Description>"One Hit Kill"</Description>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
+
+aobscanmodule(WeaponDamage,$process,0F 29 BC 24 30 01 00 00 44 0F 29 84 24 20 01 00 00 F3 0F)
+alloc(newmem,$1000,WeaponDamage)
+label(code return)
+//Send@Sintrix|FearlessRevolution
+
+newmem:
+mov [rbx+DC8],(float)999999 //Head
+mov [rbx+DCC],(float)999999 //UpperBody
+mov [rbx+DD0],(float)999999 //LowerBody
+mov [rbx+DD4],(float)999999 //Arm
+mov [rbx+DD8],(float)999999 //Hand
+mov [rbx+DDC],(float)999999 //Leg
+mov [rbx+DE0],(float)999999 //Foot
+mov [rbx+D94],(float)999999 //Dismemberment
+mov [rbx+D8C],(float)999999 //SpallingDamage
+mov [rbx+D98],(float)999999 //ArteryHitChance
+
+code:
+  movaps [rsp+00000130],xmm7
+  jmp return
+//Send@Sintrix|FearlessRevolution
+
+WeaponDamage:
+  jmp newmem
+  nop 3
+return:
+registersymbol(WeaponDamage)
+//Send@Sintrix|FearlessRevolution
+
+[DISABLE]
+
+WeaponDamage:
+  db 0F 29 BC 24 30 01 00 00
+//Send@Sintrix|FearlessRevolution
+
+unregistersymbol(*)
+dealloc(*)
+
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>1337208773</ID>
+          <Description>"No Exhaustion"</Description>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
+
+aobscanmodule(pFear,ReadyOrNotSteam-Win64-Shipping.exe,F3 41 0F 11 B6 40 2B 00 00) //Exhaustion
+alloc(newmem,$1000,pFear)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  xorps xmm6,xmm6
+  movss [r14+00002B40],xmm6
+  jmp return
+
+pFear:
+  jmp newmem
+  nop 4
+return:
+registersymbol(pFear)
+
+[DISABLE]
+
+pFear:
+  db F3 41 0F 11 B6 40 2B 00 00
+
+unregistersymbol(pFear)
+dealloc(newmem)
+
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>1337208774</ID>
+          <Description>"No Fear"</Description>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
+
+aobscanmodule(pFear_Actual,ReadyOrNotSteam-Win64-Shipping.exe,F3 41 0F 10 B6 40 2B 00 00)
+alloc(newmem,$1000,pFear_Actual)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  mov [r14+2B40],(float)0
+  movss xmm6,[r14+00002B40]
+  jmp return
+
+pFear_Actual:
+  jmp newmem
+  nop 4
+return:
+registersymbol(pFear_Actual)
+
+[DISABLE]
+
+pFear_Actual:
+  db F3 41 0F 10 B6 40 2B 00 00
+
+unregistersymbol(pFear_Actual)
+dealloc(newmem)
+
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>26473</ID>
+          <Description>"→ Movement Speed Modifier"</Description>
+          <Options moHideChildren="1"/>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
+//Send@Sintrix|FearlessRevolution
+aobscanmodule(speed,$process,F3 0F 11 88 48 02 00 00 45)
+alloc(newmem,$1000,speed)
+registersymbol(setspeed)
+label(code return setspeed)
+
+newmem:
+//Send@Sintrix|FearlessRevolution
+code:
+  movss xmm1,[setspeed]
+  movss [rax+00000248],xmm1
+  jmp return
+
+setspeed:
+dd (float)306.23
+//Send@Sintrix|FearlessRevolution
+speed:
+  jmp newmem
+  nop 3
+return:
+registersymbol(speed)
+
+[DISABLE]
+//Send@Sintrix|FearlessRevolution
+speed:
+  db F3 0F 11 88 48 02 00 00
+
+unregistersymbol(*)
+dealloc(*)
+
+</AssemblerScript>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>26474</ID>
+              <Description>"Set Movement Speed"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Float</VariableType>
+              <Address>setspeed</Address>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>1337208763</ID>
+          <Description>"→ Field Of View Editor"</Description>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
+
+aobscanmodule(FieldOfView_FirstPersonCamera,$process,F3 0F 11 89 A0 02 00 00 C3)
+alloc(newmem,$1000,FieldOfView_FirstPersonCamera)
+registersymbol(SetFoV)
+label(code return SetFoV)
+
+newmem:
+//Send@Sintrix|FearlessRevolution
+code:
+  movss xmm1,[SetFoV]
+  movss [rcx+000002A0],xmm1
+  jmp return
+
+SetFoV:
+dd (float)120
+//Send@Sintrix|FearlessRevolution
+FieldOfView_FirstPersonCamera:
+  jmp newmem
+  nop 3
+return:
+registersymbol(FieldOfView_FirstPersonCamera)
+//Send@Sintrix|FearlessRevolution
+[DISABLE]
+
+FieldOfView_FirstPersonCamera:
+  db F3 0F 11 89 A0 02 00 00
+//Send@Sintrix|FearlessRevolution
+unregistersymbol(*)
+dealloc(*)
+
+</AssemblerScript>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>1337208764</ID>
+              <Description>"Set Field of View"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Float</VariableType>
+              <Address>SetFoV</Address>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>1337208721</ID>
+      <Description>"==== Weapon ===="</Description>
+      <Color>FFFF00</Color>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>1337208729</ID>
+          <Description>"No Reload"</Description>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
+//Send@Sintrix|FearlessRevolution
+aobscanmodule(AmmoDecrease,$process,66 89 04 91 48 63 83 30 16 00 00)
+
+AmmoDecrease:
+  db 90 90 90 90
+
+registersymbol(AmmoDecrease)
+//Send@Sintrix|FearlessRevolution
+[DISABLE]
+
+AmmoDecrease:
+  db 66 89 04 91 48 63 83 30 16 00 00
+//Send@Sintrix|FearlessRevolution
+unregistersymbol(AmmoDecrease)
+
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>1337208733</ID>
+          <Description>"No ADS Recoil"</Description>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
+
+aobscanmodule(WeaponRecoil,$process,F3 44 0F 10 AD 78 11 00 00)
+alloc(newmem,$1000,WeaponRecoil)
+label(code return)
+//Send@Sintrix|FearlessRevolution
+newmem:
+mov [rbx+1178],(float)1
+code:
+  movss xmm13,[rbp+00001178]
+  jmp return
+//Send@Sintrix|FearlessRevolution
+WeaponRecoil:
+  jmp newmem
+  nop 4
+return:
+registersymbol(WeaponRecoil)
+
+aobscanmodule(ADSRecoil,ReadyOrNotSteam-Win64-Shipping.exe,F3 41 0F 10 86 0C 11 00 00)
+alloc(newmem2,$1000,ADSRecoil)
+
+label(code2)
+label(return2)
+
+newmem2:
+
+code2:
+  movss xmm0,[r14+0000110C]
+  xorps xmm0,xmm0
+  jmp return2
+
+ADSRecoil:
+  jmp newmem2
+  nop 4
+return2:
+registersymbol(ADSRecoil)
+
+[DISABLE]
+//Send@Sintrix|FearlessRevolution
+WeaponRecoil:
+  db F3 44 0F 10 AD 78 11 00 00
+
+
+ADSRecoil:
+  db F3 41 0F 10 86 0C 11 00 00
+
+
+unregistersymbol(*)
+dealloc(*)
+
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>1337208738</ID>
+          <Description>"No Spread"</Description>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
+
+aobscanmodule(IgnoreAmmoSpread,$process,44 38 B7 18 11 00 00)
+alloc(newmem,$1000,IgnoreAmmoSpread)
+label(code return)
+
+newmem:
+
+code:
+  mov [rdi+00001118],1
+  jmp return
+
+IgnoreAmmoSpread:
+  jmp newmem
+  nop 2
+return:
+registersymbol(IgnoreAmmoSpread)
+
+[DISABLE]
+
+IgnoreAmmoSpread:
+  db 44 38 B7 18 11 00 00
+
+unregistersymbol(*)
+dealloc(*)
+
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>1337208740</ID>
+          <Description>"Suppress Weapon"</Description>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
+
+aobscanmodule(bSupressWeapon,$process,41 88 BE 84 0E 00 00)
+alloc(newmem,$1000,bSupressWeapon)
+label(code return)
+//Send@Sintrix|FearlessRevolution
+newmem:
+
+code:
+  mov [r14+00000E84],1
+  jmp return
+
+bSupressWeapon:
+  jmp newmem
+  nop 2
+return:
+registersymbol(bSupressWeapon)
+//Send@Sintrix|FearlessRevolution
+[DISABLE]
+
+bSupressWeapon:
+  db 41 88 BE 84 0E 00 00
+//Send@Sintrix|FearlessRevolution
+unregistersymbol(*)
+dealloc(*)
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>1337208742</ID>
+          <Description>"→ Weapon Stats"</Description>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
+
+aobscanmodule(WeaponFireRate,$process,F3 0F 10 80 F4 03 00 00)
+alloc(newmem,$1000,WeaponFireRate)
+registersymbol(getWeapon)
+label(code return getWeapon)
+
+newmem:
+
+code:
+  movss xmm0,[rax+000003F4]
+  mov [getWeapon],rax
+  jmp return
+
+getWeapon:
+dq 0
+
+WeaponFireRate:
+  jmp newmem
+  nop 3
+return:
+registersymbol(WeaponFireRate)
+
+[DISABLE]
+
+WeaponFireRate:
+  db F3 0F 10 80 F4 03 00 00
+
+unregistersymbol(*)
+dealloc(*)
+
+</AssemblerScript>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>1337208758</ID>
+              <Description>"Set Projectile Count"</Description>
+              <VariableType>4 Bytes</VariableType>
+              <Address>[getWeapon]+1174</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>1337208743</ID>
+              <Description>"Set Fire Rate"</Description>
+              <VariableType>Float</VariableType>
+              <Address>[getWeapon]+FD0</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>1337208751</ID>
+              <Description>"Infinite Ammo"</Description>
+              <DropDownListLink>Armor Piercing Ammunition</DropDownListLink>
+              <VariableType>Byte</VariableType>
+              <Address>[getWeapon]+162C</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>1337208749</ID>
+              <Description>"Armor Piercing Ammunition"</Description>
+              <DropDownList ReadOnly="1" DescriptionOnly="1" DisplayValueAsItem="1">0:Disabled
+1:Enabled
+</DropDownList>
+              <VariableType>Byte</VariableType>
+              <Address>[getWeapon]+FDC</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>1337208766</ID>
+              <Description>"Ignore Armour"</Description>
+              <DropDownList ReadOnly="1" DescriptionOnly="1" DisplayValueAsItem="1">0:Disabled
+1:Enabled
+</DropDownList>
+              <VariableType>Byte</VariableType>
+              <Address>[getWeapon]+D78</Address>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>1337208755</ID>
+          <Description>"No Weapon Heat"</Description>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
+
+aobscanmodule(HeatPerShot,$process,F3 0F 10 83 40 18 00 00)
+alloc(newmem,$1000,HeatPerShot)
+label(code return)
+//Send@Sintrix|FearlessRevolution
+newmem:
+
+code:
+  movss xmm0,[rbx+00001840]
+  xorps xmm0,xmm0
+  jmp return
+//Send@Sintrix|FearlessRevolution
+HeatPerShot:
+  jmp newmem
+  nop 3
+return:
+registersymbol(HeatPerShot)
+
+[DISABLE]
+//Send@Sintrix|FearlessRevolution
+HeatPerShot:
+  db F3 0F 10 83 40 18 00 00
+
+unregistersymbol(*)
+dealloc(*)
+
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>1337208753</ID>
+          <Description>"Weightless Magazines"</Description>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
+
+aobscanmodule(MagazineWeight,$process,48 8B 81 08 16 00 00 48 63 D2)
+alloc(newmem,$1000,MagazineWeight)
+//Send@Sintrix|FearlessRevolution
+label(code)
+label(return)
+
+newmem:
+mov [rcx+1860],(float)0
+//Send@Sintrix|FearlessRevolution
+code:
+  mov rax,[rcx+00001608]
+  jmp return
+
+MagazineWeight:
+  jmp newmem
+  nop 2
+return:
+registersymbol(MagazineWeight)
+//Send@Sintrix|FearlessRevolution
+[DISABLE]
+
+MagazineWeight:
+  db 48 8B 81 08 16 00 00
+//Send@Sintrix|FearlessRevolution
+unregistersymbol(*)
+dealloc(*)
+
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>1337208757</ID>
+          <Description>"Remove Heavy Rifle Flag"</Description>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
+
+aobscanmodule(HeavyRifleFlag,$process,0F B7 0C 90 66 0F 6E C1)
+alloc(newmem,$1000,HeavyRifleFlag)
+label(code return)
+//Send@Sintrix|FearlessRevolution
+
+newmem:
+mov [rcx+1891],0
+
+code:
+  movzx ecx,word ptr [rax+rdx*4]
+  movd xmm0,ecx
+  jmp return
+//Send@Sintrix|FearlessRevolution
+HeavyRifleFlag:
+  jmp newmem
+  nop 3
+return:
+registersymbol(HeavyRifleFlag)
+
+[DISABLE]
+
+HeavyRifleFlag:
+  db 0F B7 0C 90 66 0F 6E C1
+//Send@Sintrix|FearlessRevolution
+unregistersymbol(*)
+dealloc(*)
+
+</AssemblerScript>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>459</ID>
+      <Description>"--------------------------------"</Description>
+      <GroupHeader>1</GroupHeader>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>461</ID>
+      <Description>"💥 Author:  Send - CamoHax"</Description>
+      <GroupHeader>1</GroupHeader>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>454</ID>
+      <Description>"🞂 Process: ReadyOrNotSteam-Win64-Shipping.exe"</Description>
+      <GroupHeader>1</GroupHeader>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>772</ID>
+      <Description>"✔ Table Version: 1.4"</Description>
+      <GroupHeader>1</GroupHeader>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>773</ID>
+      <Description>"✔ Game Build: 19493309 Los Sueños Stories Patch #2"</Description>
+      <GroupHeader>1</GroupHeader>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>460</ID>
+      <Description>"⚡ Discord "</Description>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+
+{$lua}
+shellExecute("https://discord.gg/NTFcdAUWxb")
+
+{$asm}
+[DISABLE]
+
+
+</AssemblerScript>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>458</ID>
+      <Description>"--------------------------------"</Description>
+      <GroupHeader>1</GroupHeader>
+    </CheatEntry>
+  </CheatEntries>
+  <UserdefinedSymbols/>
+  <Signature>
+    <SignedHash HashSize="132">0AejR$nvwWD0dn*Tp$]A+1gBAiUZ4:q4,Thgp^gGOFMu1g0[ko)4/YnlM^T{nuhZw5g@x{sqvyLX5v{AD%k*Kv(4u6$*O,K=x1B744.#iRP#[N1cjMsH%54mS3E$sK+]hxg?HRWv[ZLvw4g-rYNfgZ+1M_]7*EVBf4WLi</SignedHash>
+    <PublicKey Size="6840">00000i}s?vMMG0HLI3}(0rm(bQ?pA/bNw0:BAkSTtjC=qrS[hQRIVXi[T%Vi@ZI_5j1YqfI}:O.niK2MJ!(eKfoFjIo1mk%mHhe#ocjU9F3*(aP2OH9U(V#-dtp%xpsl*@,J1wGYbH_;3@xz/XpQ)X6I#m#mDi:VW{:W?vd+ccAP3u^d(!BBpj{+I2A3HC0EtjeM-2*Z3IG5A4M_8uQUCw_mjD0(8VCje006qN(VK+@010qNS#tmY3ljhU3ljkVnw%H[02wbyL[t)(fwh{=tX.:[-#.@Rmb/,7]1rWJM@YO[%d*l9mY0ZDELp1LRH:8Tff2z/QWYwYx}S7am0}xoYqYKrBe0DuKmq$7FL8oMPTUBxEm?YWjdCPeE-7lGDDHeD-?e@?(oVRpW6sPy[brlIpaYQa-gACu(Me;gE#Keoii/D0$TH9?AU62,dXld%]*1qgzR(iDs/p.gOC%,;cF!2Y))+D_YlP[c/Ud/$ky0Y19O%.,gSB=x9sar1+Q}Vz^jF{sm.pH^B}cWGcY2vD%ffdl/-mB=o4bFP_ErWDP1AK^@E@juJ?C%.]jS$TrYTZNthH#Z2j:d[;YrJ!KQB^XQ*3Jf!1f+65o[0IEqDY7]}M$A8#TXac}M_:Ns@;t.;KFavSfB/hB%H%k_Y2[2r:,Ej$=!nVIghxtnc4ntADO/=CN[PU9SVnzXRN,]S/w@Tzwb?*}f2a4s.._#,cBDe@+)Sp;L(B:,nypL^UT;#^mrWzaC)_ulkzQ](j*KAdX_ovP5gm%F2oZ+LuK$wVUtd-Ut,L1};wXMfBx[dvLvHEe::$$nqR)3^ez@#WmJY/@@-{@OV(Is!zVYc:bh%/2cB8kOCO3kxDrYCj][sPq,vA-;t.{MV@xv1$mx[4HiNWDMh2%q{gboqKKj;$a,1pEJGWEuohd{G$kcUDWp/PI}#*#kR(OMMv9bzUN5KD;tT%^jv{HY3EIjU15rd2MPZCesQ^:bQZyS*q+7ol#u_i;SZlD;two.a/ar+zCIlF;R$JE)lV4M%RM2A4I:k+)?(?2ozd2{ZY+g#tE4d0)ybf=h@*JgatR-jyYYkc)?{gjVZXRvTnp3zMSgSRfloI7lt1*5Gg%AN=ky1z^k*qo83cS]?x{6S7OG[++FSEF}NS0+-,C?r9,U,ttJdCxLrKKf]q8Kng@]=_@D@,Pi-$x?(8Qna{!u*}+aHZ,Ix%GXnr*iXw#7RQ4+/jPiCX(/vRY}RE/6ancsK_4cS5_@}3*W%PXTQe(TAt=v09+=$,u!g1dw^Lcb+uVWr@lMMdOaxivJ8P,d[N(:G){M_J3EW1fK;N};Hv$Ph?=8/0dUpENhJ^otWroRkivmY3gJwP6ey[zu%uELU9z(W!nt$jn4Xy#?Sm:E:R0{VyWfof(P,}n_NZyV;-ECM?7:qXof8vlmcpB^lc!E]]0!!(=%m4.yLTgm.LxE%oH.WYKzZW[Za?gh/m4nTzVy/%^R$!IcDwxJ)?#@BCB0scZl[CL6pU?(Osmx+iWOK9z-,M(d{T=NXF%mg8H1=CH_SHkb?pJ;S[hD=1:q$fSR+i}.ns*adi{)4jEW,xE{5O1r]2jXQ=tRd-EKFS3kNEL*_#Ryn4Oz+:A{BN!@6V;bUGbpA{XLYn?!s7Hr85JmX.tmpN4j]jj[/{[0VOBl?4SUfs[$KO0,J},L/}FbXHcFot/N9dYYmr02mt@/FlXrEW3B?8kolo+I(/^eB}:lO-%uC]_Y:^k+T,bAAXp[hYt[P^p?Ey/6GbUHUO7idMTg(@z8sV@@0EwaBbA?ZMWUVcfR^wo[,RN0A@-pFvhT1YZ[@aj8t]SCGDYM1cI[C::Qp3=X+(*6mgQEb./JbGS;E.[)sF_zCMTuzMa/sBG?PhHmcG+Shq*g#VNpeaj$v:wz@m.Ml6Dnkxh)m-$tJG+fzeCp]ixzb8{3doub*HnLKqAAqCAwv$FXNjG;oh(U8fztqrC,8F{G,EDtOoIO@6qIj]:cC[,]Is.Eo}*gq]UqO8E$=RF3rL{m8kI0}A:JL3RFS,cye%;4ZPz$X63yY6DkmMv;c-stEkAN{Y?]NlWC0l-kZy]fnIIClK[8o6!Tw{/:V/Ky9aXJsW@-;BbKtHtmA=)cH@[.D5(7icsZ%,AgNFg!d(6h(YyNgM,LYoXKaRzXPNz!gOpV/=Ieqs;5sUXLmV0tX+y36G,IR+!zxxo(F]**L1t.{a8X9}-09Y9XV9EX)M0mMJ;3^PNMCbIU+fXIyaMZaUqZ)b3IZcjIsHlLsFp9ZwxbYwyXjj3h}rLZYq48V8y{YgRg*U=NwC$z_zi3g=q3z!JqyN#^k5HX4ZlDN*LqPHQYi8;g_XMFLVPgsA$fw4ea.%sIS3+vyZ7[]^5jj-s^Z/)FUPt6%#XS6[WK_LTrANRot0F1}nRv$fXD(d(0qAOCpOl3Sj5.*ww^fQj,)AhKm[EL:Zv.;5cB^[saXLTk-$-g,xrw^Ar##dX)R$3OhT_H4_QrLta,Mw$ly)M5ZjEX(CAtXdCe?+0hX,ml_.DU!-G]e*apWFoh*2K*cuWo[BAg]E;S8QnBOq$Hh^9y9ZE%uY_Sqzob!v;OdtQN-o^/SI7B1@3@3A9wz^(oVP_inCKwY{;J(w[U!M$,J?:NgBY}%QBjc22m7MHr%3)q0l8oQHIGHV=uP,Y(L@;[NNV.FXMnnIElIfP,a+Dr7i*BwE])z9IGPd#0Lri8#K7qr8Di7uXXXo7l#G@(Ue2Hz/}n=n3_em:fng/=KS_H*Z_W^Ji)*nJ^mU3Vau,O18BEejE#+kJ3Gtf)a}@kJ@7O-Pw?ETk7KQ,*ok+}PkaJ@(6[r1j1Lqf,B?i#LoQVW!lHHQ4x2StV@LC)Bypg8l:4B4rPXR8rJ}#IuAx#Q$7@]A7.N1dD%Dn_?3IRo.Q0eD?$1*L$92DUIX].nQC;QKj#fj[YBgyznrzy;jY{]s!LFT}+_v2P%9PB]t=;R_zlQJq#%,B5p3n2gU%ZRQ[x{wqz0x8^Q[fFKGcmpcAtb%5N2{E*Qi]%H-K4akEDFv}O[Qc6=P^}YIh5@on^C@,VXfuVsZ%wl){nSl+K*x0O(g5=?.s.0;A0XlxY$%lfmBWtcDfz3[9oww7X=MB2l%s1qoasQb52iB4}$Jn$;iCy08H%M8RW7]]w1aP.,QyzSy_}_tsRi[=cMKs7Y^!45TlznhkK7b^]iLdy0Lfr^m9jBkMlVl%[9JVHIgiI,TCh^wuU50-1[S;;[-?P.z-:MI;[D@7D5miYcN)jT:@#Y=-v5Lj+W5Qt^uGfk[i@hoo0DQ$$j7X7F(jH:Z.T+j2{LBh@@bV@VW-Y(;m[d)qS(xy[2z4g3f!KIe)69/_xlTcbMP+@sW5aw_}gNm#5gh@8$Xl_Ccmc!z=V!)],/J8!5x;HcBdtaVJF@O]d0+uQsjQ=P82!XlMv/,RIZ6^yS6:jua$]/Fg#FDjI?5nMkF+Rc$kqIH@p6MIcd/aN=6VMk#kMiX!qnXL*HU(/MBv(hG@6@/TgE#Q{h9-=lBtO]e(oHrUNm*:qw1(bQsWcLOePSbeW9e_GY006[ivkt0Xk8d+zOYSJ]8MG6%}#8HHj=l2o],=rIRc@t/eaDhwB^Q2nC]?lX?@ky;hevCx}f5!?ll.YRk^SGEJx7oR@#io%aW20kSa[jpU,I$DPyTE[:%$NDltsmhFpZnLm@x8b+,ec[A%L_83?a)S,k{b]%JTt{Q*D-h]b4/[7F+Y@_z}6oU],WF:+Ry%@CMI?HFqM;=K68$?TzaVs@^vHJepZp=OwY}@q%5+5Lu+aD-9]vOTKNu)3k$(=?.1z.NU_*eI4pO()MTO/R]FXZ[-,s/j(RhaCW*f}u0#mOE6pz}k_YU5QSi)((v4aMR^=O-O+fHc8Gn24y^v9qD+wlW/c907M?q=:$uk?_?;-Z/U2b{Mnyp+6a]7dX050-XN@$1QnRWZ@cDw6dmqH==K+(A]j0LL:jdp^ykx)v_4p;#7hqWY0QuW*T*a8JW,wFEKih@FRx5od9jIou/ul57D^^8#dvn6G8WSA=ic?Gy_c^On_hL_{,wmeC)*Md,6AK{0K:X2cs$6w,+[x{_O:Z@B!Gc*MLd0swzh)oWQWMyfY(cX}QCnw2sD1a,2,XFx:GK@oalZ)#mqBY!RX+PAa!r0q)XYcboXKH%73P{4WTS@%}*M}XHodGN@Ee$a4Ns?(4wJ3[pOnKU3gjTajuh)/YWB^J5G=$;H47o?lTqNmCfTfr9DDsj/BjvHjA7_gbeOz)H6##tbLmy)-u3dcX;t7!PS551D?Pi*:+Z1$:(nvGSURUmsM.[r+pZXLRU3eh=J9g^^Yp_aD3opL7=*9Jj^O81Rgf(jPr%6gwMc8R0Mc}Yumv/S4h?qh(ES9sAXPss.*@UHefXWlgbs^(i#]_2BG*:kd=z?.sx^QpCbHSC?634OQrB,TOn}HY2jh-{2^[0W2cJAhd_NToo?h_RR+TfJ^AAF6K#W}JTO_x9NHpA[N=K;uDHB(Z=Zsy7;u3}9ninP@4sR(@$3v,X1y[]m,VT^oj3q[H0z5/q=th.XlSz4B+8:q2iIvw(nA0YXXByn1;*RbjWr6nS.PIKAnMEXRyKoBVhB;d?;V2uVTiKHW3)/EVJc$k?*Ijpfnk;XFj?*iE+o[o0R${0hQ(wJj):Rfy3^].4^*ZgqaTSA}wZ*YaY41BN4y=W$G]22wzZU}:GpFX^:^Q2_eH,-KIZf/cLIjYZUq;3w$5G.bNc%ihBV)ByTQYy67fQ!UE-^rMjSu;5!:Q0]ueDvmh,/yD-bIZQp/XhkWCP_VI6-yj?=g?@aIsr!Vs^?BPa]YI-jvwbOdv_hL!@:-R!Nn6poH?J9jvZUr][^Ljt*M,T%(r_/h,}D4lCtNxB%Nyt*#J=R)]0#%PPfO?]Dt1$:R.{j[=4-d8K9r9S^=Fw4du.buh$z$MthZRt*-V]E;be=ej0#m:w-cHO2e5A$K?DwSt6x!]Aw}fqKKk(]N6VuTFpK0#]8bE^AK;lAN(E:Uw:ISS6[WK_MoMV.m]j3(jDz,,eA@s*YKF_[]wgtTn-#Oh=D{Y=SS0LlP5WR[%K;*)lq7fn^N)ascWu!zx6gYHbxXhoH{*=wq[O.DWp[L6iMu}yD?9iM}y{UDI@O@3s]GI/Q,#5jkH0QXMsFjoqUh1v7y8N]SouC?X-DT[*q]x[ju?$pK#-=+YWa.FEBf_NS?@!n{/.aTemg2@vb:w_GgJ+=D!NP_Lu=Q%nPR_dOg}$VXT0x)5!TFWMt5#VR3Ppp:OiGxegZ(Z^z4_ukq9]o):#S9ovf0hN3K*o{CE]SdYs5r0dC3NA4AYDGy.i(KdRPEk3/rOUv-@FveI*T}HQ9$mUz=NW]La+YZ3@MV0exoiEzy@[ZPoV0n2NWAp$AC/Oe*U.ZU=b8}$1lb.0Onrp5J[b00KOj)vZ@pl@2Ii]uT5L#yga(._r+:3ipXV0E,=d4ZqS-0QS.PUI,UmH)^8.meSafHRt=e!RpBrT0bgS@P.b}:@c:]2Q*ro;5tsv]QLD8oK?cO_m89GyT6/buBWLr3l^7KV3TyN?!/Xtmn3Qb{YL,jmZI$y=sWPapVujDCeJn;HcM2@JTY:yo#-=Or5;Wo3DZ/.4_xS/c,DW0cRGpW?hw.}{B!7a%KgW?cvxnBLX-LeB(nV}FFJR.v}GEiYf@xr^Nj,?9,z(vF*+7SUx%sdWV_R}g^TWAdUhv84lzQj%@jXK86U@k+(Ha]Vkxb,vQmzxvg$0hYh_-uL+xjW?Dm]{VNG,qZ8IWAYlth4V3KBV{c_vqtXxlrwSX(Yk1!Z-4uMiSui,x=g_rF2DTpaQ)!_6V*=dtU,NBR-h@qkG1Fum^JOiarA//h9b]=igKXR#9IXK$EIl-h+*/;G=B4jv[%NZC3[/#Uv*2d+WOM1#W%mrfnPjDQT8xegG;-Qr=axi@3pPAPM[fUgD+0;lymCjB+$JoLWy9x)]9}ckzQG[y2VjM6vu2C,f2K*i!?0QN{x-Zgr1)6;6f#tiazRzX_JN(=RJfsFZ/.-#/._6q$rEBDm]%{GeQWIlJt6AXZEU8PoyL(ifANB/!5M6j-@+p5hXEsFGH6lais7.;Bm0*aW1.)q8hkdD}bXYMIovEj)5BRRc(?wI_zARR6LSiBbVoH4PSWiMQ+/3mVveWamDVh+Dt[)-{}PF@]7JKgsfZ%.mn^/ks0f%PN=V}aDLg],(tjx(3vY;AJk}m:SKY:dD9tTEf#_^u;0-rhgTl}U_{U?W?=i8r9})@:*#Z^C0W*X(vF**yBt0GDi1z*oVQ*LjmMwZ(r8QA2PPlNT.kYOCB!j8NG2x6LkhtdgDD.JJ}KBPo=Bgv/}5ez5bqDvnfiVT$YQF}1yJg86_fXhMUWO1n:b%a]4XaXWrV1ikqTf4fwmTeMM+*aEvhQZ0ob;1A5T8^B:39Q]=z$Ei.Rz*JPE,a$ViYocI.SKCu0nG(DW^Rovbv?gAYE*zyHHOWWBatzdLs9.Gf:fQ?H-vV}-Ij/$NpcG];^Qae$(/FDH}lS(OM6b!!R!6j)%voJGJ=y?aX$H{ZKkfc=,D!nIdlz+7fKvSlRUPyfpwA)NEh[7KJx:4NM@U,%Kf$)WwEEL7_9.t8kXJ%ExpCaMb4q}9ql,E?oHoO2xfrLtgVb{oR)_63jA*(bY3QbRsjodtH=f@]gg9Qz7T9g6-WqFV4inOZLbjH)I(quuFt3,0GMDL?H^l7c+Q8(v9y:MNoX(!v_FaL,yWaQ5t3CMG6aZ5Z)52Ok7r(z=Qu,MRda$)=uJIRKL9o[mhF?4kCLZl#u)K0h[Zc$H(3UM08ROuzg0?8^t2()mn6Xk%!kDQS]r$+4Mjq6%DOAe6HrCry).]FOzisIb%NAf*I:mQ^3F[k^.y.!;BKoRZvf@Uai/DUQDS3XAjeEEi_-%2o)h=/AC?5lf:V#;R0)B/rm4U..?S;uQaxry3ln@D/^^Zeaj88#)a4@fpNnM::-@d/tLr2[k4GQ31#r7v+@XsmK-o;59fc5P+};3Bu+HD?vlTIa^p.N)x4?A-dfRDI^@ExbMFExc1s;86O^}*oQV*)pUh0@VfgP0{ng@xT:MXYS01Z:jYbQJ??P^!}J7NkFs..(M,R_Ua#LLpL}*peBlekaa2]@C]LyezZa?fBS{$,kU#8pd(r8%?]S2V5?VfRR7$zBr$Ptd]C2y+EMO2@elrd__Gc^)H/6CP,MfWtajTawYh#!gAFlvqDoVhRm#%CE9RE@x,/o*TyA6_6G?H#3[PX4t4m5%;Zi21}!eVsaU!!]y*ofNO-(8/y,;hgcL^/6f^1aIbu2H0[iqM4Np%z76Fgw41l#,Aj(T.qMckx?l[1j!sIrgVdpW*tn_CR#;4u,J:$(*8{[}C}*T)jp7x@:J1ot}TwRLnm/^d5*4!NG$E!+lEP,v#,8/dL6p.K0F/v];=i)a}Xs,HImZs%qpMV0]+3t9-mxvq:(:j/Bo;2R!!]N3pAXtpWh:lGOLaT8r2.GGf}myFJiq]NfSYMf+V7[]1:W?$qrjl]*RctU{g;rKR9U*yt9Vn#:Q6^)Gy^3gK@5*r!_6MIc0qaU5ffOSt.,wOUQutv01DSy@7LPM(9?RaK)X[d%qT(XmTE7g9:6/T/?8XKAIw)))%3UPfMp.z8TuPI#k^kR}yCQPS.ZE,M=OI.FA+-r==-I5+OSR/l7[maKGpl%-n[C1n[EQI.WcUEQCG6wO9TyVYW--J.oS5XTY13WSoC/]/!KI=G(yEGwtHEHruH(7zxAoFrtu9@GCqSd?ARwAR_0O$V.#8@Y%Ge*,Red9pE??$reOtiz;rj4_Xz(fNS$trVt?]qgH!UZdS:wMddAa5/_9Ro[Bi=uG-c5X4Cw??dY33XFD1ai8sXKBAj{6#a=$(GI!}e$1sV$?9]xN*%-^46.g=H]A0Tk]%e7m+.(T[.FYND@+3aLRMs@3l!2MLPZfqTe6B0usD/LO.J%%DegeXpp7FH5ydV#PhuCWNU7GCQ1=#vTZG[ORcmKM0jH=u4N;HZ3i^k(_1fyxztib;v*I;5+6*YyPrYBnSCgp@ZWYu70(PrHG3n{se6BDna#v/sZO-Z,JZwai]p7dlkn1!LusUJr]7l=iYyw_X?53TND2gJdD6*a}*{tQ{T,hp]ma[/=s)w5IWVxm(dqJjOC0Z_Ls[q$$DEq}E=!AUWTU:Jw[u*2P8.jIc=o:qENDj/7tbvp,t(=kt)*G1EM:OMInx[8TDj(H1+@j}hP^#jK$h#,D4;ygBtlg:aNqpUF8#H4rBh^}6;i@2p^iwlLiLRy[R)}FNy%5z.quhC?gYeC=I(jzX=R.PU/arR,/vc+V#)lGGqr;n/va83qdMy2fx;z(T*dy(!]3fNhYTq}daqfD1RUeDj^B;+de+p2[I[t#]nd1Ne01jnXNoGw:04e_g00.m8000000Mb+F00000NkvXXu0mjfga7}l0C8)ARM]Qr/rz8kCTU4h])BLHAPd5n;WC._7CJpWRtM_g.M:#H:?ufrY{y{1KW3$$r}v2wqiqi_H$IvVFT4P9UXQ7aGG9nF9Bc9+fy$#bV@lQA_9z,Kn#d%3u$%wja0D:J?G1(Wr@cY[.V#F9=R!]2Bcm^E-mQ;ZF8K8?</PublicKey>
+  </Signature>
+</CheatTable>

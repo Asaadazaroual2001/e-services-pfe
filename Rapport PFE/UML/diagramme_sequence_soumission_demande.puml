@@ -1,0 +1,102 @@
+@startuml
+title Diagramme de sequences - Soumission demande E-Services
+
+skinparam defaultFontSize 11
+skinparam shadowing false
+skinparam roundcorner 8
+skinparam sequenceMessageAlign center
+
+actor "Usager" as U
+participant "ClientReact" as CR
+participant "DemandeController" as DC
+participant "DemandeService" as DS
+participant "PieceJointeRepository" as PJR
+participant "HistoriqueRepository" as HR
+participant "NotificationService" as NS
+database "BaseDeDonnees" as DB
+
+U -> CR : Soumettre la demande
+activate CR
+
+CR -> DC : POST /api/demandes/id/soumettre\nCookie session httpOnly\nfetch credentials include
+activate DC
+
+DC -> DC : Valider cookie session et roles
+
+DC -> DS : soumettre(idDemande, principal)
+activate DS
+
+DS -> DB : Charger Demande EtatDemande
+activate DB
+DB --> DS
+deactivate DB
+
+DS -> DS : Etat BROUILLON et completude
+
+DS -> PJR : Verifier pieces jointes
+activate PJR
+PJR -> DB : SELECT pieces jointes
+activate DB
+DB --> PJR
+deactivate DB
+PJR --> DS : resultat
+deactivate PJR
+
+alt Preconditions non satisfaites
+  DS --> DC : erreur 4xx
+  DC --> CR : erreur JSON
+  deactivate DS
+  deactivate DC
+  CR --> U : Message erreur
+  deactivate CR
+else Soumission acceptee
+  DS -> DB : BEGIN
+  activate DB
+
+  DS -> HR : historique BROUILLON vers SOUMIS
+  activate HR
+  HR -> DB : INSERT historique_etat
+  activate DB
+  DB --> HR
+  deactivate DB
+  HR --> DS
+  deactivate HR
+
+  DS -> DB : UPDATE etat SOUMIS
+  activate DB
+  DB --> DS
+  deactivate DB
+
+  DS -> NS : creerNotifications
+  activate NS
+  NS -> DB : INSERT notifications
+  activate DB
+  DB --> NS
+  deactivate DB
+  NS --> DS
+  deactivate NS
+
+  DS -> DB : COMMIT
+  DB --> DS
+  deactivate DB
+
+  DS --> DC : DemandeDto
+  deactivate DS
+
+  DC --> CR : 200 OK DemandeDto
+  deactivate DC
+
+  CR --> U : Confirmation
+  deactivate CR
+end
+
+note over CR, DC
+  Auth cookies : pas Authorization Bearer.
+  Navigateur envoie Cookie sur chaque appel API.
+end note
+
+note over DS, DB
+  Erreur apres BEGIN : ROLLBACK.
+end note
+
+@enduml

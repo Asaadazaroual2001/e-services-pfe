@@ -1,0 +1,100 @@
+@startuml
+title Diagramme de classes (vue domaine) - E-Services
+
+skinparam defaultFontSize 12
+skinparam shadowing false
+skinparam roundcorner 8
+hide empty members
+
+abstract class Utilisateur {
+  +id: UUID
+  +email: String
+  +motDePasseHash: String
+  +actif: boolean
+}
+
+class Client
+class Administrateur
+class AgentAgence
+class ResponsableAgence
+class ResponsableSysteme
+
+Utilisateur <|-- Client
+Utilisateur <|-- Administrateur
+Utilisateur <|-- AgentAgence
+Utilisateur <|-- ResponsableAgence
+Utilisateur <|-- ResponsableSysteme
+
+enum CodeEtatDemande {
+  BROUILLON
+  SOUMIS
+  EN_INSTRUCTION
+  COMPLEMENT_REQUIS
+  ACCEPTEE
+  REFUSEE
+}
+
+abstract class Demande {
+  +id: UUID
+  +referencePublique: String
+  +dateCreation: Instant
+  +dateSoumission: Instant
+}
+
+class EtatDemande {
+  +etatCourant: CodeEtatDemande
+}
+
+Demande <|-- EtatDemande
+
+class Service {
+  +id: UUID
+  +titre: String
+  +description: String
+  +actif: boolean
+  +delaiIndicatifJours: int
+}
+
+class PieceJointe {
+  +id: UUID
+  +nomFichier: String
+  +taille: long
+  +typeMime: String
+  +cheminStockage: String
+}
+
+class HistoriqueEtat {
+  +id: UUID
+  +ancienEtat: CodeEtatDemande
+  +nouvelEtat: CodeEtatDemande
+  +horodatage: Instant
+}
+
+class Commentaire {
+  +id: UUID
+  +texte: String
+  +interne: boolean
+  +horodatage: Instant
+}
+
+class Notification {
+  +id: UUID
+  +message: String
+  +lue: boolean
+  +horodatage: Instant
+}
+
+Utilisateur "1" --> "0..*" Demande : crée / possède
+Service "1" <-- "0..*" Demande : concerne
+Demande "1" *-- "0..*" PieceJointe
+Demande "1" *-- "0..*" HistoriqueEtat
+Demande "1" *-- "0..*" Commentaire
+Utilisateur "1" <-- "0..*" Notification : destinataire
+
+note bottom of Demande
+  Référence publique lisible + UUID interne.
+  Les rôles sont des sous-classes de **Utilisateur** ;
+  l'état courant est porté par **EtatDemande** (spécialisation de **Demande**).
+end note
+
+@enduml

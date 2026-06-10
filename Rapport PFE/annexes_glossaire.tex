@@ -1,0 +1,58 @@
+\cleardoublepage
+\phantomsection
+\chapter*{Glossaire}
+\addcontentsline{toc}{chapter}{Glossaire}
+
+\begin{description}[style=nextline,leftmargin=0.8cm]
+  \item[\#ADD] Agence d'accueil du stage : structure de services numériques et d'ingénierie logicielle (marque \#ADD, dénomination telle qu'utilisée dans le rapport).
+  \item[API] Application Programming Interface : interface de programmation exposant des opérations via réseau, ici de style REST.
+  \item[Authentification] Mécanisme permettant de prouver l'identité d'un utilisateur ; ici login/mot de passe puis session Laravel sécurisée par cookies Sanctum.
+  \item[Autorisation] Mécanisme déterminant les actions permises à une identité authentifiée (RBAC).
+  \item[Artisan] Interface en ligne de commande Laravel (migrations, caches, tâches planifiées).
+  \item[CI/CD] Intégration continue et déploiement continu : automatisation build/test/déploiement.
+  \item[CORS] Cross-Origin Resource Sharing : mécanisme navigateur encadrant les requêtes inter-origines.
+  \item[CSRF] Cross-Site Request Forgery : attaque exploitant une session navigateur ; mitigation via cookie \texttt{XSRF-TOKEN} synchronisé avec l'en-tête \texttt{X-XSRF-TOKEN} côté SPA.
+  \item[DTO] Data Transfer Object : objet transportant des données à la frontière API sans exposer le modèle persistant.
+  \item[Docker] Plateforme de conteneurisation permettant d'empaqueter une application et ses dépendances.
+  \item[Docker Compose] Outil de description multi-conteneurs pour environnements locaux ou de démonstration.
+  \item[Endpoint] URL logique d'une API associée à une méthode HTTP et un contrôleur.
+  \item[Eloquent] ORM inclus dans Laravel pour manipuler les tables relationnelles via des modèles PHP.
+  \item[HTTPS] HTTP sur TLS : chiffrement et authentification du transport (selon configuration).
+  \item[JWT] JSON Web Token : jeton signé souvent utilisé pour authentification stateless (non retenu comme mécanisme principal dans ce projet).
+  \item[MVP] Minimum Viable Product : version minimale utilisable pour valider l'approche.
+  \item[ORM] Object-Relational Mapping : correspondance automatique entre objets et relations.
+  \item[Pagination] Découpage des résultats en pages pour limiter charge et latence.
+  \item[PostgreSQL] Système de gestion de base de données relationnelle open source.
+  \item[RBAC] Role-Based Access Control : contrôle d'accès basé sur rôles applicatifs.
+  \item[React] Bibliothèque JavaScript pour interfaces utilisateur par composition de composants.
+  \item[Repository] Couche d'accès aux données encapsulant requêtes et opérations CRUD.
+  \item[REST] Style architectural fondé sur ressources, verbes HTTP et représentations (souvent JSON).
+  \item[RGPD] Règlement européen sur la protection des données (contexte général des obligations).
+  \item[SLA] Service Level Agreement : accord sur niveaux de service (ici souvent indicatif).
+  \item[SPA] Single Page Application : application web naviguant sans rechargement complet systématique.
+  \item[Laravel] Framework PHP full stack incluant routage, ORM, authentification, files d'attente et mail.
+  \item[Sanctum] Package Laravel pour authentifier des SPA via cookies de session et garde-fous CSRF.
+  \item[TLS] Transport Layer Security : protocole sécurisant les communications.
+  \item[Transaction] Unité ACID garantissant cohérence lors d'opérations multiples sur la base.
+  \item[Vite] Outil de build frontend utilisé pour compiler le projet React (JavaScript/JSX).
+  \item[UUID] Identifiant universel unique, souvent utilisé comme clé primaire non séquentielle.
+  \item[UML] Langage de modélisation unifié pour représenter structure et comportement logiciel.
+  \item[UTC] Temps universel coordonné : référence recommandée pour stocker les timestamps.
+  \item[Validation métier] Contrôles dépassant le simple formatage (cohérence fonctionnelle, états, règles).
+\end{description}
+
+\vspace{1cm}
+
+\phantomsection
+\section*{Lexique des états de demande (implémentation)}
+\addcontentsline{toc}{section}{Lexique des états de demande (implémentation)}
+
+\begin{description}[style=nextline,leftmargin=0.8cm]
+  \item[\texttt{DRAFT}] Brouillon : saisie et pièces jointes encore modifiables avant soumission.
+  \item[\texttt{SUBMITTED}] Soumise : dossier pris en compte pour instruction.
+  \item[\texttt{IN\_REVIEW}] En révision : traitement actif par un agent.
+  \item[\texttt{NEEDS\_INFO}] Informations complémentaires demandées au déposant.
+  \item[\texttt{APPROVED}] Approuvée : issue favorable.
+  \item[\texttt{REJECTED}] Rejetée : issue défavorable.
+  \item[\texttt{CLOSED}] Fermée : cycle terminé.
+\end{description}

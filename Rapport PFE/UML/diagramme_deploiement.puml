@@ -1,0 +1,36 @@
+@startuml
+title Diagramme de deploiement - E-Services (logique conteneurs)
+
+skinparam defaultFontSize 10
+skinparam shadowing false
+skinparam roundcorner 8
+
+actor "Navigateur" as Nav
+
+node "Machine hote" as Host {
+  node "Docker" as Docker {
+    artifact "e-services-web\n<<image>>\nReact + Nginx" as Web
+    artifact "e-services-api\n<<image>>\nLaravel PHP" as Api
+    database "PostgreSQL\n<<conteneur>>" as Db
+    storage "volume fichiers\npieces jointes" as VolData
+    storage "volume donnees\nPostgreSQL" as VolPg
+  }
+}
+
+Nav --> Web : HTTPS\n(cookies Secure)
+
+Web --> Api : proxy /api\nHTTP reseau interne
+
+Api --> Db : JDBC\nport 5432 interne
+
+Api --> VolData : montage volume\nfichiers utilisateur
+
+VolPg .. Db : persistance SQL
+
+note bottom of Docker
+  Communication : reseau docker bridge entre conteneurs.
+  Ports HTTP ou HTTPS exposes sur la machine hote.
+  Secrets via variables environnement (non commites).
+end note
+
+@enduml

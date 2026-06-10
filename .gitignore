@@ -1,0 +1,29 @@
+# Laravel
+/vendor
+.env
+/storage/*.key
+/storage/framework/cache/*
+/storage/framework/sessions/*
+/storage/framework/views/*
+/storage/logs/*.log
+
+# React / Node
+node_modules/
+dist/
+.env
+.env.local
+
+# macOS
+.DS_Store
+
+# IDE
+.vscode/
+.idea/
+
+# Logs
+*.log
+
+# Database / backups
+*.sql
+*.backup
+*.dump

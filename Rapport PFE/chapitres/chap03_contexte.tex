@@ -1,0 +1,105 @@
+\chapter{Contexte et problématique}
+\label{chap:contexte}
+
+\section{Introduction}
+
+Ce chapitre prolonge la présentation de \#ADD en analysant le \emph{contexte socio-technique} dans lequel s'inscrit la plateforme de services électroniques, puis en formalisant la \emph{problématique} et ses déclinaisons (technique, sécurité, organisation). L'objectif est d'offrir un fil conducteur vers le cahier des charges : chaque difficulté identifiée doit pouvoir être traduite en exigence vérifiable \cite{sommerville2016,iso25010}.
+
+\section{Contexte socio-technique}
+
+\subsection{Transformation des usages}
+
+La transformation des usages numériques modifie les attentes en matière de disponibilité, de transparence et de rapidité. Les usagers comparent implicitement une démarche en ligne aux standards des applications grand public : temps de réponse court, retours d'erreur explicites, reprise possible d'une saisie, et cohérence visuelle \cite{pressman2014}. Cette pression « grand public » se traduit en contraintes d'ingénierie : optimisation des requêtes, pagination, conception d'API claires, et gestion fine des erreurs côté client \cite{rfc7231,fielding2000}.
+
+\subsection{Contexte organisationnel en agence}
+
+Dans un contexte de type \#ADD, la réussite d'un service en ligne dépend aussi de processus : cadrage, gestion des changements, communication sur les fenêtres de maintenance, et clarification des responsabilités en cas d'incident \cite{bass2021}. Le stage a permis d'observer comment ces éléments conditionnent la planification des livrables et la priorisation des correctifs.
+
+\section{Problématique générale}
+
+\subsection{Question de recherche appliquée}
+
+La problématique centrale demeure : comment concevoir une plateforme modulaire capable d'unifier plusieurs services électroniques, tout en garantissant sécurité, traçabilité, et maintenabilité ? Cette question structure l'ensemble du mémoire et impose une articulation entre modélisation, architecture, implémentation et validation \cite{sommerville2016}.
+
+\subsection{Déclinaison technique}
+
+Sur le plan technique, la problématique se décline en sous-problèmes : modularité des composants, définition de contrats d'API stables, persistance transactionnelle cohérente, et stratégie d'authentification adaptée au mode « SPA + API » (cookies de session, CSRF) \cite{sanctumdoc,laraveldoc,reactdoc}.
+
+\subsection{Déclinaison sécurité}
+
+Sur le plan sécurité, la surface d'attaque d'une application web moderne inclut l'authentification, la validation des entrées, la gestion des fichiers, et la configuration des dépendances \cite{owasp2021}. La problématique consiste à appliquer des mesures proportionnées au risque, sans sacrifier l'ergonomie de manière irréaliste.
+
+\section{Acteurs, périmètre et responsabilités}
+
+\subsection{Usager et parcours}
+
+L'usager attend autonomie et lisibilité. Le système doit réduire la charge cognitive : étapes explicites, messages contextualisés, et prévention des pertes de données \cite{pressman2014}.
+
+\subsection{Agent et administration}
+
+L'agent attend des écrans orientés productivité (filtres, recherche, historique). L'administrateur attend des opérations de paramétrage contrôlées, sans accès direct non nécessaire aux données sensibles \cite{iso25010}.
+
+\section{Contraintes et hypothèses}
+
+\subsection{Contraintes}
+
+Les contraintes incluent le temps de réalisation, la nécessité de technologies documentées \cite{laraveldoc,postgresdoc}, la reproductibilité via conteneurs \cite{dockerdoc}, et l'exigence de tests argumentés \cite{ieee1012}.
+
+\subsection{Hypothèses}
+
+Les hypothèses portent sur des volumes modérés, un modèle d'identité interne au MVP, et une équipe capable d'appliquer des conventions de code et de revue \cite{gamma1994,fowler2002}.
+
+\section{Analyse des risques (structuration)}
+
+\subsection{Risques projet}
+
+Les risques projet incluent dérive de périmètre, dette technique, et instabilité des environnements. Les mitigations incluent jalons, backlog priorisé, et dockerisation \cite{twelvefactor,dockerdoc}.
+
+\subsection{Risques sécurité}
+
+Les risques sécurité incluent mauvaise gestion des jetons, validation insuffisante, et mauvaise séparation des rôles. Les mitigations incluent revues, tests d'accès, et check-lists OWASP \cite{owasp2021}.
+
+\begin{table}[htbp]
+  \centering
+  \renewcommand{\arraystretch}{1.4}
+  \setlength{\tabcolsep}{10pt}
+  \caption{Matrice risques / impacts / mitigations (extrait).}
+  \label{tab:risques-matrice}
+  \begin{tabular}{|p{3.4cm}|p{4.6cm}|p{5.6cm}|}
+    \hline
+    \textbf{Risque} & \textbf{Impact} & \textbf{Mitigation} \\
+    \hline
+    Dérive fonctionnelle & Retard, dette & CDC + jalons \cite{sommerville2016} \\
+    \hline
+    Failles contrôle d'accès & Fuite données & Tests rôles + revue \cite{owasp2021} \\
+    \hline
+    Schéma DB instable & Régressions & Migrations versionnées \cite{kleppmann2017} \\
+    \hline
+  \end{tabular}
+\end{table}
+
+\paragraph{Commentaire.}
+Le tableau~\ref{tab:risques-matrice} présente un \emph{extrait} de matrice risques : il ne constitue pas une analyse de risques complète au sens d'un dossier d'ingénierie critique, mais illustre la logique retenue pour relier chaque risque identifié à son effet potentiel et à une mesure de mitigation concrète. Les exemples choisis couvrent trois familles complémentaires (périmètre et pilotage, sécurité d'accès, stabilité des données) afin de montrer comment les décisions documentées aux chapitres suivants (cahier des charges, conception, tests) répondent à des menaces récurrentes en développement logiciel \cite{sommerville2016,owasp2021,kleppmann2017}. En pratique, cette matrice peut être étendue par catégories (technique, organisationnel, juridique) et rattachée à une fréquence de revue décidée avec l'encadrant de stage.
+
+\section{Indicateurs de réussite}
+
+Les indicateurs combinent qualité perçue (ergonomie, clarté), qualité technique (tests, modularité), et exploitabilité (déploiement reproductible) \cite{iso25010,ieee1012}.
+
+\section{Positionnement par rapport aux architectures modernes}
+
+Les architectures microservices apportent des avantages mais augmentent la complexité opérationnelle ; le MVP privilégie un monolithe modulaire tout en conservant des frontières nettes entre packages pour faciliter une évolution future \cite{newman2021,bass2021}.
+
+\begin{figure}[H]
+  \centering
+  \fbox{\begin{minipage}{0.88\textwidth}
+    \centering
+    \textbf{Schéma textuel -- Vue contexte $\rightarrow$ exigences}\\[0.35cm]
+    Environnement \#ADD + besoins usagers $\Rightarrow$ contraintes $\Rightarrow$ CDC $\Rightarrow$ conception $\Rightarrow$ implémentation $\Rightarrow$ validation
+  \end{minipage}}
+  \caption{Enchaînement logique du raisonnement (sans capture d'écran).}
+  \label{fig:contexte-flow}
+\end{figure}
+
+\section{Conclusion du chapitre et transition}
+
+Ce chapitre a cadré le contexte et la problématique sous angles usages, architecture, sécurité et risques. Le chapitre suivant formalise le \textbf{cahier des charges}, traduisant ces constats en exigences opérationnelles et en critères d'acceptation mesurables \cite{pressman2014,sommerville2016}.

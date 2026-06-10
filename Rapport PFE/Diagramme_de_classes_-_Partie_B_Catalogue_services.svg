@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentStyleType="text/css" height="535px" preserveAspectRatio="none" style="width:450px;height:535px;background:#FFFFFF;" version="1.1" viewBox="0 0 450 535" width="450px" zoomAndPan="magnify"><defs/><g><rect fill="none" height="26.2969" id="_title" style="stroke:none;stroke-width:1.0;" width="432" x="5" y="5"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="422" x="10" y="22.9951">Diagramme de classes - Partie B (Catalogue services)</text><!--MD5=[d2543b6030cba58518e60e2e2f7be175]
+class Agency--><g id="elem_Agency"><rect codeLine="5" fill="#F1F1F1" height="72.5938" id="Agency" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="111" x="172.5" y="456.2969"/><ellipse cx="200.1" cy="472.2969" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M203.0688,477.9375 Q202.4906,478.2344 201.85,478.375 Q201.2094,478.5313 200.5063,478.5313 Q198.0063,478.5313 196.6781,476.8906 Q195.3656,475.2344 195.3656,472.1094 Q195.3656,468.9844 196.6781,467.3281 Q198.0063,465.6719 200.5063,465.6719 Q201.2094,465.6719 201.85,465.8281 Q202.5063,465.9844 203.0688,466.2813 L203.0688,469 Q202.4438,468.4219 201.85,468.1563 Q201.2563,467.875 200.6313,467.875 Q199.2875,467.875 198.6,468.9531 Q197.9125,470.0156 197.9125,472.1094 Q197.9125,474.2031 198.6,475.2813 Q199.2875,476.3438 200.6313,476.3438 Q201.2563,476.3438 201.85,476.0781 Q202.4438,475.7969 203.0688,475.2188 L203.0688,477.9375 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="51" x="216.9" y="477.1436">Agency</text><line style="stroke:#181818;stroke-width:0.5;" x1="173.5" x2="282.5" y1="488.2969" y2="488.2969"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="71" x="178.5" y="505.292">+id: bigint</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="99" x="178.5" y="521.5889">+name: string</text></g><!--MD5=[dbb8b4f13c7b21394f9d757e58732f45]
+class Service--><g id="elem_Service"><rect codeLine="10" fill="#F1F1F1" height="154.0781" id="Service" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="241" x="107.5" y="242.2969"/><ellipse cx="198.75" cy="258.2969" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M201.7188,263.9375 Q201.1406,264.2344 200.5,264.375 Q199.8594,264.5313 199.1563,264.5313 Q196.6563,264.5313 195.3281,262.8906 Q194.0156,261.2344 194.0156,258.1094 Q194.0156,254.9844 195.3281,253.3281 Q196.6563,251.6719 199.1563,251.6719 Q199.8594,251.6719 200.5,251.8281 Q201.1563,251.9844 201.7188,252.2813 L201.7188,255 Q201.0938,254.4219 200.5,254.1563 Q199.9063,253.875 199.2813,253.875 Q197.9375,253.875 197.25,254.9531 Q196.5625,256.0156 196.5625,258.1094 Q196.5625,260.2031 197.25,261.2813 Q197.9375,262.3438 199.2813,262.3438 Q199.9063,262.3438 200.5,262.0781 Q201.0938,261.7969 201.7188,261.2188 L201.7188,263.9375 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="50" x="219.25" y="263.1436">Service</text><line style="stroke:#181818;stroke-width:0.5;" x1="108.5" x2="347.5" y1="274.2969" y2="274.2969"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="71" x="113.5" y="291.292">+id: bigint</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="128" x="113.5" y="307.5889">+agency_id: bigint</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="99" x="113.5" y="323.8857">+name: string</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="124" x="113.5" y="340.1826">+description: text</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="135" x="113.5" y="356.4795">+is_active: boolean</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="177" x="113.5" y="372.7764">+published_at: datetime?</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="229" x="113.5" y="389.0732">+request_deadline_at: datetime?</text></g><!--MD5=[32e2df69179de289ec0c64420f20f0c2]
+class ServiceField--><g id="elem_ServiceField"><rect codeLine="20" fill="#F1F1F1" height="137.7813" id="ServiceField" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="165" x="145.5" y="44.2969"/><ellipse cx="183.45" cy="60.2969" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M186.4188,65.9375 Q185.8406,66.2344 185.2,66.375 Q184.5594,66.5313 183.8563,66.5313 Q181.3563,66.5313 180.0281,64.8906 Q178.7156,63.2344 178.7156,60.1094 Q178.7156,56.9844 180.0281,55.3281 Q181.3563,53.6719 183.8563,53.6719 Q184.5594,53.6719 185.2,53.8281 Q185.8563,53.9844 186.4188,54.2813 L186.4188,57 Q185.7938,56.4219 185.2,56.1563 Q184.6063,55.875 183.9813,55.875 Q182.6375,55.875 181.95,56.9531 Q181.2625,58.0156 181.2625,60.1094 Q181.2625,62.2031 181.95,63.2813 Q182.6375,64.3438 183.9813,64.3438 Q184.6063,64.3438 185.2,64.0781 Q185.7938,63.7969 186.4188,63.2188 L186.4188,65.9375 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="82" x="202.55" y="65.1436">ServiceField</text><line style="stroke:#181818;stroke-width:0.5;" x1="146.5" x2="309.5" y1="76.2969" y2="76.2969"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="71" x="151.5" y="93.292">+id: bigint</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="127" x="151.5" y="109.5889">+service_id: bigint</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="92" x="151.5" y="125.8857">+label: string</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="90" x="151.5" y="142.1826">+type: string</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="153" x="151.5" y="158.4795">+is_required: boolean</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="93" x="151.5" y="174.7764">+position: int</text></g><!--MD5=[b225f419e1ecd155c8c0df3f07102ee9]
+link Service to Agency--><g id="link_Service_Agency"><path codeLine="29" d="M228,396.5169 C228,415.1669 228,434.4169 228,450.6969 " fill="none" id="Service-to-Agency" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="228,456.0969,232,447.0969,228,451.0969,224,447.0969,228,456.0969" style="stroke:#181818;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="23" x="203.9398" y="416.3964">0..*</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="8" x="219.2875" y="445.3387">1</text></g><!--MD5=[11cd8d5a718674849020f686b4f45e49]
+link ServiceField to Service--><g id="link_ServiceField_Service"><path codeLine="30" d="M228,182.5069 C228,199.9769 228,218.9369 228,236.9969 " fill="none" id="ServiceField-to-Service" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="228,242.0669,232,233.0669,228,237.0669,224,233.0669,228,242.0669" style="stroke:#181818;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="23" x="203.868" y="202.1422">0..*</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="8" x="219.6313" y="231.3252">1</text></g><!--MD5=[8fbaf019d6605c2f44d7a422c755e7e0]
+@startuml
+title Diagramme de classes - Partie B (Catalogue services)
+skinparam classAttributeIconSize 0
+hide methods
+
+class Agency {
+  +id: bigint
+  +name: string
+}
+
+class Service {
+  +id: bigint
+  +agency_id: bigint
+  +name: string
+  +description: text
+  +is_active: boolean
+  +published_at: datetime?
+  +request_deadline_at: datetime?
+}
+
+class ServiceField {
+  +id: bigint
+  +service_id: bigint
+  +label: string
+  +type: string
+  +is_required: boolean
+  +position: int
+}
+
+Service "0..*" - -> "1" Agency
+ServiceField "0..*" - -> "1" Service
+@enduml
+
+PlantUML version 1.2022.7(Mon Aug 22 17:01:30 UTC 2022)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Default Encoding: UTF-8
+Language: en
+Country: null
+--></g></svg>

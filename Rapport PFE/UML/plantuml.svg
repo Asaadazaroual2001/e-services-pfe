@@ -1,0 +1,296 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentStyleType="text/css" height="467.22px" preserveAspectRatio="none" style="width:1127px;height:467px;background:#FFFFFF;" version="1.1" viewBox="0 0 1127 467" width="1127.1px" zoomAndPan="magnify"><defs/><g><rect fill="none" height="20.5116" id="_title" rx="3.12" ry="3.12" style="stroke:none;stroke-width:0.7799999999999999;" width="343.2" x="386.49" y="3.9"/><text fill="#000000" font-family="sans-serif" font-size="10.92" font-weight="bold" lengthAdjust="spacing" textLength="335.4" x="390.39" y="17.9362">Diagramme de cas d'utilisation - Plateforme E-Services</text><!--MD5=[18fd512145f79b26563a3d0fdf1666bf]
+cluster Plateforme E-Services--><g id="cluster_Plateforme E-Services"><rect fill="none" height="230.88" rx="3.12" ry="3.12" style="stroke:#181818;stroke-width:0.7799999999999999;" width="976.56" x="76.44" y="163.6416"/><text fill="#000000" font-family="sans-serif" font-size="7.8" font-weight="bold" lengthAdjust="spacing" textLength="96.72" x="516.36" y="172.4417">Plateforme E-Services</text></g><g id="elem_UC_REG"><ellipse cx="156.5119" cy="316.4679" fill="#F1F1F1" rx="35.2219" ry="8.9164" style="stroke:#181818;stroke-width:0.38999999999999996;"/><text fill="#000000" font-family="sans-serif" font-size="7.8" lengthAdjust="spacing" textLength="38.22" x="137.4019" y="317.6082">Inscription</text></g><g id="elem_UC_LOGIN"><ellipse cx="156.1975" cy="283.0211" fill="#F1F1F1" rx="43.4875" ry="10.5695" style="stroke:#181818;stroke-width:0.38999999999999996;"/><text fill="#000000" font-family="sans-serif" font-size="7.8" lengthAdjust="spacing" textLength="59.28" x="126.5575" y="284.1614">Authentification</text></g><g id="elem_UC_CAT"><ellipse cx="156.4598" cy="351.5575" fill="#F1F1F1" rx="48.8198" ry="11.636" style="stroke:#181818;stroke-width:0.38999999999999996;"/><text fill="#000000" font-family="sans-serif" font-size="7.8" lengthAdjust="spacing" textLength="71.76" x="120.5798" y="352.6978">Catalogue services</text></g><g id="elem_UC_NEW"><ellipse cx="358.9333" cy="352.5062" fill="#F1F1F1" rx="43.8133" ry="10.6347" style="stroke:#181818;stroke-width:0.38999999999999996;"/><text fill="#000000" font-family="sans-serif" font-size="7.8" lengthAdjust="spacing" textLength="60.06" x="328.9033" y="353.6465">Créer demande</text></g><g id="elem_UC_ATT"><ellipse cx="358.6138" cy="318.2003" fill="#F1F1F1" rx="39.9838" ry="9.8688" style="stroke:#181818;stroke-width:0.38999999999999996;"/><text fill="#000000" font-family="sans-serif" font-size="7.8" lengthAdjust="spacing" textLength="50.7" x="333.2638" y="319.3406">Pièces jointes</text></g><g id="elem_UC_SUB"><ellipse cx="358.8976" cy="248.8371" fill="#F1F1F1" rx="36.3676" ry="9.1455" style="stroke:#181818;stroke-width:0.38999999999999996;"/><text fill="#000000" font-family="sans-serif" font-size="7.8" lengthAdjust="spacing" textLength="41.34" x="338.2276" y="249.9774">Soumettre</text></g><g id="elem_UC_TRK"><ellipse cx="358.8083" cy="282.8272" fill="#F1F1F1" rx="44.4683" ry="10.7657" style="stroke:#181818;stroke-width:0.38999999999999996;"/><text fill="#000000" font-family="sans-serif" font-size="7.8" lengthAdjust="spacing" textLength="61.62" x="327.9983" y="283.9675">Suivi / historique</text></g><g id="elem_UC_NOT"><ellipse cx="358.6374" cy="215.713" fill="#F1F1F1" rx="38.4474" ry="9.5615" style="stroke:#181818;stroke-width:0.38999999999999996;"/><text fill="#000000" font-family="sans-serif" font-size="7.8" lengthAdjust="spacing" textLength="46.8" x="335.2374" y="216.8533">Notifications</text></g><g id="elem_UC_QFILE"><ellipse cx="560.0541" cy="286.1824" fill="#F1F1F1" rx="37.8441" ry="9.4408" style="stroke:#181818;stroke-width:0.38999999999999996;"/><text fill="#000000" font-family="sans-serif" font-size="7.8" lengthAdjust="spacing" textLength="45.24" x="537.4341" y="287.3227">File dossiers</text></g><g id="elem_UC_PROC"><ellipse cx="559.9249" cy="217.5165" fill="#F1F1F1" rx="47.4649" ry="11.365" style="stroke:#181818;stroke-width:0.38999999999999996;"/><text fill="#000000" font-family="sans-serif" font-size="7.8" lengthAdjust="spacing" textLength="68.64" x="525.6049" y="218.6568">Instruction dossier</text></g><g id="elem_UC_COMP"><ellipse cx="559.9334" cy="252.6182" fill="#F1F1F1" rx="39.6734" ry="9.8067" style="stroke:#181818;stroke-width:0.38999999999999996;"/><text fill="#000000" font-family="sans-serif" font-size="7.8" lengthAdjust="spacing" textLength="49.92" x="534.9734" y="253.7585">Complément</text></g><g id="elem_UC_SUP"><ellipse cx="700.802" cy="315.814" fill="#F1F1F1" rx="49.502" ry="11.7724" style="stroke:#181818;stroke-width:0.38999999999999996;"/><text fill="#000000" font-family="sans-serif" font-size="7.8" lengthAdjust="spacing" textLength="73.32" x="664.142" y="316.9542">Supervision agence</text></g><g id="elem_UC_ARB"><ellipse cx="700.6586" cy="352.4453" fill="#F1F1F1" rx="45.4586" ry="10.9637" style="stroke:#181818;stroke-width:0.38999999999999996;"/><text fill="#000000" font-family="sans-serif" font-size="7.8" lengthAdjust="spacing" textLength="63.96" x="668.6786" y="353.5856">Arbitrage statuts</text></g><g id="elem_UC_REP"><ellipse cx="700.9064" cy="281.6019" fill="#F1F1F1" rx="33.2264" ry="8.7603" style="stroke:#181818;stroke-width:0.38999999999999996;"/><text fill="#000000" font-family="sans-serif" font-size="7.8" lengthAdjust="spacing" textLength="34.32" x="683.7464" y="282.7422">Rapports</text></g><g id="elem_UC_INF"><ellipse cx="839.3852" cy="353.9826" fill="#F1F1F1" rx="37.5452" ry="9.381" style="stroke:#181818;stroke-width:0.38999999999999996;"/><text fill="#000000" font-family="sans-serif" font-size="7.8" lengthAdjust="spacing" textLength="44.46" x="817.1552" y="355.1229">Config infra</text></g><g id="elem_UC_MON"><ellipse cx="839.2274" cy="319.553" fill="#F1F1F1" rx="44.7974" ry="10.8315" style="stroke:#181818;stroke-width:0.38999999999999996;"/><text fill="#000000" font-family="sans-serif" font-size="7.8" lengthAdjust="spacing" textLength="62.4" x="808.0274" y="320.6933">Supervision tech</text></g><g id="elem_UC_SEC"><ellipse cx="839.1675" cy="283.7391" fill="#F1F1F1" rx="45.1275" ry="10.8975" style="stroke:#181818;stroke-width:0.38999999999999996;"/><text fill="#000000" font-family="sans-serif" font-size="7.8" lengthAdjust="spacing" textLength="63.18" x="807.5775" y="284.8793">Secrets / param.</text></g><g id="elem_UC_USR"><ellipse cx="974.9925" cy="318.0021" fill="#F1F1F1" rx="46.7925" ry="11.2305" style="stroke:#181818;stroke-width:0.38999999999999996;"/><text fill="#000000" font-family="sans-serif" font-size="7.8" lengthAdjust="spacing" textLength="67.08" x="941.4525" y="319.1424">Utilisateurs / rôles</text></g><g id="elem_UC_SRV"><ellipse cx="975.0489" cy="282.0553" fill="#F1F1F1" rx="40.6089" ry="9.9938" style="stroke:#181818;stroke-width:0.38999999999999996;"/><text fill="#000000" font-family="sans-serif" font-size="7.8" lengthAdjust="spacing" textLength="52.26" x="948.9189" y="283.1956">Services / réf.</text></g><!--MD5=[df6a39b053164d23cc3ecae9c3484a54]
+entity CLI--><g id="elem_CLI"><ellipse cx="34.32" cy="203.0316" fill="#F1F1F1" rx="6.24" ry="6.24" style="stroke:#181818;stroke-width:0.38999999999999996;"/><path d="M34.32,209.2716 L34.32,230.3316 M24.18,215.5116 L44.46,215.5116 M34.32,230.3316 L24.18,242.0316 M34.32,230.3316 L44.46,242.0316 " fill="none" style="stroke:#181818;stroke-width:0.38999999999999996;"/><text fill="#000000" font-family="sans-serif" font-size="7.8" lengthAdjust="spacing" textLength="21.84" x="23.4" y="250.4417">Client</text></g><!--MD5=[5558a50e754bb12f6b0c3c30a970ec3c]
+entity AGT--><g id="elem_AGT"><ellipse cx="34.32" cy="40.0116" fill="#F1F1F1" rx="6.24" ry="6.24" style="stroke:#181818;stroke-width:0.38999999999999996;"/><path d="M34.32,46.2516 L34.32,67.3116 M24.18,52.4916 L44.46,52.4916 M34.32,67.3116 L24.18,79.0116 M34.32,67.3116 L44.46,79.0116 " fill="none" style="stroke:#181818;stroke-width:0.38999999999999996;"/><text fill="#000000" font-family="sans-serif" font-size="7.8" lengthAdjust="spacing" textLength="59.28" x="4.68" y="87.4217">Agent d'agence</text></g><!--MD5=[d4c63efc849c138da47c28c0daf11e88]
+entity RAG--><g id="elem_RAG"><ellipse cx="839.28" cy="413.6316" fill="#F1F1F1" rx="6.24" ry="6.24" style="stroke:#181818;stroke-width:0.38999999999999996;"/><path d="M839.28,419.8716 L839.28,440.9316 M829.14,426.1116 L849.42,426.1116 M839.28,440.9316 L829.14,452.6316 M839.28,440.9316 L849.42,452.6316 " fill="none" style="stroke:#181818;stroke-width:0.38999999999999996;"/><text fill="#000000" font-family="sans-serif" font-size="7.8" lengthAdjust="spacing" textLength="84.24" x="797.16" y="461.0417">Responsable d'agence</text></g><!--MD5=[37a95177d590259793c9c7352be837cc]
+entity RSY--><g id="elem_RSY"><ellipse cx="975" cy="413.6316" fill="#F1F1F1" rx="6.24" ry="6.24" style="stroke:#181818;stroke-width:0.38999999999999996;"/><path d="M975,419.8716 L975,440.9316 M964.86,426.1116 L985.14,426.1116 M975,440.9316 L964.86,452.6316 M975,440.9316 L985.14,452.6316 " fill="none" style="stroke:#181818;stroke-width:0.38999999999999996;"/><text fill="#000000" font-family="sans-serif" font-size="7.8" lengthAdjust="spacing" textLength="82.68" x="933.66" y="461.0417">Responsable système</text></g><!--MD5=[5bb58f447e60c14e9d23282c6a4405f4]
+entity ADM--><g id="elem_ADM"><ellipse cx="1093.56" cy="296.6316" fill="#F1F1F1" rx="6.24" ry="6.24" style="stroke:#181818;stroke-width:0.38999999999999996;"/><path d="M1093.56,302.8716 L1093.56,323.9316 M1083.42,309.1116 L1103.7,309.1116 M1093.56,323.9316 L1083.42,335.6316 M1093.56,323.9316 L1103.7,335.6316 " fill="none" style="stroke:#181818;stroke-width:0.38999999999999996;"/><text fill="#000000" font-family="sans-serif" font-size="7.8" lengthAdjust="spacing" textLength="56.16" x="1065.48" y="344.0417">Administrateur</text></g><g id="elem_GMN500"><path d="M230.1,137.1216 L230.1,147.7613 A3.12,3.12 0 0 0 233.22,150.8813 L484.38,150.8813 A3.12,3.12 0 0 0 487.5,147.7613 L487.5,141.8016 L479.7,134.0016 L233.22,134.0016 A3.12,3.12 0 0 0 230.1,137.1216 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.38999999999999996;"/><path d="M479.7,134.0016 L479.7,140.2416 A1.56,1.56 0 0 0 481.26,141.8016 L487.5,141.8016 L479.7,134.0016 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.7799999999999999;"/><text fill="#000000" font-family="sans-serif" font-size="7.8" lengthAdjust="spacing" textLength="241.02" x="234.78" y="145.1417">Exemple : BROUILLON -&gt; SOUMIS (+ historique + notification)</text></g><!--MD5=[0502c8e697165303162d46ff1c2dd986]
+link UC_REG to UC_LOGIN--><!--MD5=[d6c3101f18a1b3b7d8970a2658011589]
+link UC_LOGIN to UC_CAT--><!--MD5=[985b41441cd2bf5c1dc88cf770b676ca]
+link UC_NEW to UC_ATT--><!--MD5=[439f510ff994a76736e97161d03cbd54]
+link UC_ATT to UC_SUB--><!--MD5=[2ff7f803f2d3382f42a410e9cad71b7e]
+link UC_SUB to UC_TRK--><!--MD5=[39778f9053a469af7ece726a367f0cb5]
+link UC_TRK to UC_NOT--><!--MD5=[1529933574a6b0eb124696de4b27011f]
+link UC_QFILE to UC_PROC--><!--MD5=[f53588039a0fdb4d1c37a9ca4ac786f4]
+link UC_PROC to UC_COMP--><!--MD5=[abd9c1f657d6a97656fef11f2839903e]
+link UC_SUP to UC_ARB--><!--MD5=[8daf44a5efbd0f8b7dbab21cd240aa5c]
+link UC_ARB to UC_REP--><!--MD5=[380af69228d60c2c78e54aec12013afe]
+link UC_INF to UC_MON--><!--MD5=[4a7847228cb7813f09758ab75491fa6a]
+link UC_MON to UC_SEC--><!--MD5=[8009feda124170d5cf1a0f346330f135]
+link UC_USR to UC_SRV--><!--MD5=[8a909108de447cbe6f18b3ae8cee977a]
+link UC_CAT to UC_NEW--><!--MD5=[9bc9969d90e4e8b0348b5ba9cb79c971]
+link UC_NOT to UC_QFILE--><!--MD5=[2d78cc736d666fbea4cc4a6a711a142b]
+link UC_COMP to UC_SUP--><!--MD5=[753d1bdb490482100816972a81a65bad]
+link UC_REP to UC_INF--><!--MD5=[3f422e881bf38419638c3b433c1b82a6]
+link UC_SEC to UC_USR--><!--MD5=[a3e8ab326ea4e884e306d649ddc59581]
+link CLI to UC_REG--><g id="link_CLI_UC_REG"><path d="M34.32,252.6006 C34.32,279.6666 34.32,316.5216 34.32,316.5216 C34.32,316.5216 117.1794,316.5216 117.1794,316.5216 " fill="none" id="CLI-to-UC_REG" style="stroke:#181818;stroke-width:0.7799999999999999;"/><polygon fill="#181818" points="121.0794,316.5216,114.0594,313.4016,117.1794,316.5216,114.0594,319.6416,121.0794,316.5216" style="stroke:#181818;stroke-width:0.7799999999999999;"/></g><!--MD5=[0be673a48b5fd5ea6dc71836bb92bcbf]
+link CLI to UC_LOGIN--><g id="link_CLI_UC_LOGIN"><path d="M39.78,252.585 C39.78,268.9884 39.78,286.4916 39.78,286.4916 C39.78,286.4916 111.0486,286.4916 111.0486,286.4916 " fill="none" id="CLI-to-UC_LOGIN" style="stroke:#181818;stroke-width:0.7799999999999999;"/><polygon fill="#181818" points="114.9486,286.4916,107.9286,283.3716,111.0486,286.4916,107.9286,289.6116,114.9486,286.4916" style="stroke:#181818;stroke-width:0.7799999999999999;"/></g><!--MD5=[2a7e1e33d3806590f4e828d3256cd6c5]
+link CLI to UC_CAT--><g id="link_CLI_UC_CAT"><path d="M28.86,252.6942 C28.86,290.1576 28.86,351.6216 28.86,351.6216 C28.86,351.6216 103.545,351.6216 103.545,351.6216 " fill="none" id="CLI-to-UC_CAT" style="stroke:#181818;stroke-width:0.7799999999999999;"/><polygon fill="#181818" points="107.445,351.6216,100.425,348.5016,103.545,351.6216,100.425,354.7416,107.445,351.6216" style="stroke:#181818;stroke-width:0.7799999999999999;"/></g><!--MD5=[541aa9c00624a3c8411762ff13b365e1]
+link CLI to UC_NEW--><g id="link_CLI_UC_NEW"><path d="M45.513,249.9876 C85.3086,249.9876 217.62,249.9876 217.62,249.9876 C217.62,249.9876 217.62,348.8916 217.62,348.8916 C217.62,348.8916 313.6848,348.8916 313.6848,348.8916 " fill="none" id="CLI-to-UC_NEW" style="stroke:#181818;stroke-width:0.7799999999999999;"/><polygon fill="#181818" points="317.5848,348.8916,310.5648,345.7716,313.6848,348.8916,310.5648,352.0116,317.5848,348.8916" style="stroke:#181818;stroke-width:0.7799999999999999;"/></g><!--MD5=[218f467f0c0618163eb273bb6235b88a]
+link CLI to UC_ATT--><g id="link_CLI_UC_ATT"><path d="M45.3336,247.4136 C85.7844,247.4136 223.86,247.4136 223.86,247.4136 C223.86,247.4136 223.86,316.9116 223.86,316.9116 C223.86,316.9116 314.7768,316.9116 314.7768,316.9116 " fill="none" id="CLI-to-UC_ATT" style="stroke:#181818;stroke-width:0.7799999999999999;"/><polygon fill="#181818" points="318.6768,316.9116,311.6568,313.7916,314.7768,316.9116,311.6568,320.0316,318.6768,316.9116" style="stroke:#181818;stroke-width:0.7799999999999999;"/></g><!--MD5=[39f595e626b8d9658cb4ea5185a19927]
+link CLI to UC_SUB--><g id="link_CLI_UC_SUB"><path d="M45.4896,244.8396 C45.4896,244.8396 322.0854,244.8396 322.0854,244.8396 " fill="none" id="CLI-to-UC_SUB" style="stroke:#181818;stroke-width:0.7799999999999999;"/><polygon fill="#181818" points="325.9854,244.8396,318.9654,241.7196,322.0854,244.8396,318.9654,247.9596,325.9854,244.8396" style="stroke:#181818;stroke-width:0.7799999999999999;"/></g><!--MD5=[55fbb39b7f49f1abbbf616380b263605]
+link CLI to UC_TRK--><g id="link_CLI_UC_TRK"><path d="M45.357,234.2316 C97.422,234.2316 315.9,234.2316 315.9,234.2316 C315.9,234.2316 315.9,276.18 315.9,276.18 " fill="none" id="CLI-to-UC_TRK" style="stroke:#181818;stroke-width:0.7799999999999999;"/><polygon fill="#181818" points="315.9,280.08,319.02,273.06,315.9,276.18,312.78,273.06,315.9,280.08" style="stroke:#181818;stroke-width:0.7799999999999999;"/></g><!--MD5=[ac10e2f62c02164efb0a36246a7564f1]
+link CLI to UC_NOT--><g id="link_CLI_UC_NOT"><path d="M45.4896,215.9016 C45.4896,215.9016 316.2822,215.9016 316.2822,215.9016 " fill="none" id="CLI-to-UC_NOT" style="stroke:#181818;stroke-width:0.7799999999999999;"/><polygon fill="#181818" points="320.1822,215.9016,313.1711,212.7615,316.2822,215.8904,313.1533,219.0015,320.1822,215.9016" style="stroke:#181818;stroke-width:0.7799999999999999;"/></g><!--MD5=[d04af2053e0b6e0bf354e9456886d66a]
+link AGT to UC_LOGIN--><g id="link_AGT_UC_LOGIN"><path d="M51.48,89.7366 C51.48,148.728 51.48,279.4716 51.48,279.4716 C51.48,279.4716 111.0252,279.4716 111.0252,279.4716 " fill="none" id="AGT-to-UC_LOGIN" style="stroke:#181818;stroke-width:0.7799999999999999;"/><polygon fill="#181818" points="114.9252,279.4716,107.9052,276.3516,111.0252,279.4716,107.9052,282.5916,114.9252,279.4716" style="stroke:#181818;stroke-width:0.7799999999999999;"/></g><!--MD5=[b591c6e0576f3eab63acc7d1e25037f4]
+link AGT to UC_QFILE--><g id="link_AGT_UC_QFILE"><path d="M64.2642,75.5016 C166.5846,75.5016 496.08,75.5016 496.08,75.5016 C496.08,75.5016 496.08,282.459 496.08,282.459 C496.08,282.459 521.1648,282.459 521.1648,282.459 " fill="none" id="AGT-to-UC_QFILE" style="stroke:#181818;stroke-width:0.7799999999999999;"/><polygon fill="#181818" points="525.0648,282.459,518.0448,279.339,521.1648,282.459,518.0448,285.579,525.0648,282.459" style="stroke:#181818;stroke-width:0.7799999999999999;"/></g><!--MD5=[684f51c78bd48d691e7bf6134b881641]
+link AGT to UC_PROC--><g id="link_AGT_UC_PROC"><path d="M64.0926,47.4216 C175.305,47.4216 560.04,47.4216 560.04,47.4216 C560.04,47.4216 560.04,202.1424 560.04,202.1424 " fill="none" id="AGT-to-UC_PROC" style="stroke:#181818;stroke-width:0.7799999999999999;"/><polygon fill="#181818" points="560.04,206.0424,563.16,199.0224,560.04,202.1424,556.92,199.0224,560.04,206.0424" style="stroke:#181818;stroke-width:0.7799999999999999;"/></g><!--MD5=[53e6dece766682265210869836da68a8]
+link AGT to UC_COMP--><g id="link_AGT_UC_COMP"><path d="M64.1004,61.4616 C167.4894,61.4616 504.66,61.4616 504.66,61.4616 C504.66,61.4616 504.66,252.6942 504.66,252.6942 C504.66,252.6942 516.1884,252.6942 516.1884,252.6942 " fill="none" id="AGT-to-UC_COMP" style="stroke:#181818;stroke-width:0.7799999999999999;"/><polygon fill="#181818" points="520.0884,252.6942,513.0684,249.5742,516.1884,252.6942,513.0684,255.8142,520.0884,252.6942" style="stroke:#181818;stroke-width:0.7799999999999999;"/></g><!--MD5=[9c170267c4be63c5e9edb510af5b8fad]
+link AGT to UC_NOT--><g id="link_AGT_UC_NOT"><path d="M57.72,89.5962 C57.72,132.9174 57.72,211.0266 57.72,211.0266 C57.72,211.0266 321.2352,211.0266 321.2352,211.0266 " fill="none" id="AGT-to-UC_NOT" style="stroke:#181818;stroke-width:0.7799999999999999;"/><polygon fill="#181818" points="325.1352,211.0266,318.1152,207.9066,321.2352,211.0266,318.1152,214.1466,325.1352,211.0266" style="stroke:#181818;stroke-width:0.7799999999999999;"/></g><!--MD5=[6dba14a2aef9ccd9fdc6076aa132d6f2]
+reverse link UC_LOGIN to RAG--><g id="link_UC_LOGIN_RAG"><path d="M204.1494,282.9816 C204.1494,282.9816 211.38,282.9816 211.38,282.9816 C211.38,282.9816 211.38,453.8016 211.38,453.8016 C211.38,453.8016 656.3232,453.8016 797.1054,453.8016 " fill="none" id="UC_LOGIN-backto-RAG" style="stroke:#181818;stroke-width:0.7799999999999999;"/><polygon fill="#181818" points="200.2494,282.9816,207.2694,286.1016,204.1494,282.9816,207.2694,279.8616,200.2494,282.9816" style="stroke:#181818;stroke-width:0.7799999999999999;"/></g><!--MD5=[92b18b588cd9c8f455b9ad4356da1b7a]
+reverse link UC_QFILE to RAG--><g id="link_UC_QFILE_RAG"><path d="M560.04,299.4318 C560.04,299.4318 560.04,444.4416 560.04,444.4416 C560.04,444.4416 718.7544,444.4416 796.8714,444.4416 " fill="none" id="UC_QFILE-backto-RAG" style="stroke:#181818;stroke-width:0.7799999999999999;"/><polygon fill="#181818" points="560.04,295.5318,556.92,302.5518,560.04,299.4318,563.16,302.5518,560.04,295.5318" style="stroke:#181818;stroke-width:0.7799999999999999;"/></g><!--MD5=[61c5ab33648316ce2e8c7f649756a828]
+reverse link UC_SUP to RAG--><g id="link_UC_SUP_RAG"><path d="M753.5268,318.0816 C753.5268,318.0816 761.28,318.0816 761.28,318.0816 C761.28,318.0816 761.28,425.7216 761.28,425.7216 C761.28,425.7216 778.7052,425.7216 797.082,425.7216 " fill="none" id="UC_SUP-backto-RAG" style="stroke:#181818;stroke-width:0.7799999999999999;"/><polygon fill="#181818" points="749.6268,318.0816,756.6468,321.2016,753.5268,318.0816,756.6468,314.9616,749.6268,318.0816" style="stroke:#181818;stroke-width:0.7799999999999999;"/></g><!--MD5=[bbb2065e34ff1c70966520613d54a2d5]
+reverse link UC_ARB to RAG--><g id="link_UC_ARB_RAG"><path d="M701.22,367.4556 C701.22,367.4556 701.22,435.0816 701.22,435.0816 C701.22,435.0816 756.5064,435.0816 797.1054,435.0816 " fill="none" id="UC_ARB-backto-RAG" style="stroke:#181818;stroke-width:0.7799999999999999;"/><polygon fill="#181818" points="701.22,363.5556,698.1,370.5756,701.22,367.4556,704.34,370.5756,701.22,363.5556" style="stroke:#181818;stroke-width:0.7799999999999999;"/></g><!--MD5=[9e401d23d62138269fcca544210e03da]
+reverse link UC_REP to RAG--><g id="link_UC_REP_RAG"><path d="M736.0314,284.2842 C736.0314,284.2842 772.2,284.2842 772.2,284.2842 C772.2,284.2842 772.2,416.3616 772.2,416.3616 C772.2,416.3616 783.4866,416.3616 796.7934,416.3616 " fill="none" id="UC_REP-backto-RAG" style="stroke:#181818;stroke-width:0.7799999999999999;"/><polygon fill="#181818" points="732.1314,284.2842,739.1514,287.4042,736.0314,284.2842,739.1514,281.1642,732.1314,284.2842" style="stroke:#181818;stroke-width:0.7799999999999999;"/></g><!--MD5=[bf150dd169ad62128c56775442338596]
+reverse link UC_LOGIN to RSY--><g id="link_UC_LOGIN_RSY"><path d="M195,291.8892 C195,291.8892 195,335.2416 195,335.2416 C195,335.2416 989.04,335.2416 989.04,335.2416 C989.04,335.2416 989.04,377.2212 989.04,406.7364 " fill="none" id="UC_LOGIN-backto-RSY" style="stroke:#181818;stroke-width:0.7799999999999999;"/><polygon fill="#181818" points="195,287.9892,191.88,295.0092,195,291.8892,198.12,295.0092,195,287.9892" style="stroke:#181818;stroke-width:0.7799999999999999;"/></g><!--MD5=[fa9c326b53ef33f7fafbea4e5b27ef4f]
+reverse link UC_INF to RSY--><g id="link_UC_INF_RSY"><path d="M880.5888,354.7416 C880.5888,354.7416 961.74,354.7416 961.74,354.7416 C961.74,354.7416 961.74,383.8122 961.74,406.986 " fill="none" id="UC_INF-backto-RSY" style="stroke:#181818;stroke-width:0.7799999999999999;"/><polygon fill="#181818" points="876.6888,354.7416,883.7088,357.8616,880.5888,354.7416,883.7088,351.6216,876.6888,354.7416" style="stroke:#181818;stroke-width:0.7799999999999999;"/></g><!--MD5=[06d9cacb9430012a7ed06733eb85765c]
+reverse link UC_MON to RSY--><g id="link_UC_MON_RSY"><path d="M888.0846,319.0566 C888.0846,319.0566 899.34,319.0566 899.34,319.0566 C899.34,319.0566 899.34,444.4416 899.34,444.4416 C899.34,444.4416 915.9618,444.4416 933.6288,444.4416 " fill="none" id="UC_MON-backto-RSY" style="stroke:#181818;stroke-width:0.7799999999999999;"/><polygon fill="#181818" points="884.1846,319.0566,891.2046,322.1766,888.0846,319.0566,891.2046,315.9366,884.1846,319.0566" style="stroke:#181818;stroke-width:0.7799999999999999;"/></g><!--MD5=[6e8a7f1263bcd24d1427456b6b41cd26]
+reverse link UC_SEC to RSY--><g id="link_UC_SEC_RSY"><path d="M887.601,285.8442 C887.601,285.8442 914.16,285.8442 914.16,285.8442 C914.16,285.8442 914.16,425.7216 914.16,425.7216 C914.16,425.7216 922.7166,425.7216 933.4104,425.7216 " fill="none" id="UC_SEC-backto-RSY" style="stroke:#181818;stroke-width:0.7799999999999999;"/><polygon fill="#181818" points="883.701,285.8442,890.721,288.9642,887.601,285.8442,890.721,282.7242,883.701,285.8442" style="stroke:#181818;stroke-width:0.7799999999999999;"/></g><!--MD5=[95fa332434811393bc005aa31d20edba]
+reverse link UC_LOGIN to ADM--><g id="link_UC_LOGIN_ADM"><path d="M197.34,290.7738 C197.34,290.7738 197.34,299.7516 197.34,299.7516 C197.34,299.7516 912.9198,299.7516 1065.2616,299.7516 " fill="none" id="UC_LOGIN-backto-ADM" style="stroke:#181818;stroke-width:0.7799999999999999;"/><polygon fill="#181818" points="197.34,286.8738,194.22,293.8938,197.34,290.7738,200.46,293.8938,197.34,286.8738" style="stroke:#181818;stroke-width:0.7799999999999999;"/></g><!--MD5=[d30d6118b6baaf8af6e572a2930b1dc0]
+reverse link UC_USR to ADM--><g id="link_UC_USR_ADM"><path d="M1025.7546,318.0816 C1025.7546,318.0816 1065.4722,318.0816 1065.4722,318.0816 " fill="none" id="UC_USR-backto-ADM" style="stroke:#181818;stroke-width:0.7799999999999999;"/><polygon fill="#181818" points="1021.8546,318.0816,1028.8746,321.2016,1025.7546,318.0816,1028.8746,314.9616,1021.8546,318.0816" style="stroke:#181818;stroke-width:0.7799999999999999;"/></g><!--MD5=[3b6f56f7b780e5474d1d9dce85e8d5a4]
+reverse link UC_SRV to ADM--><g id="link_UC_SRV_ADM"><path d="M1019.3664,281.0316 C1019.3664,281.0316 1093.56,281.0316 1093.56,281.0316 C1093.56,281.0316 1093.56,284.8302 1093.56,290.0016 " fill="none" id="UC_SRV-backto-ADM" style="stroke:#181818;stroke-width:0.7799999999999999;"/><polygon fill="#181818" points="1015.4664,281.0316,1022.4864,284.1516,1019.3664,281.0316,1022.4864,277.9116,1015.4664,281.0316" style="stroke:#181818;stroke-width:0.7799999999999999;"/></g><!--MD5=[52e1a41ab6998795ae1afd07a976929e]
+link UC_SUB to GMN500--><g id="link_UC_SUB_GMN500"><path d="M333.3252,242.2656 C324.8154,242.2656 317.46,242.2656 317.46,242.2656 C317.46,242.2656 317.46,175.8252 317.46,151.4268 " fill="none" id="UC_SUB-GMN500" style="stroke:#181818;stroke-width:0.7799999999999999;stroke-dasharray:7.0,7.0;"/></g><!--MD5=[c3c59530b14757c44ddb89d6e030f4d3]
+@startuml
+title Diagramme de cas d'utilisation - Plateforme E-Services
+
+left to right direction
+
+skinparam defaultFontSize 10
+skinparam shadowing false
+skinparam roundcorner 8
+skinparam linetype ortho
+skinparam nodesep 18
+skinparam ranksep 28
+
+'- - - Ajuste la taille globale (baisse si encore trop grand)
+scale 0.78
+
+actor "Client" as CLI
+actor "Agent d'agence" as AGT
+
+rectangle "Plateforme E-Services" {
+
+  '- - - Bande 1 (horizontale)
+  together {
+    usecase "Inscription" as UC_REG
+    usecase "Authentification" as UC_LOGIN
+    usecase "Catalogue services" as UC_CAT
+    UC_REG -[hidden]right- UC_LOGIN
+    UC_LOGIN -[hidden]right- UC_CAT
+  }
+
+  '- - - Bande 2 (horizontale)
+  together {
+    usecase "Créer demande" as UC_NEW
+    usecase "Pièces jointes" as UC_ATT
+    usecase "Soumettre" as UC_SUB
+    usecase "Suivi / historique" as UC_TRK
+    usecase "Notifications" as UC_NOT
+    UC_NEW -[hidden]right- UC_ATT
+    UC_ATT -[hidden]right- UC_SUB
+    UC_SUB -[hidden]right- UC_TRK
+    UC_TRK -[hidden]right- UC_NOT
+  }
+
+  '- - - Bande 3 (3 groupes côte à côte pour limiter la hauteur)
+  together {
+    usecase "File dossiers" as UC_QFILE
+    usecase "Instruction dossier" as UC_PROC
+    usecase "Complément" as UC_COMP
+    UC_QFILE -[hidden]right- UC_PROC
+    UC_PROC -[hidden]right- UC_COMP
+  }
+
+  together {
+    usecase "Supervision agence" as UC_SUP
+    usecase "Arbitrage statuts" as UC_ARB
+    usecase "Rapports" as UC_REP
+    UC_SUP -[hidden]right- UC_ARB
+    UC_ARB -[hidden]right- UC_REP
+  }
+
+  together {
+    usecase "Config infra" as UC_INF
+    usecase "Supervision tech" as UC_MON
+    usecase "Secrets / param." as UC_SEC
+    UC_INF -[hidden]right- UC_MON
+    UC_MON -[hidden]right- UC_SEC
+  }
+
+  together {
+    usecase "Utilisateurs / rôles" as UC_USR
+    usecase "Services / réf." as UC_SRV
+    UC_USR -[hidden]right- UC_SRV
+  }
+
+  '- - - Espacement vertical entre bandes (léger)
+  UC_CAT -[hidden]down- UC_NEW
+  UC_NOT -[hidden]down- UC_QFILE
+  UC_COMP -[hidden]down- UC_SUP
+  UC_REP -[hidden]down- UC_INF
+  UC_SEC -[hidden]down- UC_USR
+}
+
+actor "Responsable d'agence" as RAG
+actor "Responsable système" as RSY
+actor "Administrateur" as ADM
+
+'- - - GAUCHE
+CLI - -> UC_REG
+CLI - -> UC_LOGIN
+CLI - -> UC_CAT
+CLI - -> UC_NEW
+CLI - -> UC_ATT
+CLI - -> UC_SUB
+CLI - -> UC_TRK
+CLI - -> UC_NOT
+
+AGT - -> UC_LOGIN
+AGT - -> UC_QFILE
+AGT - -> UC_PROC
+AGT - -> UC_COMP
+AGT - -> UC_NOT
+
+'- - - DROITE
+UC_LOGIN <- - RAG
+UC_QFILE <- - RAG
+UC_SUP   <- - RAG
+UC_ARB   <- - RAG
+UC_REP   <- - RAG
+
+UC_LOGIN <- - RSY
+UC_INF   <- - RSY
+UC_MON   <- - RSY
+UC_SEC   <- - RSY
+
+UC_LOGIN <- - ADM
+UC_USR   <- - ADM
+UC_SRV   <- - ADM
+
+note bottom of UC_SUB
+Exemple : BROUILLON -> SOUMIS (+ historique + notification)
+end note
+@enduml
+
+@startuml
+title Diagramme de cas d'utilisation - Plateforme E-Services
+
+left to right direction
+
+skinparam defaultFontSize 10
+skinparam shadowing false
+skinparam roundcorner 8
+skinparam linetype ortho
+skinparam nodesep 18
+skinparam ranksep 28
+
+scale 0.78
+
+actor "Client" as CLI
+actor "Agent d'agence" as AGT
+
+rectangle "Plateforme E-Services" {
+
+  together {
+    usecase "Inscription" as UC_REG
+    usecase "Authentification" as UC_LOGIN
+    usecase "Catalogue services" as UC_CAT
+    UC_REG -[hidden]right- UC_LOGIN
+    UC_LOGIN -[hidden]right- UC_CAT
+  }
+
+  together {
+    usecase "Créer demande" as UC_NEW
+    usecase "Pièces jointes" as UC_ATT
+    usecase "Soumettre" as UC_SUB
+    usecase "Suivi / historique" as UC_TRK
+    usecase "Notifications" as UC_NOT
+    UC_NEW -[hidden]right- UC_ATT
+    UC_ATT -[hidden]right- UC_SUB
+    UC_SUB -[hidden]right- UC_TRK
+    UC_TRK -[hidden]right- UC_NOT
+  }
+
+  together {
+    usecase "File dossiers" as UC_QFILE
+    usecase "Instruction dossier" as UC_PROC
+    usecase "Complément" as UC_COMP
+    UC_QFILE -[hidden]right- UC_PROC
+    UC_PROC -[hidden]right- UC_COMP
+  }
+
+  together {
+    usecase "Supervision agence" as UC_SUP
+    usecase "Arbitrage statuts" as UC_ARB
+    usecase "Rapports" as UC_REP
+    UC_SUP -[hidden]right- UC_ARB
+    UC_ARB -[hidden]right- UC_REP
+  }
+
+  together {
+    usecase "Config infra" as UC_INF
+    usecase "Supervision tech" as UC_MON
+    usecase "Secrets / param." as UC_SEC
+    UC_INF -[hidden]right- UC_MON
+    UC_MON -[hidden]right- UC_SEC
+  }
+
+  together {
+    usecase "Utilisateurs / rôles" as UC_USR
+    usecase "Services / réf." as UC_SRV
+    UC_USR -[hidden]right- UC_SRV
+  }
+
+  UC_CAT -[hidden]down- UC_NEW
+  UC_NOT -[hidden]down- UC_QFILE
+  UC_COMP -[hidden]down- UC_SUP
+  UC_REP -[hidden]down- UC_INF
+  UC_SEC -[hidden]down- UC_USR
+}
+
+actor "Responsable d'agence" as RAG
+actor "Responsable système" as RSY
+actor "Administrateur" as ADM
+
+CLI - -> UC_REG
+CLI - -> UC_LOGIN
+CLI - -> UC_CAT
+CLI - -> UC_NEW
+CLI - -> UC_ATT
+CLI - -> UC_SUB
+CLI - -> UC_TRK
+CLI - -> UC_NOT
+
+AGT - -> UC_LOGIN
+AGT - -> UC_QFILE
+AGT - -> UC_PROC
+AGT - -> UC_COMP
+AGT - -> UC_NOT
+
+UC_LOGIN <- - RAG
+UC_QFILE <- - RAG
+UC_SUP   <- - RAG
+UC_ARB   <- - RAG
+UC_REP   <- - RAG
+
+UC_LOGIN <- - RSY
+UC_INF   <- - RSY
+UC_MON   <- - RSY
+UC_SEC   <- - RSY
+
+UC_LOGIN <- - ADM
+UC_USR   <- - ADM
+UC_SRV   <- - ADM
+
+note bottom of UC_SUB
+Exemple : BROUILLON -> SOUMIS (+ historique + notification)
+end note
+@enduml
+
+PlantUML version 1.2022.7(Mon Aug 22 17:01:30 UTC 2022)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Default Encoding: UTF-8
+Language: en
+Country: null
+--></g></svg>

@@ -1,0 +1,132 @@
+@startuml
+title Diagramme de classes (vue domaine simplifiée) - E-Services
+
+left to right direction
+
+skinparam defaultFontSize 10
+skinparam shadowing false
+skinparam roundcorner 8
+skinparam linetype ortho
+skinparam nodesep 18
+skinparam ranksep 28
+
+scale 0.78
+
+hide empty members
+
+actor "Client" as CLI
+actor "Agent d'agence" as AGT
+
+rectangle "Plateforme E-Services" {
+
+  together {
+    abstract class Utilisateur {
+      +id: UUID
+      +email: String
+      +motDePasseHash: String
+      +actif: boolean
+    }
+    class Client
+    class Administrateur
+    class AgentAgence
+    class ResponsableAgence
+    class ResponsableSysteme
+    Utilisateur <|-- Client
+    Utilisateur <|-- Administrateur
+    Utilisateur <|-- AgentAgence
+    Utilisateur <|-- ResponsableAgence
+    Utilisateur <|-- ResponsableSysteme
+  }
+
+  together {
+    enum CodeEtatDemande {
+      BROUILLON
+      SOUMIS
+      EN_INSTRUCTION
+      COMPLEMENT_REQUIS
+      ACCEPTEE
+      REFUSEE
+    }
+    abstract class Demande {
+      +id: UUID
+      +referencePublique: String
+      +dateCreation: Instant
+      +dateSoumission: Instant
+    }
+    class EtatDemande {
+      +etatCourant: CodeEtatDemande
+    }
+    Demande <|-- EtatDemande
+  }
+
+  class Service {
+    +id: UUID
+    +titre: String
+    +description: String
+    +actif: boolean
+    +delaiIndicatifJours: int
+  }
+
+  together {
+    class PieceJointe {
+      +id: UUID
+      +nomFichier: String
+      +taille: long
+      +typeMime: String
+      +cheminStockage: String
+    }
+    class HistoriqueEtat {
+      +id: UUID
+      +ancienEtat: CodeEtatDemande
+      +nouvelEtat: CodeEtatDemande
+      +horodatage: Instant
+    }
+    class Commentaire {
+      +id: UUID
+      +texte: String
+      +interne: boolean
+      +horodatage: Instant
+    }
+    class Notification {
+      +id: UUID
+      +message: String
+      +lue: boolean
+      +horodatage: Instant
+    }
+  }
+
+  Utilisateur "1" --> "0..*" Demande : crée / possède
+  Service "1" <-- "0..*" Demande : concerne
+  Demande "1" *-- "0..*" PieceJointe
+  Demande "1" *-- "0..*" HistoriqueEtat
+  Demande "1" *-- "0..*" Commentaire
+  Utilisateur "1" <-- "0..*" Notification : destinataire
+
+  Client -[hidden]right- Administrateur
+  Administrateur -[hidden]right- AgentAgence
+  AgentAgence -[hidden]right- ResponsableAgence
+  ResponsableAgence -[hidden]right- ResponsableSysteme
+  CodeEtatDemande -[hidden]down- Demande
+  Utilisateur -[hidden]down- Service
+  Service -[hidden]down- PieceJointe
+
+  note bottom of Demande
+    Référence publique lisible + UUID interne
+  end note
+}
+
+actor "Responsable d'agence" as RAG
+actor "Responsable système" as RSY
+actor "Administrateur" as ADM
+
+CLI -[hidden]down- AGT
+RAG -[hidden]right- RSY
+RSY -[hidden]right- ADM
+
+CLI ..> Demande : usager
+AGT ..> Demande : instruction
+RAG ..> Demande : pilotage
+RSY ..> Service : référentiels
+ADM ..> Utilisateur : comptes / rôles
+
+@enduml

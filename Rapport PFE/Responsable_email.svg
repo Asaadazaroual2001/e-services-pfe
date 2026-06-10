@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentStyleType="text/css" height="516px" preserveAspectRatio="none" style="width:592px;height:516px;background:#FFFFFF;" version="1.1" viewBox="0 0 592 516" width="592px" zoomAndPan="magnify"><defs/><g><rect fill="none" height="26.2969" id="_title" rx="5" ry="5" style="stroke:none;stroke-width:1.0;" width="264" x="157" y="5"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="254" x="162" y="22.9951">DCU - Système d'envoi d'e-mails</text><!--MD5=[18fd512145f79b26563a3d0fdf1666bf]
+cluster Plateforme E-Services--><g id="cluster_Plateforme E-Services"><rect fill="none" height="466" rx="5" ry="5" style="stroke:#181818;stroke-width:1.0;" width="291" x="85" y="44.2969"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="174" x="143.5" y="59.292">Plateforme E-Services</text></g><g id="elem_UC_MAIL"><ellipse cx="230.3717" cy="104.1712" fill="#F1F1F1" rx="112.3717" ry="24.8743" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="191" x="134.8717" y="107.0179">Envoyer e-mail automatique</text></g><g id="elem_UC_NEW_SERVICE"><ellipse cx="230.3359" cy="206.2641" fill="#F1F1F1" rx="112.8359" ry="24.9672" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="192" x="134.3359" y="209.1107">Publication nouveau service</text></g><g id="elem_UC_UPDATE_DEMANDE"><ellipse cx="230.4811" cy="291.3931" fill="#F1F1F1" rx="110.9811" ry="24.5962" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="188" x="136.4811" y="294.2398">Mise à jour statut demande</text></g><g id="elem_UC_CREATE_DEMANDE"><ellipse cx="230.2544" cy="379.0478" fill="#F1F1F1" rx="129.2544" ry="28.2509" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="227" x="116.7544" y="381.8944">Création demande (confirmation)</text></g><g id="elem_UC_RESET_PASSWORD"><ellipse cx="230.6614" cy="468.2292" fill="#F1F1F1" rx="115.1614" ry="25.4323" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="197" x="132.1614" y="471.0758">Réinitialisation mot de passe</text></g><!--MD5=[fa92c0c292cdeae80e2f3763d35ba241]
+entity SYS--><g id="elem_SYS"><ellipse cx="504" cy="74.7969" fill="#F1F1F1" rx="8" ry="8" style="stroke:#181818;stroke-width:0.5;"/><path d="M504,82.7969 L504,109.7969 M491,90.7969 L517,90.7969 M504,109.7969 L491,124.7969 M504,109.7969 L517,124.7969 " fill="none" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="162" x="423" y="139.292">Système (SMTP / Email)</text></g><!--MD5=[bbb11445ee1d946aa5db17620acfc9a0]
+link UC_NEW_SERVICE to UC_MAIL--><g id="link_UC_NEW_SERVICE_UC_MAIL"><path d="M230.5,181.0869 C230.5,167.1069 230.5,149.6269 230.5,134.8769 " fill="none" id="UC_NEW_SERVICE-to-UC_MAIL" style="stroke:#181818;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#181818" points="230.5,129.5769,226.5,138.5769,230.5,134.5769,234.5,138.5769,230.5,129.5769" style="stroke:#181818;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="61" x="188.5" y="159.8638">«include»</text></g><!--MD5=[207558416524aa37527975d021ea0566]
+link UC_UPDATE_DEMANDE to UC_MAIL--><g id="link_UC_UPDATE_DEMANDE_UC_MAIL"><path d="M135.05,278.6669 C94.68,267.4769 53.43,246.4169 38,206.7969 C19.33,158.8469 74.73,132.9169 130.82,119.1469 " fill="none" id="UC_UPDATE_DEMANDE-to-UC_MAIL" style="stroke:#181818;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#181818" points="135.9,117.9369,126.218,116.1315,131.0361,119.0956,128.072,123.9137,135.9,117.9369" style="stroke:#181818;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="61" x="7" y="202.8638">«include»</text></g><!--MD5=[2ac68a42cbef1341ab06894b261b4d02]
+link UC_CREATE_DEMANDE to UC_MAIL--><g id="link_UC_CREATE_DEMANDE_UC_MAIL"><path d="M100.71,378.0269 C76.51,371.5869 53.88,360.1669 38,340.7969 C29.62,330.5669 9.46,241.4569 77,164.2969 C93.96,144.9169 117.97,131.7469 141.97,122.8169 " fill="none" id="UC_CREATE_DEMANDE-to-UC_MAIL" style="stroke:#181818;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#181818" points="146.77,121.0869,136.9468,120.3771,142.0665,122.783,139.6605,127.9027,146.77,121.0869" style="stroke:#181818;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="61" x="7" y="336.8638">«include»</text></g><!--MD5=[abce4457194bec799ace835e81e67811]
+link UC_RESET_PASSWORD to UC_MAIL--><g id="link_UC_RESET_PASSWORD_UC_MAIL"><path d="M130.3,455.6669 C110.68,449.2069 91.67,439.5869 77,425.2969 C34.86,384.2369 46.76,356.9769 38,298.7969 C29.8,244.3769 71.67,169.9069 77,164.2969 C95.01,145.3269 119.72,132.2569 144.06,123.2869 " fill="none" id="UC_RESET_PASSWORD-to-UC_MAIL" style="stroke:#181818;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#181818" points="148.92,121.5469,139.098,120.8202,144.2136,123.2349,141.7988,128.3505,148.92,121.5469" style="stroke:#181818;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="61" x="7" y="294.8638">«include»</text></g><!--MD5=[2fc220fc548c7e0ad70a31dc6a871b3c]
+link UC_MAIL to SYS--><g id="link_UC_MAIL_SYS"><path d="M343.1,104.2969 C368.09,104.2969 394.21,104.2969 417.92,104.2969 " fill="none" id="UC_MAIL-to-SYS" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="422.94,104.2969,413.94,100.2969,417.94,104.2969,413.94,108.2969,422.94,104.2969" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[6c1e66718383f805e7c6d6303e4b8470]
+@startuml
+title DCU - Système d'envoi d'e-mails
+
+left to right direction
+skinparam shadowing false
+skinparam roundcorner 10
+
+actor "Système (SMTP / Email)" as SYS
+
+rectangle "Plateforme E-Services" {
+
+  ' Use case principal
+  usecase "Envoyer e-mail automatique" as UC_MAIL
+
+  ' Triggers métier
+  usecase "Publication nouveau service" as UC_NEW_SERVICE
+  usecase "Mise à jour statut demande" as UC_UPDATE_DEMANDE
+  usecase "Création demande (confirmation)" as UC_CREATE_DEMANDE
+  usecase "Réinitialisation mot de passe" as UC_RESET_PASSWORD
+
+}
+
+' Relations include (trigger -> email)
+UC_NEW_SERVICE .> UC_MAIL : <<include>>
+UC_UPDATE_DEMANDE .> UC_MAIL : <<include>>
+UC_CREATE_DEMANDE .> UC_MAIL : <<include>>
+UC_RESET_PASSWORD .> UC_MAIL : <<include>>
+
+' External email system
+UC_MAIL - -> SYS
+@enduml
+
+@startuml
+title DCU - Système d'envoi d'e-mails
+
+left to right direction
+skinparam shadowing false
+skinparam roundcorner 10
+
+actor "Système (SMTP / Email)" as SYS
+
+rectangle "Plateforme E-Services" {
+
+  usecase "Envoyer e-mail automatique" as UC_MAIL
+
+  usecase "Publication nouveau service" as UC_NEW_SERVICE
+  usecase "Mise à jour statut demande" as UC_UPDATE_DEMANDE
+  usecase "Création demande (confirmation)" as UC_CREATE_DEMANDE
+  usecase "Réinitialisation mot de passe" as UC_RESET_PASSWORD
+
+}
+
+UC_NEW_SERVICE .> UC_MAIL : <<include>>
+UC_UPDATE_DEMANDE .> UC_MAIL : <<include>>
+UC_CREATE_DEMANDE .> UC_MAIL : <<include>>
+UC_RESET_PASSWORD .> UC_MAIL : <<include>>
+
+UC_MAIL - -> SYS
+@enduml
+
+PlantUML version 1.2022.7(Mon Aug 22 17:01:30 UTC 2022)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Default Encoding: UTF-8
+Language: en
+Country: null
+--></g></svg>

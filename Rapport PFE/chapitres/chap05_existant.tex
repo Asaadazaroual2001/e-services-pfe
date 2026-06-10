@@ -1,0 +1,85 @@
+\chapter{Étude de l'existant}
+\label{chap:existant}
+
+\section{Introduction et objectifs de l'étude}
+
+L'étude de l'existant vise à positionner la solution développée au regard des standards du marché, des architectures dominantes, et des bonnes pratiques reconnues en matière de services en ligne et d'applications métiers modernes \cite{fielding2000,bass2021}. Elle ne constitue pas une veille exhaustive, mais un échantillon structuré autour de critères comparatifs : modèle d'authentification, style d'API, approche frontend, stratégie de persistance, et culture DevOps \cite{kleppmann2017,newman2021}. Cette structuration permet de justifier les choix du MVP sans les présenter comme universels.
+
+\section{Usages, attentes et références implicites}
+
+\subsection{Usages numériques et comparaison implicite}
+
+Les plateformes grand public ont popularisé des patterns d'usage : authentification persistante, récupération de compte, notifications, interfaces responsives \cite{pressman2014}. Même lorsque le périmètre académique ne reproduit pas l'intégralité de ces mécanismes, l'usager juge la qualité perçue relativement à ces références. D'où l'intérêt d'une ergonomie sobre, d'une latence maîtrisée, et de messages d'erreur contextualisés \cite{iso25010}.
+
+\subsection{Conséquences pour la conception}
+
+Les conséquences pour la conception incluent la pagination des listes, la standardisation des erreurs API, et la discipline de validation côté serveur indépendamment du client \cite{rfc7231,owasp2021}.
+
+\newpage
+\section{Architectures techniques dominantes}
+
+\subsection{Monolithe modulaire}
+
+L'architecture monolithique modulaire demeure répandue pour les systèmes de taille moyenne : elle simplifie le déploiement initial, réduit la complexité opérationnelle, et permet une séparation interne stricte des packages \cite{bass2021}. Le risque principal est la dérive de couplage si la discipline architecturale faiblit \cite{fowler2002}. Le projet s'inscrit dans cette famille, avec modularité interne pour faciliter une extraction future si nécessaire \cite{newman2021}.
+
+\subsection{Microservices : opportunités et coûts}
+
+Les microservices apportent scalabilité et autonomie de déploiement, mais augmentent la complexité réseau, l'exigence d'observabilité, et la gouvernance des données distribuées \cite{newman2021,kleppmann2017}. Pour un MVP, cette approche est souvent disproportionnée ; elle demeure néanmoins une alternative lorsque l'organisation dispose d'une plateforme d'exécution mature et d'équipes autonomes \cite{bass2021}.
+
+\section{Modèles d'authentification et gestion d'identité}
+
+\subsection{Sessions serveur}
+
+Le modèle de session serveur repose sur un identifiant stocké côté client (cookie sécurisé) et un état côté serveur. Il simplifie certaines révocations, mais complique les architectures distribuées sans affinité \cite{owasp2021}.
+
+\subsection{Jetons signés (JWT)}
+
+Les architectures « SPA + API » peuvent s'appuyer sur des jetons porteurs (JWT) ou sur des sessions serveur exposées via cookies \cite{rfc7519,sanctumdoc}. Le dépôt du stage retient Laravel Sanctum en mode stateful : cookies \texttt{HttpOnly}, protection CSRF, régénération de session à l'issue de la connexion, et middlewares de rôles sur les routes sensibles \cite{owasp2021,laraveldoc}.
+
+\section{Styles d'API et contrats}
+
+Le style REST demeure dominant pour des ressources identifiables (\texttt{/services}, \texttt{/demandes}) \cite{fielding2000,rfc7231}. GraphQL offre flexibilité client au prix d'une complexité de sécurité accrue ; il n'est pas retenu dans le périmètre initial \cite{kleppmann2017}.
+
+\section{Persistance relationnelle versus NoSQL}
+
+Les bases relationnelles (PostgreSQL, MySQL) restent le choix par défaut lorsque le modèle est fortement structuré et transactionnel \cite{date2003,postgresdoc}. Les bases documentaires conviennent à certains profils de contenu hétérogène, mais modifient les stratégies de reporting \cite{kleppmann2017}. Le projet retient PostgreSQL pour contraintes, index et transactions \cite{postgresdoc}.
+
+\section{Pratiques DevOps, CI/CD et conteneurs}
+
+Les pipelines CI/CD (build, tests, analyses) sont devenus une norme de facto \cite{sommerville2016}. La conteneurisation améliore la reproductibilité et réduit les écarts d'environnement \cite{dockerdoc,twelvefactor}. Le projet adopte Docker Compose pour démonstration locale \cite{dockerdoc}.
+
+\section{Synthèse comparative et enseignements}
+
+\begin{table}[htbp]
+  \centering
+  \renewcommand{\arraystretch}{1.4}
+  \setlength{\tabcolsep}{10pt}
+  \caption{Comparaison d'options (vue projet).}
+  \label{tab:comparatif-existant}
+  \begin{tabular}{|p{2.6cm}|p{4.8cm}|p{4.8cm}|}
+    \hline
+    \textbf{Option} & \textbf{Avantages MVP} & \textbf{Risques} \\
+    \hline
+    Monolithe modulaire & Simplicité, transactions & Couplage si discipline faible \\
+    \hline
+    Microservices & Scalabilité fine & Complexité opérationnelle \cite{newman2021} \\
+    \hline
+    JWT & Intégration API & Révocation/rotation \cite{rfc7519} \\
+    \hline
+    PostgreSQL & Intégrité & Migrations à discipliner \cite{kleppmann2017} \\
+    \hline
+  \end{tabular}
+\end{table}
+
+\paragraph{Commentaire.}
+Le tableau~\ref{tab:comparatif-existant} synthétise des choix structurants discutés dans l'étude de l'existant : il juxtapose, pour chaque option, les atouts attendus dans un contexte MVP et les risques principaux à anticiper. Les lignes ne visent pas à trancher définitivement des débats architecturaux universels, mais à rendre explicites les arbitrages retenus pour ce mémoire (monolithe modulaire plutôt que microservices à ce stade, JWT avec vigilance sur la révocation, PostgreSQL avec migrations disciplinées) \cite{bass2021,newman2021,rfc7519,kleppmann2017}. Cette lecture prépare le lecteur aux chapitres de conception et d'implémentation, où ces options sont concrétisées par des patterns et des pratiques d'équipe.
+
+Les enseignements principaux sont : privilégier la simplicité tant que le trafic reste modéré ; appliquer la sécurité par défaut \cite{owasp2021} ; modéliser tôt les états ; instrumenter les logs ; documenter les variables d'environnement \cite{twelvefactor}.
+
+\section{Positionnement du projet par rapport à l'existant}
+
+Le positionnement est volontairement \emph{code-first} : maîtrise des fondamentaux (relationnel, REST, SPA, conteneurs) plutôt que maximalisation de la vélocité par abstraction excessive \cite{gamma1994,fowler2002}. Ce choix est cohérent avec un cursus d'ingénierie et avec une agence d'accueil soucieuse de maintenabilité \cite{bass2021}.
+
+\section{Conclusion du chapitre et transition}
+
+L'étude de l'existant confirme la pertinence d'un monolithe modulaire, d'une API REST, d'un frontend SPA, de PostgreSQL, d'une authentification par jetons maîtrisée, et d'un déploiement conteneurisé \cite{dockerdoc,postgresdoc}. Le chapitre suivant formalise l'analyse des besoins et la traçabilité vers la conception \cite{sommerville2016,booch2005}.

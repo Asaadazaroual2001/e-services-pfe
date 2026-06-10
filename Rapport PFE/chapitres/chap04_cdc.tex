@@ -1,0 +1,117 @@
+\chapter{Cahier des charges}
+\label{chap:cdc}
+
+\section{Introduction}
+
+Le cahier des charges constitue le contrat technique et fonctionnel du projet : il réduit l'ambiguïté, rend les objectifs vérifiables, et sert de référence aux tests \cite{sommerville2016,ieee1012}. Dans le cadre présent, il intègre à la fois des exigences académiques (rigueur, traçabilité) et des contraintes observées en agence (priorisation, livrables intermédiaires) \cite{pressman2014}.
+
+\section{Objet, portée et hors périmètre}
+
+\subsection{Objet}
+
+L'objet du document est la définition d'une plateforme \textbf{E-Services} de gestion et de suivi des \textbf{demandes dématérialisées} : authentification sécurisée, catalogue de services paramétrables, formulaires dynamiques par service, cycle de vie des dossiers (brouillon, soumission, instruction, décision), pièces jointes et historique, gestion des agences et des comptes, notifications (dont e-mails sur événements), espaces client, staff et administration, et déploiement reproductible \cite{rfc7231,dockerdoc}.
+
+\subsection{Portée}
+
+La portée couvre la conception, l'implémentation, les tests, et une documentation d'installation suffisante pour rejouer la solution sur machine de développement ou via conteneurs \cite{twelvefactor}.
+
+\subsection{Hors périmètre}
+
+Sont hors périmètre : intégration nationale complexe, signature qualifiée, paiement en ligne, et conformités sectorielles spécifiques non disponibles dans le cadre universitaire \cite{iso25010}.
+
+\section{Exigences fonctionnelles détaillées}
+
+\subsection{Comptes, rôles et contrôle d'accès}
+
+Le système gère inscription, authentification, réinitialisation de mot de passe par code e-mail, et déconnexion. Les profils métier, matérialisés en base par des rôles nommés et des permissions, correspondent à l'implémentation suivante : \textbf{administrateur} (paramétrage global, utilisateurs, agences, visibilité étendue) ; \textbf{client} (consultation des services ouverts, création et suivi de ses demandes, profil) ; \textbf{agent d'agence} et \textbf{responsable d'agence} (traitement des demandes, certains rôles peuvent créer/modifier les services de leur agence selon les routes \texttt{/api/admin}) ; \textbf{directeur} et \textbf{réception} (portail employé pour le suivi opérationnel). Les autorisations sont appliquées côté serveur sur chaque endpoint sensible via middlewares \texttt{auth:sanctum}, \texttt{role:...} et \texttt{perm:...} \cite{owasp2021,sanctumdoc}.
+
+\subsection{Création de services et formulaires dynamiques}
+
+Un service est défini par son rattachement à une \textbf{agence}, un nom, une description et des champs de formulaire configurables (ajout/suppression, type, caractère obligatoire, ordre, texte d'aide). Des dates optionnelles de \textbf{publication} et de \textbf{clôture des dépôts} contrôlent l'acceptation des nouvelles demandes. Une \textbf{prévisualisation} côté interface aide à valider le rendu client.
+
+\subsection{Catalogue et gestion des services}
+
+Le catalogue public et le portail client n'exposent que les services \emph{ouverts} (actifs, publiés si une date est fixée, avant toute date limite de dépôt). L'administration propose un tableau de bord listant nom, agence, champs, dates, liens utiles et actions (édition, suppression, activation), avec recherche.
+
+\subsection{Demandes, pièces jointes et historique}
+
+Le client ou un invité (parcours public) crée une demande en \textbf{brouillon}, renseigne les champs dynamiques, joint des fichiers contrôlés, puis \textbf{soumet}. Les états métier incluent notamment : soumise, en révision, complément demandé, approuvée, rejetée, fermée. Les agents disposent d'écrans de liste avec filtres (statut, service, dates, indicateurs de consultation) et d'actions (affectation, commentaire, transition). Chaque opération significative alimente l'historique \cite{date2003,kleppmann2017}.
+
+\subsection{Agences et employés}
+
+Le référentiel des \textbf{agences} (identifiants, localisation, contacts, statut) et des \textbf{employés} (nom, e-mail, agence, rôle, date de création) est éditable depuis le back-office administrateur. Les comptes sont liés à une agence lorsque pertinent pour le périmètre fonctionnel.
+
+\subsection{Messagerie e-mail et notifications}
+
+Lors des changements d'état ou des événements métier (ex. publication d'un service), le système déclenche des \textbf{e-mails} (sujet et corps adaptés, historisation des envois côté application lorsque implémenté). Les gabarits exploitent les données client disponibles (profil ou champs de formulaire de type e-mail) pour le préremplissage.
+
+\subsection{Paramètres utilisateur}
+
+Chaque utilisateur authentifié peut mettre à jour ses informations personnelles (nom, e-mail, mot de passe) via les endpoints prévus (\texttt{/api/me} et route profil client).
+
+\section{Exigences non fonctionnelles détaillées}
+
+\subsection{Performance et scalabilité}
+
+Pagination obligatoire, indexation des filtres fréquents, et temps de réponse acceptable sur jeux d'essai représentatifs \cite{kleppmann2017,postgresdoc}.
+
+\subsection{Sécurité}
+
+HTTPS en démonstration, hachage des mots de passe, contrôle MIME/taille des pièces jointes, protection \textbf{CSRF} et authentification \textbf{Sanctum en mode SPA} (cookies de session, en-têtes synchronisés) plutôt qu'exposition d'un jeton porteur dans le stockage navigateur \cite{sanctumdoc,owasp2021}.
+
+\subsection{Fiabilité et disponibilité}
+
+Gestion transactionnelle des opérations multi-tables critiques et erreurs structurées \cite{sommerville2016}.
+
+\subsection{Maintenabilité et portabilité}
+
+Packages clairs, migrations versionnées, variables externalisées \cite{fowler2002,dockerdoc}.
+
+\section{Contraintes technologiques}
+
+Le backend \textbf{Laravel (PHP)} avec API REST, le frontend \textbf{React} construit par \textbf{Vite}, la base \textbf{PostgreSQL}, et une conteneurisation \textbf{Docker} optionnelle constituent la stack effectivement mise en œuvre dans le dépôt du stage \cite{laraveldoc,reactdoc,vitedoc,postgresdoc,dockerdoc}.
+
+\section{Critères d'acceptation et traçabilité}
+
+Les critères d'acceptation énoncés au chapitre d'analyse des besoins complètent ce cahier des charges ; ils doivent être traçables vers des tests \cite{ieee1012}.
+
+\begin{table}[htbp]
+  \centering
+  \renewcommand{\arraystretch}{1.4}
+  \setlength{\tabcolsep}{10pt}
+  \caption{Exemples de critères d'acceptation et méthodes de vérification.}
+  \label{tab:criteria}
+  \begin{tabular}{|p{2.6cm}|p{5.3cm}|p{4.7cm}|}
+    \hline
+    \textbf{ID} & \textbf{Énoncé} & \textbf{Vérification} \\
+    \hline
+    ACC-AUTH-01 & Accès API protégé sans session Sanctum valide refusé & Tests automatisés \\
+    \hline
+    ACC-AUTH-02 & Isolement des dossiers usagers & Tests rôles \\
+    \hline
+    ACC-SEC-01 & Rejet des fichiers hors limites & Tests upload \\
+    \hline
+  \end{tabular}
+\end{table}
+
+\paragraph{Commentaire.}
+Le tableau~\ref{tab:criteria} illustre la manière dont les critères d'acceptation sont formalisés de façon \emph{vérifiable} : chaque identifiant \texttt{ACC-*} renvoie à une exigence testable, un énoncé compréhensible par les parties prenantes, et une méthode de vérification explicitant le type de preuve attendu (tests automatisés, tests par rôles, tests d'upload). Cette structuration renforce la traçabilité entre cahier des charges, analyse des besoins et campagne de tests, conformément aux bonnes pratiques de validation logicielle \cite{ieee1012,sommerville2016}. La liste peut être étendue dans le dépôt du projet (jeux de tests, rapports d'exécution) sans modifier la logique présentée ici.
+
+\newpage
+\section{Jalons, livrables et qualité}
+
+\subsection{Planification indicative}
+
+Un découpage en jalons (spécifications, API, interface, tests, conteneurisation) permet de réduire le risque de retard et d'identifier tôt les blocages \cite{pressman2014}.
+
+\subsection{Gouvernance qualité}
+
+Revues, conventions, analyses statiques légères, et check-list sécurité avant démonstration \cite{owasp2021,sommerville2016}.
+
+\section{Gestion des changements}
+
+Toute évolution après gel du périmètre doit être documentée (motivation, impacts API/DB, migration) \cite{kleppmann2017}.
+
+\section{Conclusion du chapitre et transition}
+
+Le cahier des charges fixe un cadre vérifiable et aligné sur la solution Laravel/React déployée dans le dépôt du stage. Le chapitre suivant analyse l'existant et les standards utiles au positionnement architectural \cite{bass2021,newman2021}.

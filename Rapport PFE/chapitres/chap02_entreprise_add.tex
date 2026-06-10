@@ -1,0 +1,127 @@
+\chapter{Présentation de l'agence d'accueil (\#ADD)}
+\label{chap:agence}
+
+\section{Introduction}
+
+Ce chapitre présente l'agence d'accueil \textbf{\#ADD}, dans laquelle le stage et une partie significative du travail de réalisation se sont déroulés. L'objectif n'est pas de constituer une notice marketing, mais de fournir un cadre organisationnel et technique compréhensible pour le lecteur : domaine d'activité, positionnement, modes opératoires, gouvernance interne simplifiée, et contexte précis du stage. Cette présentation éclaire ensuite les choix du cahier des charges et la manière dont les contraintes industrielles se traduisent en exigences non fonctionnelles (qualité, sécurité, délais) \cite{sommerville2016,pressman2014}.
+
+\section{Identité, mission et positionnement de \#ADD}
+
+\subsection{Dénomination et mission générale}
+
+\#ADD est présentée ici comme une structure orientée vers la \emph{conception}, l'\emph{intégration} et la \emph{mise en œuvre} de solutions numériques au service d'organisations souhaitant moderniser leurs canaux de relation avec les usagers (services en ligne, portails, automatisation partielle de processus). La mission générale consiste à rapprocher les besoins métier d'une réalisation technique durable : choix d'architectures maintenables, priorisation des fonctionnalités, et mise en place de dispositifs de validation adaptés au niveau de criticité \cite{bass2021}.
+
+\subsection{Positionnement marché et valeur ajoutée}
+
+La valeur ajoutée typique d'une agence de ce profil repose sur une combinaison de compétences : ingénierie logicielle, modélisation des données, sécurité des applications, et culture de déploiement. \#ADD se positionne ainsi sur un segment où la qualité documentaire et la capacité d'intégration avec l'existant sont des différenciateurs aussi importants que la vélocité de développement \cite{fowler2002}. Cette orientation explique l'attention portée, dans le stage, à la traçabilité des exigences et à la reproductibilité des environnements \cite{dockerdoc,twelvefactor}.
+
+\section{Domaine d'activité et offres}
+
+\subsection{Services numériques et applications métiers}
+
+Le domaine d'activité couvre la réalisation d'applications métiers web, l'exposition d'API, l'intégration avec des bases relationnelles, et la mise en œuvre de modules d'authentification et d'autorisation. Les projets traités peuvent inclure des parcours multi-rôles (usager interne/externe, validateur, administrateur) et des exigences de journalisation pour des raisons d'audit \cite{iso25010,owasp2021}.
+
+\subsection{Accompagnement et cadrage}
+
+Au-delà du développement, \#ADD peut intervenir en phase amont sur le cadrage : reformulation du besoin, identification des risques, définition d'un backlog priorisé, et choix d'indicateurs de succès. Cette dimension « ingénierie » est alignée sur les recommandations de la littérature en génie logiciel concernant la réduction du risque de dérive fonctionnelle \cite{sommerville2016}.
+
+\subsection{Activités transverses : qualité et sécurité}
+
+Les activités transverses incluent des revues de code, des contrôles de dépendances, des analyses de menaces basées sur des guides reconnus, et des stratégies de tests (unitaires, intégration, recette) \cite{ieee1012,owasp2021}. Le stage a permis d'observer concrètement comment ces activités sont planifiées lorsque plusieurs projets coexistent et se disputent des ressources humaines limitées.
+
+\section{Organisation et gouvernance interne}
+
+\subsection{Structure fonctionnelle (vue macroscopique)}
+
+Une organisation de type PME/ESN présente souvent une structure matricielle : lignes métiers (développement, infrastructure, qualité) et colonnes projets. \#ADD peut être décrite selon cette logique : des équipes projet rassemblent des profils complémentaires, tout en conservant une ligne hiérarchique pour l'arbitrage et la gestion des carrières \cite{pressman2014}. Cette structuration influence la communication : les décisions techniques majeures sont validées par des référents, tandis que les choix d'implémentation courants relèvent de l'autonomie encadrée de l'équipe.
+
+\subsection{Rôles et responsabilités}
+
+Les rôles observables incluent : encadrant de stage (pilotage, validation des livrables), développeurs (implémentation, tests), et parfois un rôle transverse « technique lead » assurant la cohérence architecturale. L'encadrant de stage \textbf{M. Wail DARDAR} a joué un rôle central dans la définition des priorités et la validation des incréments \cite{sommerville2016}.
+
+\subsection{Processus internes et outillage}
+
+Les processus internes s'appuient généralement sur un outillage de suivi (tickets, tableau de tâches), un dépôt de code, et des pipelines d'intégration continue. L'usage de conteneurs facilite la remise en contexte des versions et réduit les frictions liées aux différences d'environnement \cite{dockerdoc,twelvefactor}.
+
+\begin{table}[htbp]
+  \centering
+  \renewcommand{\arraystretch}{1.4}
+  \setlength{\tabcolsep}{10pt}
+  \caption{Rôles typiques observés au sein de \#ADD (illustration).}
+  \label{tab:roles-add}
+  \begin{tabular}{|p{3.2cm}|p{9.4cm}|}
+    \hline
+    \textbf{Rôle} & \textbf{Responsabilités perçues} \\
+    \hline
+    Encadrant de stage & Cadrage, arbitrages, validation, suivi des risques. \\
+    \hline
+    Développeur & Implémentation, tests, documentation technique. \\
+    \hline
+    Référent qualité / sécurité & Revue, bonnes pratiques, points OWASP \cite{owasp2021}. \\
+    \hline
+  \end{tabular}
+\end{table}
+
+\paragraph{Commentaire.}
+Le tableau~\ref{tab:roles-add} est volontairement \emph{synthétique} : il ne reflète pas nécessairement un organigramme officiel exhaustif, mais résume les fonctions observées ou mobilisées durant le stage au sein de \#ADD (pilotage, production logicielle, exigences qualité/sécurité). Les intitulés de rôles peuvent recouper plusieurs personnes ou être assurés partiellement par un même interveneur selon la taille de l'équipe et la charge projet ; l'objectif est surtout de clarifier les responsabilités perçues du point de vue du stagiaire. Enfin, la présence d'un volet « qualité / sécurité » souligne l'alignement des pratiques avec les recommandations courantes du génie logiciel et les guides reconnus en sécurité applicative \cite{owasp2021,sommerville2016}.
+
+\newpage
+\section{Contexte du stage et problématique industrielle}
+
+\subsection{Objectifs du stage}
+
+Le stage s'inscrit dans une logique de montée en compétences sur un projet réel : participation à la conception, contribution à l'implémentation, exécution de tests, et rédaction de documentation d'installation. L'objectif pédagogique est double : (1) transférer les enseignements académiques vers un contexte contraint ; (2) produire des livrables argumentés pour le mémoire de fin d'études \cite{sommerville2016}.
+
+\subsection{Contraintes réelles rencontrées}
+
+Les contraintes réelles incluent la gestion du temps (jalons), la nécessité de stabiliser une API pour ne pas bloquer le frontend, et la discipline des migrations de base de données lorsque plusieurs développeurs touchent au schéma \cite{kleppmann2017,date2003}. Ces contraintes expliquent certains choix pragmatiques documentés aux chapitres de conception et d'implémentation.
+
+\subsection{Alignement avec le projet PFE}
+
+Le projet PFE prolonge le stage en formalisant une trajectoire d'ingénierie complète : du besoin à la validation. L'agence \#ADD fournit le \emph{terrain} : exigences de qualité, sensibilité à la sécurité, et besoin de solutions maintenables. L'EMSI fournit le \emph{cadre académique} : rigueur de rédaction, modélisation, et référencement bibliographique \cite{booch2005,ieee1012}.
+
+\section{Équipe, collaboration et environnement de travail}
+
+\subsection{Composition de l'équipe de stage}
+
+L'équipe de stage a inclus les personnes suivantes : \textbf{Yasmine EL HABBOUR}, \textbf{MRANI ZENTAR Inaam}, \textbf{CHIKI Hind}, et \textbf{Amine EL MEZOUAGHI}, en interaction régulière avec l'auteur du mémoire. Les interactions ont porté sur la revue des solutions, la mise en commun des difficultés techniques (authentification, gestion des fichiers, cohérence transactionnelle), et la préparation des démonstrations intermédiaires \cite{gamma1994}.
+
+\subsection{Modes de collaboration}
+
+Les modes de collaboration observés combinent réunions courtes de synchronisation, échanges asynchrones (messagerie professionnelle, commentaires sur tickets), et revues de code. Cette combinaison correspond à des pratiques largement diffusées dans l'industrie du logiciel et favorise la détection précoce des défauts \cite{sommerville2016}.
+
+\subsection{Environnement matériel et logiciel}
+
+L'environnement de travail repose sur des postes de développement standardisés, un accès au dépôt distant, et des environnements de test partagés ou conteneurisés. La standardisation réduit le coût d'onboarding et améliore la reproductibilité des anomalies \cite{dockerdoc}.
+
+\section{RSE, éthique professionnelle et protection de l'information}
+
+\subsection{Protection des données et confidentialité}
+
+Les projets clients imposent une discipline de confidentialité. Le mémoire respecte cette contrainte en évitant toute donnée nominative réelle et en présentant des schémas génériques. Les principes de minimisation et de séparation des environnements (dev/test) sont également des garde-fous éthiques importants \cite{iso25010,owasp2021}.
+
+\subsection{Sécurité opérationnelle de base}
+
+\#ADD promeut des pratiques telles que l'usage de secrets non commités, la rotation simple des mots de passe d'accès aux environnements de démonstration, et la limitation des privilèges. Ces mesures s'inscrivent dans une approche « défense en profondeur » élémentaire mais structurante \cite{owasp2021}.
+
+\section{Indicateurs d'activité et pilotage (vue qualitative)}
+
+Sans divulguer d'indicateurs confidentiels, on peut mentionner qualitativement que le pilotage d'un stage repose sur : clarté des objectifs, feedback régulier, et définition d'artefacts vérifiables (démonstrations, rapports intermédiaires). Cette approche est cohérente avec les modèles de gestion de projet logiciel enseignés et décrits dans la littérature \cite{pressman2014,sommerville2016}.
+
+\section{Projets types et cycles de livraison}
+
+\subsection{Livrables attendus en contexte projet}
+
+Les projets menés dans une structure comme \#ADD produisent typiquement des livrables successifs : prototype ou squelette, incréments fonctionnels, documentation d'installation, et jeux de tests \cite{sommerville2016}. Cette succession permet d'obtenir un feedback rapide et de réduire le risque d'écart final par rapport aux attentes du porteur du besoin \cite{pressman2014}.
+
+\subsection{Gestion des priorités et arbitrages}
+
+Les arbitrages portent fréquemment sur le couple \emph{périmètre / délai}, sur le couple \emph{sécurité / ergonomie}, et sur le couple \emph{performance / simplicité} \cite{bass2021,iso25010}. L'encadrant de stage joue un rôle clé pour trancher ou reporter des fonctionnalités non indispensables au MVP \cite{sommerville2016}.
+
+\section{Contribution du stage au mémoire PFE}
+
+Le stage a fourni un terrain d'expérimentation : contraintes réelles, interactions avec une équipe, et confrontation à des problèmes d'intégration (CORS, cookies Sanctum, migrations SQL) \cite{laraveldoc,reactdoc}. Le mémoire formalise ces apprentissages dans une continuité académique (UML, besoins, tests) tout en conservant la crédibilité d'un retour d'expérience professionnel \cite{booch2005,ieee1012}.
+
+\section{Conclusion du chapitre et transition}
+
+\#ADD constitue le cadre organisationnel ayant accueilli le stage et influencé la définition pragmatique des priorités. La structuration par projets, l'exigence qualité, et la collaboration au sein de l'équipe (encadrant et pairs) ont contribué à ancrer le travail technique dans des contraintes réalistes. Le chapitre suivant développe le \emph{contexte et la problématique} du point de vue métier et technique, en prolongeant les constats organisationnels par une analyse des enjeux des services électroniques \cite{fielding2000,bass2021}.

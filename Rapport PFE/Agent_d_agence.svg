@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentStyleType="text/css" height="276.45px" preserveAspectRatio="none" style="width:610px;height:276px;background:#FFFFFF;" version="1.1" viewBox="0 0 610 276" width="610.85px" zoomAndPan="magnify"><defs/><g><rect fill="none" height="24.982" id="_title" rx="2.85" ry="2.85" style="stroke:none;stroke-width:0.9499999999999998;" width="174.8" x="211.375" y="4.75"/><text fill="#000000" font-family="sans-serif" font-size="13.3" font-weight="bold" lengthAdjust="spacing" textLength="165.3" x="216.125" y="21.8454">DCU - Agent d agence</text><!--MD5=[18fd512145f79b26563a3d0fdf1666bf]
+cluster Plateforme E-Services--><g id="cluster_Plateforme E-Services"><rect fill="none" height="228.95" rx="2.85" ry="2.85" style="stroke:#181818;stroke-width:0.9499999999999998;" width="426.55" x="93.1" y="42.082"/><text fill="#000000" font-family="sans-serif" font-size="8.55" font-weight="bold" lengthAdjust="spacing" textLength="102.6" x="255.075" y="51.9183">Plateforme E-Services</text></g><g id="elem_U_DASH"><ellipse cx="189.8109" cy="88.6892" fill="#F1F1F1" rx="81.5109" ry="18.5822" style="stroke:#181818;stroke-width:0.4749999999999999;"/><text fill="#000000" font-family="sans-serif" font-size="7.6" lengthAdjust="spacing" textLength="68.4" x="155.6109" y="84.3437">Dashboard + liste</text><text fill="#000000" font-family="sans-serif" font-size="7.6" lengthAdjust="spacing" textLength="114" x="132.8109" y="93.8437">/admin/dashboard + requests</text></g><g id="elem_U_TRT"><ellipse cx="190.0371" cy="158.9395" fill="#F1F1F1" rx="78.8871" ry="18.0574" style="stroke:#181818;stroke-width:0.4749999999999999;"/><text fill="#000000" font-family="sans-serif" font-size="7.6" lengthAdjust="spacing" textLength="54.15" x="162.9621" y="154.5939">Traiter dossier</text><text fill="#000000" font-family="sans-serif" font-size="7.6" lengthAdjust="spacing" textLength="107.35" x="136.3621" y="164.0939">assign vue approve reject...</text></g><g id="elem_U_STF"><ellipse cx="190.1664" cy="233.2346" fill="#F1F1F1" rx="66.6664" ry="23.0025" style="stroke:#181818;stroke-width:0.4749999999999999;"/><text fill="#000000" font-family="sans-serif" font-size="7.6" lengthAdjust="spacing" textLength="57" x="161.6664" y="224.1391">Emails client +</text><text fill="#000000" font-family="sans-serif" font-size="7.6" lengthAdjust="spacing" textLength="78.85" x="150.7414" y="233.6391">nouvelles demandes</text><text fill="#000000" font-family="sans-serif" font-size="7.6" lengthAdjust="spacing" textLength="40.85" x="169.7414" y="243.1391">/api/staff/*</text></g><g id="elem_U_MAIL"><ellipse cx="440.1794" cy="159.0671" fill="#F1F1F1" rx="63.9794" ry="16.285" style="stroke:#181818;stroke-width:0.4749999999999999;"/><text fill="#000000" font-family="sans-serif" font-size="7.6" lengthAdjust="spacing" textLength="75.05" x="402.6544" y="154.7216">E-mail automatique</text><text fill="#000000" font-family="sans-serif" font-size="7.6" lengthAdjust="spacing" textLength="55.1" x="412.6294" y="164.2216">Mail + EmailJS</text></g><!--MD5=[5558a50e754bb12f6b0c3c30a970ec3c]
+entity AGT--><g id="elem_AGT"><ellipse cx="27.075" cy="128.532" fill="#F1F1F1" rx="7.6" ry="7.6" style="stroke:#181818;stroke-width:0.4749999999999999;"/><path d="M27.075,136.132 L27.075,161.782 M14.725,143.732 L39.425,143.732 M27.075,161.782 L14.725,176.032 M27.075,161.782 L39.425,176.032 " fill="none" style="stroke:#181818;stroke-width:0.4749999999999999;"/><text fill="#000000" font-family="sans-serif" font-size="8.55" lengthAdjust="spacing" textLength="26.6" x="5.7" y="185.3933">Agent</text><text fill="#000000" font-family="sans-serif" font-size="8.55" lengthAdjust="spacing" textLength="42.75" x="5.7" y="195.3461">d agence</text></g><!--MD5=[fa92c0c292cdeae80e2f3763d35ba241]
+entity SYS--><g id="elem_SYS"><ellipse cx="584.25" cy="128.532" fill="#F1F1F1" rx="7.6" ry="7.6" style="stroke:#181818;stroke-width:0.4749999999999999;"/><path d="M584.25,136.132 L584.25,161.782 M571.9,143.732 L596.6,143.732 M584.25,161.782 L571.9,176.032 M584.25,161.782 L596.6,176.032 " fill="none" style="stroke:#181818;stroke-width:0.4749999999999999;"/><text fill="#000000" font-family="sans-serif" font-size="8.55" lengthAdjust="spacing" textLength="39.9" x="564.3" y="185.3933">Systeme</text><text fill="#000000" font-family="sans-serif" font-size="8.55" lengthAdjust="spacing" textLength="36.1" x="564.3" y="195.3461">(e-mail)</text></g><!--MD5=[1ad8bb0b176ff3398d5a09997e7ff3b7]
+link AGT to U_DASH--><g id="link_AGT_U_DASH"><path d="M48.6875,144.7485 C59.3655,137.8325 72.789,129.7385 85.5,123.782 C100.8425,116.5905 118.085,110.14 134.0165,104.7915 " fill="none" id="AGT-to-U_DASH" style="stroke:#181818;stroke-width:0.9499999999999998;"/><polygon fill="#181818" points="138.9185,103.167,129.6081,102.2406,134.4082,104.6569,131.9919,109.4571,138.9185,103.167" style="stroke:#181818;stroke-width:0.9499999999999998;"/></g><!--MD5=[3e1c52f11ade4d800b713c03b9e418a9]
+link AGT to U_TRT--><g id="link_AGT_U_TRT"><path d="M48.7445,158.932 C63.593,158.932 84.6545,158.932 105.9535,158.932 " fill="none" id="AGT-to-U_TRT" style="stroke:#181818;stroke-width:0.9499999999999998;"/><polygon fill="#181818" points="110.789,158.932,102.239,155.132,106.039,158.932,102.239,162.732,110.789,158.932" style="stroke:#181818;stroke-width:0.9499999999999998;"/></g><!--MD5=[a6b18ba23014c8d2282b210d7c78c961]
+link AGT to U_STF--><g id="link_AGT_U_STF"><path d="M48.507,172.764 C59.2515,179.68 72.7795,187.869 85.5,194.082 C101.8305,202.0525 120.232,209.453 136.9425,215.6185 " fill="none" id="AGT-to-U_STF" style="stroke:#181818;stroke-width:0.9499999999999998;"/><polygon fill="#181818" points="141.607,217.319,134.8767,210.8193,137.1446,215.6914,132.2725,217.9592,141.607,217.319" style="stroke:#181818;stroke-width:0.9499999999999998;"/></g><!--MD5=[0f601cf8970748c3e4171c6c741f67b7]
+link U_TRT to U_MAIL--><g id="link_U_TRT_U_MAIL"><path d="M268.869,158.932 C301.5585,158.932 339.2355,158.932 370.842,158.932 " fill="none" id="U_TRT-to-U_MAIL" style="stroke:#181818;stroke-width:0.9499999999999998;stroke-dasharray:7.0,7.0;"/><polygon fill="#181818" points="375.8675,158.932,367.3175,155.132,371.1175,158.932,367.3175,162.732,375.8675,158.932" style="stroke:#181818;stroke-width:0.9499999999999998;"/><text fill="#000000" font-family="sans-serif" font-size="8.55" lengthAdjust="spacing" textLength="45.6" x="301.15" y="156.4183">«include»</text></g><!--MD5=[313b465c6f7e8fd2a5538f3b939e0f08]
+link U_MAIL to SYS--><g id="link_U_MAIL_SYS"><path d="M504.811,158.932 C524.1815,158.932 544.312,158.932 559.3315,158.932 " fill="none" id="U_MAIL-to-SYS" style="stroke:#181818;stroke-width:0.9499999999999998;stroke-dasharray:7.0,7.0;"/><polygon fill="#181818" points="564.224,158.932,555.674,155.132,559.474,158.932,555.674,162.732,564.224,158.932" style="stroke:#181818;stroke-width:0.9499999999999998;"/></g><!--MD5=[fb3644f5bc6e03e77a24c2b04f9711c2]
+@startuml
+title DCU - Agent d agence
+
+left to right direction
+skinparam defaultFontSize 9
+skinparam shadowing false
+skinparam roundcorner 6
+skinparam usecaseFontSize 8
+scale 0.95
+
+actor "Agent\nd agence" as AGT
+
+rectangle "Plateforme E-Services" {
+  usecase "Dashboard + liste\n/admin/dashboard + requests" as U_DASH
+  usecase "Traiter dossier\nassign vue approve reject..." as U_TRT
+  usecase "Emails client +\nnouvelles demandes\n/api/staff/*" as U_STF
+  usecase "E-mail automatique\nMail + EmailJS" as U_MAIL
+}
+
+actor "Systeme\n(e-mail)" as SYS
+
+AGT - -> U_DASH
+AGT - -> U_TRT
+AGT - -> U_STF
+
+U_TRT ..> U_MAIL : <<include>>
+U_MAIL ..> SYS
+@enduml
+
+PlantUML version 1.2022.7(Mon Aug 22 17:01:30 UTC 2022)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Default Encoding: UTF-8
+Language: en
+Country: null
+--></g></svg>

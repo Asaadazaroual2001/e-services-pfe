@@ -1,0 +1,138 @@
+% !TEX TS-program = pdflatex
+\documentclass[12pt,a4paper]{report}
+\usepackage{pdfpages}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[french]{babel}
+\usepackage[a4paper,margin=2.5cm]{geometry}
+\usepackage{fancyhdr}
+\usepackage{graphicx}
+\usepackage{titlesec}
+\usepackage{xcolor}
+\usepackage{listings}
+\usepackage{longtable}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{enumitem}
+\usepackage{setspace}
+\usepackage{cite}
+\usepackage{url}
+\usepackage{hyperref}
+\usepackage{svg}
+\usepackage{float}
+\usepackage{amssymb}
+\svgpath{{./}{chapitres/}}
+\svgpath{{chapitres/}}
+
+
+\hypersetup{
+  colorlinks=true,
+  hypertexnames=false,
+  linkcolor=black,
+  citecolor=black,
+  urlcolor=blue,
+  pdftitle={Développement d'une plateforme E-Services de gestion et de suivi des demandes digitales},
+  pdfauthor={Asaad AZAROUAL}
+}
+
+\definecolor{codegreen}{rgb}{0,0.5,0}
+\definecolor{codegray}{rgb}{0.45,0.45,0.45}
+\definecolor{codepurple}{rgb}{0.48,0.00,0.65}
+\definecolor{backcolour}{rgb}{0.97,0.97,0.97}
+
+\lstdefinestyle{pfe}{
+  backgroundcolor=\color{backcolour},
+  commentstyle=\color{codegreen}\itshape,
+  keywordstyle=\color{codepurple}\bfseries,
+  numberstyle=\tiny\color{codegray},
+  basicstyle=\ttfamily\footnotesize,
+  breaklines=true,
+  breakatwhitespace=true,
+  captionpos=b,
+  keepspaces=true,
+  numbers=left,
+  numbersep=6pt,
+  showspaces=false,
+  showstringspaces=false,
+  showtabs=false,
+  tabsize=2,
+  frame=single,
+  rulecolor=\color{black!20}
+}
+\lstset{style=pfe}
+
+\titleformat{\chapter}[display]
+  {\normalfont\huge\bfseries}{\chaptertitlename\ \thechapter}{20pt}{\Huge}
+\titlespacing*{\chapter}{0pt}{-10pt}{25pt}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small\leftmark}
+\fancyhead[R]{\small EMSI Rabat}
+\fancyfoot[C]{\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\setlength{\headheight}{14pt}
+
+\newcommand{\ProjectTitle}{Développement d'une plateforme E-Services de gestion et de suivi des demandes digitales}
+\newcommand{\EncadrantStage}{Encadrant de stage : M. Wail DARDAR}
+\newcommand{\EncadrantEMSI}{Encadrant pédagogique EMSI : Ayoub}
+
+\hfuzz=80pt
+\vfuzz=80pt
+\hbadness=10000
+\vbadness=10000
+\emergencystretch=3em
+\sloppy
+\onehalfspacing
+
+\addto\captionsfrench{\renewcommand{\listfigurename}{Table des figures}}
+\addto\captionsfrench{\renewcommand{\listtablename}{Liste des tableaux}}
+
+\begin{document}
+
+\hypersetup{pageanchor=false}
+
+\input{00_page_garde}
+
+\clearpage
+\hypersetup{pageanchor=true}
+\pagenumbering{roman}
+\setcounter{page}{1}
+
+\input{01_remerciements}
+\input{02_resume}
+\input{03_abstract}
+
+\tableofcontents
+\clearpage
+
+\phantomsection
+\addcontentsline{toc}{chapter}{Table des figures}
+\listoffigures
+\clearpage
+
+\phantomsection
+\addcontentsline{toc}{chapter}{Liste des tableaux}
+\listoftables
+\clearpage
+
+\pagenumbering{arabic}
+\setcounter{page}{1}
+
+\input{chapitres/chap01_introduction}
+\input{chapitres/chap02_entreprise_add}
+\input{chapitres/chap03_contexte}
+\input{chapitres/chap04_cdc}
+\input{chapitres/chap05_existant}
+\input{chapitres/chap06_besoins}
+\input{chapitres/chap07_conception}
+\input{chapitres/chap08_implementation}
+\input{chapitres/chap09_tests}
+\input{chapitres/chap10_deploiement}
+\input{chapitres/chap11_conclusion_perspectives}
+
+\appendix
+\input{annexes_glossaire}
+\input{annexes_bibliographie}
+
+\end{document}

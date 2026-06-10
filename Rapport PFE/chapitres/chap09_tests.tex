@@ -1,0 +1,75 @@
+\chapter{Tests et validation}
+\label{chap:tests}
+
+\section{Introduction}
+
+Ce chapitre décrit la stratégie de tests, les niveaux de validation, les jeux d'essai, et la manière dont les résultats sont reliés aux critères d'acceptation \cite{ieee1012,sommerville2016}. L'objectif est de démontrer que les exigences critiques (sécurité, intégrité des dossiers, transitions d'état) sont effectivement vérifiées par des preuves reproductibles \cite{pressman2014,iso25010}.
+
+\section{Stratégie de test}
+
+La stratégie de test suit une approche en pyramide : nombre élevé de tests unitaires sur la logique métier, tests d'intégration sur les modules critiques (persistance, sécurité), tests fonctionnels sur parcours utilisateur via API, et enfin tests de charge légers pour valider l'absence de régressions grossières sur la latence \cite{sommerville2016,ieee1012}.
+
+\section{Tests unitaires}
+
+Les tests unitaires ciblent les services métier, notamment la machine d'états, la validation des transitions, et les règles d'accès aux données en fonction du rôle simulé \cite{sommerville2016}. Les dépendances externes sont mockées (repositories, horloge) lorsque nécessaire pour déterminisme \cite{gamma1994}.
+
+\section{Tests d'intégration}
+
+Les tests d'intégration s'appuient sur la base PostgreSQL de test configurée dans \texttt{phpunit.xml} (ou SQLite en mémoire si le projet l'active) via les traits Laravel (\texttt{RefreshDatabase}) \cite{postgresdoc,laraveldoc}. Ils vérifient les transactions, les contraintes d'intégrité référentielle, et le comportement des contrôleurs/API \cite{date2003}.
+
+\section{Tests fonctionnels API}
+
+Les tests fonctionnels enchaînent les appels : inscription, authentification, création de service par admin, création de demande, soumission, consultation agent, transition \cite{rfc7231}. Chaque étape vérifie codes HTTP et corps JSON \cite{ieee1012}.
+
+\section{Tests de sécurité basiques}
+
+Des tests automatisés vérifient qu'un client ne peut pas accéder au dossier d'un autre client, qu'un utilisateur sans session Sanctum ne peut pas appeler les routes protégées, et qu'un agent ne peut pas invoquer les endpoints réservés à l'administrateur \cite{owasp2021,sanctumdoc}.
+
+\section{Tests de charge (ciblé)}
+
+Un scénario de charge léger peut exercer les endpoints \texttt{/api/services} et \texttt{/api/admin/requests} avec concurrence modérée \cite{kleppmann2017}. L'objectif n'est pas d'établir un benchmark publication, mais de détecter verrous naïfs, requêtes N+1 évidentes, et fuites de connexions \cite{postgresdoc}.
+
+\section{Jeux d'essai et données de test}
+
+Des jeux de données représentatifs incluent plusieurs usagers, des services actifs/inactifs, des demandes dans chaque état, et des pièces jointes de tailles variées. Les cas limites incluent fichiers à la limite autorisée, caractères spéciaux dans commentaires, et tentatives de transitions interdites.
+
+\section{Tableau de couverture des tests (synthèse)}
+
+\begin{table}[htbp]
+  \centering
+  \small
+  \caption{Plan de tests : exigences, méthode, résultat attendu.}
+  \label{tab:tests}
+  \begin{tabular}{@{}>{\raggedright\arraybackslash}p{2.4cm}>{\raggedright\arraybackslash}p{4.0cm}>{\raggedright\arraybackslash}p{5.8cm}@{}}
+    \toprule
+    \textbf{ID} & \textbf{Méthode} & \textbf{Résultat attendu} \\
+    \midrule
+    T-AUTH-01 & POST register invalide & 400, message validation \\
+    T-AUTH-02 & POST login correct & 200, jeton présent \\
+    T-AUTH-03 & GET protégé sans jeton & 401 \\
+    T-DEM-01 & POST demande service désactivé & 409 ou 400 documenté \\
+    T-DEM-02 & POST soumettre depuis BROUILLON & 200, état SOUMIS \\
+    T-DEM-03 & POST soumettre depuis SOUMIS & 409 Business \\
+    T-SEC-01 & GET dossier autrui (usager) & 403 \\
+    T-SEC-02 & Upload MIME non autorisé & 415/400 selon politique \\
+    T-PERF-01 & Charge légère liste & latence stable sans erreurs \\
+    T-ADM-01 & Désactivation service & service absent catalogue \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\section{Validation par critères d'acceptation}
+
+La validation croise les critères d'acceptation du cahier des charges avec les résultats de tests. Les écarts sont documentés : soit correction, soit limitation assumée avec justification (par exemple, absence d'envoi email hors périmètre).
+
+\section{Retour d'expérience qualité}
+
+Les défauts découverts en recette sont classés. Les défauts bloquants portent sur la sécurité ou la corruption de données ; les majeurs sur des parcours incomplets ; les mineurs sur l'ergonomie. Cette classification a guidé la priorisation des correctifs.
+
+\section{Traçabilité vers les critères d'acceptation}
+
+La traçabilité exige que chaque critère majeur du cahier des charges soit couvert par au moins un cas de test documenté, et que les écarts soient explicitement acceptés ou corrigés \cite{ieee1012,pressman2014}. Cette discipline est particulièrement utile en contexte de stage où les priorités peuvent évoluer rapidement \cite{sommerville2016}.
+
+\section{Conclusion du chapitre}
+
+Les tests et la validation confirment le respect des exigences critiques sur l'authentification, la confidentialité des dossiers, les transitions d'état, et la robustesse de base face aux entrées invalides \cite{owasp2021,iso25010}. Les tests de charge légers n'épuisent pas la question performance mais fournissent un filet de sécurité raisonnable pour un MVP \cite{kleppmann2017}. Le chapitre suivant détaille le déploiement et la reproductibilité opérationnelle \cite{dockerdoc,twelvefactor}.

@@ -1,0 +1,43 @@
+@startuml
+title Diagramme de composants - Plateforme E-Services
+
+left to right direction
+
+skinparam defaultFontSize 10
+skinparam shadowing false
+skinparam roundcorner 8
+skinparam nodesep 22
+skinparam ranksep 30
+skinparam componentStyle rectangle
+
+scale 0.82
+
+actor "Navigateur" as Nav
+
+rectangle "Plateforme E-Services" {
+  component "reverse-proxy\n<<Nginx>>\n(optionnel)" as RP
+  component "frontend-spa\n<<React>>" as FE
+  component "backend-api\n<<Laravel PHP>>" as BE
+  database "base-postgresql\n<<PostgreSQL>>" as PG
+  component "stockage-fichiers\n<<volume Docker>>" as VOL
+}
+
+Nav --> RP : HTTPS (cookies Secure)
+RP --> FE : assets statiques
+RP --> BE : HTTPS /api/ (Cookie session)
+
+BE --> PG : JDBC SQL + sessions
+BE --> VOL : fichiers pieces jointes
+
+note bottom of BE
+  Auth par cookies : session serveur, Set-Cookie
+  SESSION HttpOnly Secure SameSite.
+  Front : fetch avec credentials include.
+  Pas de Bearer JWT sur ce schema.
+end note
+
+note bottom of RP
+  Reverse-proxy : TLS et routage vers SPA et API.
+end note
+
+@enduml

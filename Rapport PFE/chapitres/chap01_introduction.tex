@@ -1,0 +1,107 @@
+\chapter{Introduction Générale}
+
+\section{Présentation du sujet et du périmètre}
+
+La généralisation des usages numériques transforme en profondeur les modalités d'accès aux services publics et privés. Les usagers attendent désormais une disponibilité élevée, une réduction des délais de traitement, une traçabilité explicite des étapes, ainsi qu'une communication claire sur l'état d'avancement des démarches engagées. Dans ce contexte, la notion de \emph{service électronique} ne se limite pas à la numérisation d'un formulaire papier : elle recouvre une chaîne de valeur complète, depuis l'authentification de l'usager jusqu'à l'archivage probant des pièces justificatives, en passant par des mécanismes de validation, d'escalade et de notification \cite{fielding2000,rfc7231}.
+
+Le présent mémoire documente un projet de fin d'études réalisé en lien avec un stage au sein de l'agence \textbf{\#ADD}. L'ambition est de concevoir et de réaliser une plateforme logicielle capable d'accueillir plusieurs types de démarches, tout en conservant une base technique homogène. Le périmètre fonctionnel retenu privilégie la clarté des parcours utilisateur, la séparation des rôles (usager, agent, administrateur technique), ainsi qu'une extensibilité progressive : l'ajout d'un nouveau service ne doit pas imposer une refonte globale du système, mais s'appuyer sur des patrons d'implémentation éprouvés (API REST, composants d'interface réutilisables, entités de domaine paramétrables) \cite{fowler2002,gamma1994}.
+
+Sur le plan technologique, la solution s'appuie sur un backend \emph{Laravel}, un frontend \emph{React} (outil Vite), une base \emph{PostgreSQL}, une authentification \emph{SPA} reposant sur Laravel Sanctum (cookies de session et jeton CSRF synchronisé) \cite{sanctumdoc}, et une approche de déploiement \emph{conteneurisée} ou classique documentée dans l'écosystème industriel \cite{dockerdoc,twelvefactor}. Ces choix traduisent un compromis entre maturité documentaire, vélocité de développement, et adéquation avec les architectures rencontrées en agence \cite{bass2021,sommerville2016}.
+
+\newpage
+\section{Origine des informations}
+
+\subsection{Principe de transparence méthodologique}
+
+Ce mémoire adopte une démarche explicite concernant l'origine des informations rapportées. L'objectif est de distinguer, sans ambiguïté, ce qui relève d'une observation directe en agence, d'une production issue du travail de conception et d'implémentation, d'une compilation documentaire issue de sources publiques, et d'une généralisation académique fondée sur des références bibliographiques.
+
+\subsection{Données issues du stage chez \#ADD}
+
+Les éléments relatifs à l'agence d'accueil (présentation, organisation, contexte du stage, équipe, environnement de travail) proviennent principalement des échanges avec l'encadrant de stage, des observations de l'environnement professionnel, et des documents internes \emph{non confidentiels} communiqués à des fins pédagogiques (organigrammes simplifiés, descriptions de processus, fiches de mission). Lorsqu'une information n'a pas pu être vérifiée par écrit, elle est présentée avec une formulation prudente (« selon les échanges réalisés », « d'après la structuration observée ») afin d'éviter toute sur-interprétation.
+
+\subsection{Données issues du travail projet (implémentation et tests)}
+
+Les descriptions techniques détaillées (parcours, endpoints, modèle de données, extraits de code, jeux de tests, résultats de validation) proviennent du dépôt logiciel associé au projet, des journaux d'exécution, des scripts de migration, et des rapports de tests produits durant la période de réalisation. Les extraits présentés via l'environnement \texttt{listings} sont \emph{représentatifs} : ils peuvent être légèrement adaptés pour améliorer la lisibilité pédagogique (nommage, suppression de bruit), tout en conservant la logique réelle des modules décrits \cite{sommerville2016}.
+
+\subsection{Données issues de la documentation et de la littérature}
+
+Les généralisations sur les architectures web, la sécurité applicative, les bonnes pratiques DevOps, et les principes d'ingénierie logicielle s'appuient sur des références publiques : standards, RFC, guides OWASP, documentations officielles des technologies, ouvrages de génie logiciel et d'architecture \cite{owasp2021,iso25010,pressman2014,booch2005,kleppmann2017}. Lorsqu'un choix technique est justifié par une recommandation documentaire, une citation explicite est fournie.
+
+\subsection{Limites liées à la confidentialité et à la reproductibilité}
+
+Certaines informations d'agence (données clients, paramètres d'infrastructure, secrets cryptographiques) ne peuvent pas être divulguées. Le mémoire respecte cette contrainte en se concentrant sur des descriptions de haut niveau et sur des jeux de données anonymisés. De même, les mesures de performance absolues peuvent varier selon matériel ; lorsque des chiffres sont donnés, ils sont présentés comme \emph{indicatifs} et obtenus sur un environnement de démonstration reproductible (conteneurs, profil de test défini) \cite{ieee1012}.
+
+\section{Problématique et questionnement}
+
+La problématique centrale peut être formulée ainsi : comment architecturer une solution web moderne, sécurisée et maintenable, capable d'industrialiser la mise en ligne de services électroniques hétérogènes, tout en respectant des contraintes de performance, de confidentialité et d'évolutivité ? Cette question décline plusieurs sous-questions techniques et organisationnelles. Sur le plan technique, il s'agit de choisir une décomposition modulaire cohérente, de définir des contrats d'API stables, de modéliser correctement les données métier, et de mettre en place des garde-fous de sécurité adaptés au contexte d'authentification par jetons \cite{rfc7519,owasp2021}. Sur le plan organisationnel, il s'agit d'ancrer le développement dans un cycle de validation (tests automatisés, jeux d'essai, critères d'acceptation) conforme aux pratiques de contrôle qualité logicielle \cite{sommerville2016,ieee1012}.
+
+\section{Objectifs du travail}
+
+Les objectifs poursuivis se répartissent en objectifs fonctionnels et objectifs non fonctionnels. Parmi les objectifs fonctionnels, on retient la capacité à créer un compte usager sécurisé, à authentifier l'utilisateur, à initier une demande de service, à suivre son cycle de vie (brouillon, soumission, instruction, décision), et à exposer des fonctionnalités d'administration pour la gestion des référentiels et des paramètres. Parmi les objectifs non fonctionnels, on retient la disponibilité raisonnable du service, la résilience face aux erreurs réseau, la journalisation des opérations sensibles, la facilité de déploiement via conteneurs \cite{dockerdoc}, ainsi qu'une documentation technique suffisante pour permettre la reprise du projet par une équipe tierce \cite{pressman2014}.
+
+\newpage
+\section{Méthodologie et plan du document}
+
+La méthodologie adoptée s'inspire des pratiques de l'ingénierie logicielle itérative : expression du besoin, formalisation via cahier des charges, analyse critique de solutions existantes, analyse des besoins structurée, conception détaillée, implémentation incrémentale, tests, validation et déploiement \cite{sommerville2016}. Chaque étape est documentée pour assurer la traçabilité des décisions.
+
+Le document est organisé de manière progressive. Le chapitre~\ref{chap:agence} présente l'agence d'accueil \#ADD et le contexte de stage. Le chapitre~\ref{chap:contexte} situe la problématique. Le chapitre~\ref{chap:cdc} fixe le cadre contractuel interne. Le chapitre~\ref{chap:existant} analyse l'existant et les standards. Le chapitre~\ref{chap:besoins} formalise les besoins. Le chapitre~\ref{chap:conception} présente la conception (UML textuel, architecture, données). Le chapitre~\ref{chap:impl} détaille l'implémentation. Le chapitre~\ref{chap:tests} rapporte tests et validation. Le chapitre~\ref{chap:deploiement} décrit le déploiement. Le chapitre~\ref{chap:conclusion} conclut et propose des perspectives. Les annexes regroupent glossaire et bibliographie.
+
+\section{Cadre institutionnel et professionnel}
+
+Le travail s'inscrit dans le cursus d'Ingénierie Informatique et Réseaux de l'EMSI Rabat, pour l'année universitaire 2025--2026, et s'appuie sur une immersion professionnelle au sein de l'agence \#ADD. Il vise à démontrer la maîtrise des compétences en développement logiciel, en modélisation, en bases de données, en sécurité des applications web, ainsi qu'en culture DevOps minimale \cite{bass2021,twelvefactor}.
+
+\section{Positionnement par rapport aux enjeux actuels}
+
+Les enjeux actuels des plateformes de services en ligne incluent la lutte contre la fraude, la protection des données personnelles, l'accessibilité, la performance perçue, et la capacité à évoluer vers des modèles d'intégration inter-organisationnels \cite{kleppmann2017,newman2021}. Le projet retient des principes directeurs : moindre privilège pour les rôles applicatifs, validation systématique des entrées, journalisation des actions critiques, et conception d'API pensée pour l'évolution \cite{fielding2000,fowler2002}.
+
+\newpage
+\section{Contribution attendue du mémoire}
+
+La contribution attendue est triple. Premièrement, proposer une architecture de référence pragmatique pour une plateforme de services électroniques modulaire. Deuxièmement, fournir un récit d'ingénierie complet, incluant modélisation, implémentation et validation. Troisièmement, formaliser des enseignements réutilisables sur les compromis techniques rencontrés en conditions réelles de développement en agence et en laboratoire \cite{sommerville2016}.
+
+\begin{table}[htbp]
+  \centering
+  \renewcommand{\arraystretch}{1.4}
+  \setlength{\tabcolsep}{10pt}
+  \caption{Synthèse des livrables et de leur origine}
+  \label{tab:livrables}
+  \begin{tabular}{|p{3.2cm}|p{5.3cm}|p{4.5cm}|}
+    \hline
+    \textbf{Livrable} & \textbf{Contenu} & \textbf{Origine principale} \\
+    \hline
+    Spécifications &
+    Cahier des charges, règles métier, critères d'acceptation détaillés &
+    Analyse fonctionnelle + encadrement pédagogique \\
+    \hline
+    Modélisation &
+    Diagrammes UML textuels (cas d'utilisation, classes), MCD/MPD &
+    Analyse des besoins + littérature UML \cite{booch2005} \\
+    \hline
+    Implémentation &
+    Code backend (API), frontend (UI), base de données SQL, conteneurisation Docker &
+    Développement technique du projet \\
+    \hline
+    Tests et validation &
+    Plans de test, jeux de données, résultats d'exécution, vérification qualité &
+    Phase de test + normes qualité logicielle \cite{ieee1012} \\
+    \hline
+  \end{tabular}
+\end{table}
+
+\paragraph{Commentaire.}
+Le tableau~\ref{tab:livrables} ne vise pas à dresser un inventaire exhaustif de tous les artefacts produits durant le projet, mais à rendre explicite la \emph{chaîne de traçabilité} entre les livrables, leur contenu attendu et la provenance des informations (analyse, encadrement, littérature, développement, tests). La colonne \emph{Origine principale} rappelle que certains éléments relèvent d'un travail académique encadré (spécifications, modélisation), tandis que d'autres sont directement issus de la réalisation technique ou de la phase de validation, en cohérence avec la section \emph{Origine des informations} du présent chapitre. Enfin, cette lecture transversale facilite le lien avec les chapitres suivants : le cahier des charges et l'analyse des besoins détaillent les spécifications, la conception approfondit la modélisation, l'implémentation et les tests rapportent respectivement le code et les preuves de validation.
+
+\newpage
+\section{Périmètre, limites et hypothèses}
+
+Le périmètre assumé correspond à un MVP enrichi : workflows génériques, volumes modérés, authentification interne au périmètre applicatif. Les limites incluent l'absence d'intégration avec des référentiels nationaux spécifiques et l'absence de signature électronique qualifiée, éléments reportés aux perspectives. Les hypothèses portent sur la disponibilité d'environnements de test stables et sur la représentativité des jeux de données anonymisés \cite{pressman2014}.
+
+\section{Organisation du texte et conventions}
+
+Les chapitres visent une profondeur comparable afin d'éviter un déséquilibre documentaire : chaque chapitre développe des sections et sous-sections sur un canevas homogène (contexte, objectifs, méthode, résultats, limites, liaison avec le chapitre suivant). Les figures éventuelles sont strictement \emph{textuelles} (schémas en cadre) afin de respecter l'interdiction de captures d'écran. Les extraits de code sont volontairement courts et commentés comme illustrations, et non comme copie exhaustive du dépôt \cite{sommerville2016}.
+
+Enfin, le vocabulaire distingue \emph{authentification} et \emph{autorisation}, \emph{validation métier} et \emph{validation technique}, \emph{journalisation} et \emph{monitoring}, conformément aux usages de la littérature en ingénierie logicielle et sécurité \cite{owasp2021,iso25010}.
+
+\section{Liaison avec le chapitre suivant}
+
+Le chapitre suivant présente l'agence \#ADD : domaine d'activité, organisation, contexte du stage, équipe et environnement de travail. Cette présentation est essentielle pour comprendre les contraintes réelles (rythme, priorités, outillage) ayant influencé la définition du besoin et la validation des livrables.
